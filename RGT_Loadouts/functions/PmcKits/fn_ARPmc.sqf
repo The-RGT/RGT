@@ -203,7 +203,7 @@ comment "Add final Gear";
 player linkItem "ItemMap";
 player linkItem "ItemCompass";
 player linkItem "TFAR_microdagr";
-player linkItem "TFAR_rf7800str";
+player linkItem "TFAR_anprc152";
 player linkItem "ItemGPS";
 
 

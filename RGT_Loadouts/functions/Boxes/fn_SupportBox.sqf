@@ -14,3 +14,4 @@ _crate addBackpackCargoGlobal ["B_UAV_01_backpack_F", 5];
 _crate addBackpackCargoGlobal ["ACE_TacticalLadder_Pack", 5];
 _crate addBackpackCargoGlobal ["B_rhsusf_B_BACKPACK", 5];
 _crate addItemCargoGlobal ["B_UavTerminal", 5];
+_crate addItemCargoGlobal ["itc_land_tablet_rover", 5];

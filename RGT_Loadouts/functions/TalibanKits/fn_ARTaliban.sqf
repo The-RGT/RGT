@@ -68,7 +68,7 @@ for "_i" from 1 to 2 do {player addItem "HandGrenade";};
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "SmokeShellBlue";
 for "_i" from 1 to 5 do {player addItem "rhs_75Rnd_762x39mm_89";};
-for "_i" from 1 to 5 do {player addItem "rhs_30Rnd_762x39mm_89";};
+for "_i" from 1 to 3 do {player addItem "rhs_30Rnd_762x39mm_89";};
 
 
 comment "Add final Gear";

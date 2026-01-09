@@ -83,6 +83,7 @@ player addItemToBackpack "Laserdesignator_03";
 player addItemToBackpack "Laserbatteries";
 player addItemToBackpack "rhsusf_ANPVS_14";
 player addItem "tsp_lockpick";
+player addItem "itc_land_tablet_rover";
 
 comment "Add final Gear";
 player linkItem "ItemMap";

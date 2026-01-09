@@ -38,3 +38,4 @@ _crate addItemCargoGlobal ["rhs_VG40SZ", 10];
 _crate addItemCargoGlobal ["rhs_VG40TB", 10];
 _crate addItemCargoGlobal ["rhs_weap_rpg26", 10];
 _crate addItemCargoGlobal ["rhs_weap_rpg7", 5];
+_crate addItemCargoGlobal ["rhs_100Rnd_762x54mmR_green", 20];

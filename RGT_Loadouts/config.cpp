@@ -38,7 +38,7 @@ class CfgFunctions {
 				class cwM16QM {};
 				class divingQM {};
 				class guerQM {};
-				class indigQM {};
+				class TalibanQM {};
 				class infQM {};
 				class pmcQM {};
 				class reconQM {};
@@ -80,6 +80,8 @@ class CfgFunctions {
 				class Ghilliearid2 {};
 				class Ghillietrop1 {};
 				class Ghillietrop2 {};
+				class MedAT_AmmoBearerRUS {};
+				class MG_AmmoBearerRUS {};
 		};
 		class InfKits {
 			file = "RGT_Loadouts\functions\InfKits";
@@ -221,12 +223,16 @@ class CfgFunctions {
 				class PointmanSpetsnaz {};
 				class SignalerSpetsnaz {};
 		};
-		class IndigKits {
-			file = "RGT_Loadouts\functions\IndigKits";
-				class CLSindig {};
-				class Leaderindig {};
-				class Marksmanindig {};
-				class Operativeindig {};
+		class TalibanKits {
+			file = "RGT_Loadouts\functions\TalibanKits";
+				class ARTaliban {};
+				class CLSTaliban {};
+				class GrenadierTaliban {};
+				class LeaderTaliban {};
+				class MarksmanTaliban {};
+				class MedATTaliban {};
+				class MGTaliban {};
+				class RiflemanTaliban {};
 		};
 		class PmcKits {
 			file = "RGT_Loadouts\functions\PmcKits";

@@ -38,7 +38,7 @@ class CfgFunctions {
 				class cwM16QM {};
 				class divingQM {};
 				class guerQM {};
-				class TalibanQM {};
+				class talibanQM {};
 				class infQM {};
 				class pmcQM {};
 				class reconQM {};
@@ -63,11 +63,13 @@ class CfgFunctions {
 				class Sniperbag {};
 				class medbag {};
 				class bigbag {};
+				class bigbagRUS {};
 				class MedAT {};
+				class MedATRUS {};
 				class MedAT_AmmoBearer{};
+				class MedAT_AmmoBearerRUS {};
 				class HeavyAT {};
 				class HeavyAT_AmmoBearer {};
-				class bigbagRUS {};
 				class smallbag {};
 				class smallbagRUS {};
 				class blr {};
@@ -80,8 +82,8 @@ class CfgFunctions {
 				class Ghilliearid2 {};
 				class Ghillietrop1 {};
 				class Ghillietrop2 {};
-				class MedAT_AmmoBearerRUS {};
 				class MG_AmmoBearerRUS {};
+				class GrenadierAmmoBearerRUS {};
 		};
 		class InfKits {
 			file = "RGT_Loadouts\functions\InfKits";
@@ -194,17 +196,12 @@ class CfgFunctions {
 			file = "RGT_Loadouts\functions\RussianKits";
 				class ARRUS {};
 				class CLSRUS {};
-				class EngineerAmmoBearerRUS {};
 				class EngineerRUS {};
-				class GrenadierAmmoBearerRUS {};
 				class GrenadierRUS {};
 				class LeaderRUS {};
 				class LightATRUS {};
 				class LRRMRUS {};
 				class MarksmanRUS {};
-				class MedATAmmoBearerRUS {};
-				class MedATRUS {};
-				class MGAmmoBearerRUS {};
 				class MGRUS {};
 				class RiflemanRUS {};
 				class RWcrewRUS {};

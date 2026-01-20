@@ -10,11 +10,9 @@ removeHeadgear player;
 comment "Create the arrays for different equipment";
 _rifle = [
 	"rhs_weap_ak74m_fullplum", 0.90, 
-	"rhs_weap_ak74", 0.02, 
-	"rhs_weap_ak74_2", 0.02, 
-	"rhs_weap_ak74m", 0.02, 
-	"rhs_weap_aks74", 0.02, 
-	"rhs_weap_aks74_2", 0.02] call BIS_fnc_selectRandomWeighted;
+	"rhs_weap_ak74n", 0.02, 
+	"rhs_weap_ak74n_2", 0.02, 
+	"rhs_weap_ak74m", 0.02] call BIS_fnc_selectRandomWeighted;
 _optic = [
 	"rhs_acc_pkas", 
 	"rhs_acc_ekp1", 
@@ -46,7 +44,7 @@ _helmet = [
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch(floor random 20) do {
+switch(floor random 10) do {
 	case 1: {
 		player addPrimaryWeaponItem _optic;
 	};

@@ -10,8 +10,7 @@ removeHeadgear player;
 comment "Create the arrays for different equipment";
 _rifle = [
 	"rhs_weap_ak74m_fullplum_gp25", 0.90, 
-	"rhs_weap_ak74m_gp25", 0.05, 
-	"rhs_weap_ak74_gp25", 0.05] call BIS_fnc_selectRandomWeighted;
+	"rhs_weap_ak74m_gp25", 0.05] call BIS_fnc_selectRandomWeighted;
 _optic = [
 	"rhs_acc_pkas", 
 	"rhs_acc_ekp1", 
@@ -24,14 +23,14 @@ _uniform = [
 	"rhs_uniform_vkpo_gloves", 
 	"rhs_uniform_vkpo_gloves_alt"] call BIS_fnc_selectRandom;
 _vest = [
-		"rhs_6b45_grn", 0.60, 
-		"rhs_6b23_6sh116", 0.10, 
-		"rhs_6b23_digi_6sh92", 0.10, 
-		"rhs_6b23_digi_6sh92_spetsnaz2", 0.10, 
-		"rhs_6b23_digi_6sh92_headset", 0.10, 
-		"rhs_6b23_digi_6sh92_headset_spetsnaz", 0.10, 
-		"rhs_6b23_digi_6sh92_radio", 0.10, 
-		"rhs_6b23_digi_6sh92_Spetsnaz", 0.10] call BIS_fnc_selectRandomWeighted;
+	"rhs_6b45_grn", 0.60, 
+	"rhs_6b23_6sh116", 0.10, 
+	"rhs_6b23_digi_6sh92", 0.10, 
+	"rhs_6b23_digi_6sh92_spetsnaz2", 0.10, 
+	"rhs_6b23_digi_6sh92_headset", 0.10, 
+	"rhs_6b23_digi_6sh92_headset_spetsnaz", 0.10, 
+	"rhs_6b23_digi_6sh92_radio", 0.10, 
+	"rhs_6b23_digi_6sh92_Spetsnaz", 0.10] call BIS_fnc_selectRandomWeighted;
 _helmet = [
 	"rhs_6b47", 
 	"rhs_6b47_6m2", 
@@ -41,7 +40,7 @@ _helmet = [
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch(floor random 20) do {
+switch(floor random 10) do {
 	case 1: {
 		player addPrimaryWeaponItem _optic;
 	};

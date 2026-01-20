@@ -10,12 +10,10 @@ removeGoggles player;
 
 comment "Create the arrays for different equipment";
 _rifle = [
-	"rhs_weap_ak74m_fullplum", 0.90, 
-	"rhs_weap_ak74", 0.02, 
-	"rhs_weap_ak74_2", 0.02, 
-	"rhs_weap_ak74m", 0.02, 
-	"rhs_weap_aks74", 0.02, 
-	"rhs_weap_aks74_2", 0.02] call BIS_fnc_selectRandomWeighted;
+	"rhs_weap_ak74m_fullplum", 0.90,
+	"rhs_weap_ak74n_2", 0.02, 
+	"rhs_weap_ak74m", 0.02,
+	"rhs_weap_aks74n_2", 0.02] call BIS_fnc_selectRandomWeighted;
 _optic = [
 	"rhs_acc_pkas", 
 	"rhs_acc_ekp1", 

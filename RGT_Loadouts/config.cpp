@@ -77,7 +77,9 @@ class CfgFunctions {
 				class Mortar_Tube {};
 				class Mortar_Ammo {};
 				class AntiAir {};
+				class AntiAirRUS {};
 				class AntiAir_AmmoBearer {};
+				class AntiAir_AmmoBearerRUS {};
 				class Ghilliearid1 {};
 				class Ghilliearid2 {};
 				class Ghillietrop1 {};

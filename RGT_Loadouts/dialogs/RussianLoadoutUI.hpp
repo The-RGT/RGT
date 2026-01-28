@@ -103,7 +103,7 @@ class RussianLoadoutUI
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0.1,0.1,0.1,1};
 			sizeEx = 0.06;
-			action = "remoteExec ['RGT_fnc_MGAmmoBearerRUS', player, false]";
+			action = "remoteExec ['RGT_fnc_MG_AmmoBearerRUS', player, false]";
 		};
 		class RscButton_1601: RscButton
 		{
@@ -142,7 +142,7 @@ class RussianLoadoutUI
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {0.1,0.1,0.1,1};
 			sizeEx = 0.06;
-			action = "remoteExec ['RGT_fnc_MedATAmmoBearerRUS', player, false]";
+			action = "remoteExec ['RGT_fnc_MedAT_AmmoBearerRUS', player, false]";
 		};
 		class RscButton_1611: RscButton
 		{
@@ -156,19 +156,6 @@ class RussianLoadoutUI
 			colorBackground[] = {0.1,0.1,0.1,1};
 			sizeEx = 0.06;
 			action = "closeDialog 0";
-		};
-		class RscButton_1612: RscButton
-		{
-			idc = 1612;
-			text = "Demo. Carrier"; //--- ToDo: Localize;
-			x = 0.225 * safezoneW + safezoneX;
-			y = 0.48 * safezoneH + safezoneY;
-			w = 0.1625 * safezoneW;
-			h = 0.06 * safezoneH;
-			colorText[] = {1,1,1,1};
-			colorBackground[] = {0.1,0.1,0.1,1};
-			sizeEx = 0.06;
-			action = "remoteExec ['RGT_fnc_EngineerAmmoBearerRUS', player, false]";
 		};
 	};
 };

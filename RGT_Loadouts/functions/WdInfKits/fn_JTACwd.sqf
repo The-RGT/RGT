@@ -78,6 +78,7 @@ for "_i" from 1 to 7 do {player addItem "rhssaf_30rnd_556x45_EPR_G36";};
 player addItem "rhsusf_mag_15Rnd_9x19_FMJ";
 player addItemToBackpack "Laserdesignator_03";
 player addItemToBackpack "Laserbatteries";
+player addItem "itc_land_tablet_rover";
 
 
 comment "Add final Gear";

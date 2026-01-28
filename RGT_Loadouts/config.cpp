@@ -38,7 +38,7 @@ class CfgFunctions {
 				class cwM16QM {};
 				class divingQM {};
 				class guerQM {};
-				class indigQM {};
+				class talibanQM {};
 				class infQM {};
 				class pmcQM {};
 				class reconQM {};
@@ -63,11 +63,13 @@ class CfgFunctions {
 				class Sniperbag {};
 				class medbag {};
 				class bigbag {};
+				class bigbagRUS {};
 				class MedAT {};
+				class MedATRUS {};
 				class MedAT_AmmoBearer{};
+				class MedAT_AmmoBearerRUS {};
 				class HeavyAT {};
 				class HeavyAT_AmmoBearer {};
-				class bigbagRUS {};
 				class smallbag {};
 				class smallbagRUS {};
 				class blr {};
@@ -75,11 +77,15 @@ class CfgFunctions {
 				class Mortar_Tube {};
 				class Mortar_Ammo {};
 				class AntiAir {};
+				class AntiAirRUS {};
 				class AntiAir_AmmoBearer {};
+				class AntiAir_AmmoBearerRUS {};
 				class Ghilliearid1 {};
 				class Ghilliearid2 {};
 				class Ghillietrop1 {};
 				class Ghillietrop2 {};
+				class MG_AmmoBearerRUS {};
+				class GrenadierAmmoBearerRUS {};
 		};
 		class InfKits {
 			file = "RGT_Loadouts\functions\InfKits";
@@ -192,17 +198,12 @@ class CfgFunctions {
 			file = "RGT_Loadouts\functions\RussianKits";
 				class ARRUS {};
 				class CLSRUS {};
-				class EngineerAmmoBearerRUS {};
 				class EngineerRUS {};
-				class GrenadierAmmoBearerRUS {};
 				class GrenadierRUS {};
 				class LeaderRUS {};
 				class LightATRUS {};
 				class LRRMRUS {};
 				class MarksmanRUS {};
-				class MedATAmmoBearerRUS {};
-				class MedATRUS {};
-				class MGAmmoBearerRUS {};
 				class MGRUS {};
 				class RiflemanRUS {};
 				class RWcrewRUS {};
@@ -221,12 +222,16 @@ class CfgFunctions {
 				class PointmanSpetsnaz {};
 				class SignalerSpetsnaz {};
 		};
-		class IndigKits {
-			file = "RGT_Loadouts\functions\IndigKits";
-				class CLSindig {};
-				class Leaderindig {};
-				class Marksmanindig {};
-				class Operativeindig {};
+		class TalibanKits {
+			file = "RGT_Loadouts\functions\TalibanKits";
+				class ARTaliban {};
+				class CLSTaliban {};
+				class GrenadierTaliban {};
+				class LeaderTaliban {};
+				class MarksmanTaliban {};
+				class MedATTaliban {};
+				class MGTaliban {};
+				class RiflemanTaliban {};
 		};
 		class PmcKits {
 			file = "RGT_Loadouts\functions\PmcKits";

@@ -17,11 +17,13 @@ _clothing = [
 	"TRYK_U_taki_G_BL", 
 	"TRYK_U_taki_G_BLK", 
 	"TRYK_U_taki_G_COY", 
-	"TRYK_U_taki_G_WH"] call BIS_fnc_selectRandom;
+	"TRYK_U_taki_G_WH"
+] call BIS_fnc_selectRandom;
 _vest = [
 	"V_TacChestrig_oli_F", 
 	"V_TacChestrig_cbr_F", 
-	"V_TacChestrig_grn_F"] call BIS_fnc_selectRandom;
+	"V_TacChestrig_grn_F"
+] call BIS_fnc_selectRandom;
 _helmet = [
 	"TRYK_H_pakol2", 0.20, 
 	"USP_PAKOL_HAT", 0.20, 
@@ -36,26 +38,24 @@ _helmet = [
 	"LOP_H_Shemag_GRE", 0.05, 
 	"LOP_H_Shemag_RED1", 0.05, 
 	"LOP_H_Shemag_RED2", 0.05, 
-	"LOP_H_Shemag_TAN", 0.05] call BIS_fnc_selectRandomWeighted;
-_backpack = [
-	"rhs_rd54",
-	"rhs_sidor"] call BIS_fnc_selectRandom;
+	"LOP_H_Shemag_TAN", 0.05
+] call BIS_fnc_selectRandomWeighted;
+_mag = [
+	"rhs_30Rnd_762x39mm_89",
+	"rhs_30Rnd_762x39mm_bakelite_89"
+] call BIS_fnc_selectRandom;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
 player addVest _vest;
-player addBackpack _backpack;
+player addBackpack "rhs_rpg_2";
 player addHeadgear _helmet;
 
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_akmn";
-player addPrimaryWeaponItem "rhs_acc_pbs1";
-player addPrimaryWeaponItem "rhs_acc_pso1m21";
-player addWeapon "rhsusf_weap_glock17g4";
-player addHandgunItem "rhsusf_acc_omega9k";
-player addHandgunItem "acc_flashlight_pistol";
-player addHandgunItem "rhsusf_mag_17Rnd_9x19_JHP";
+player addWeapon "rhs_weap_akm";
+player addPrimaryWeaponItem "rhs_acc_2dpZenit";
+player addWeapon "rhs_weap_rpg7";
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -72,12 +72,8 @@ player addItem "Chemlight_red";
 for "_i" from 1 to 2 do {player addItem "HandGrenade";};
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "SmokeShellBlue";
-player addItem "ACE_M84";
-for "_i" from 1 to 5 do {player addItem "rhs_30Rnd_762x39mm_89";};
-player addItem "rhs_30Rnd_762x39mm_U";
-player addItem "ACE_DefusalKit";
-player addItem "IEDLandBig_Remote_Mag";
-player addItem "rhs_30Rnd_762x39mm_89";
+for "_i" from 1 to 7 do {player addItem _mag;};
+for "_i" from 1 to 3 do {player addItem "rhs_rpg7_PG7VL_mag";};
 
 
 comment "Add final Gear";
@@ -94,6 +90,4 @@ comment "Set G Force resistance and Medical + Engineer training";
 player setVariable ["ACE_GForceCoef", 1];
 
 [[player],"ace_medical_medicClass", 0, true] call ace_common_fnc_assignObjectsInList;
-[[player],"ACE_IsEngineer", 0, true] call ace_common_fnc_assignObjectsInList;
-
-hint "You're a special activities sniper, wearing indigenous clothing and equipment in order pass for a middle easterner.";
+[[player],"ACE_IsEngineer", 1, true] call ace_common_fnc_assignObjectsInList;

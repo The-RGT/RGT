@@ -126,6 +126,7 @@ for "_i" from 1 to 7 do {player addItem _ammo;};
 player addItemToBackpack "Laserdesignator_03";
 player addItemToBackpack "Laserbatteries";
 player addItem "rhsusf_mag_15Rnd_9x19_FMJ";
+player addItem "itc_land_tablet_rover";
 
 
 comment "Add final Gear";

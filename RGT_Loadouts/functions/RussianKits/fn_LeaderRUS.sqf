@@ -30,7 +30,7 @@ _helmet = [
 	"rhs_6b47_ess"] call BIS_fnc_selectRandom;
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_aks74un";
+player addWeapon "rhs_weap_aks74n_2";
 switch(floor random 10) do {
 	case 1: {
 		player addPrimaryWeaponItem _optic;

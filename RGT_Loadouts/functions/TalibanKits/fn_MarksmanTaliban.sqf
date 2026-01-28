@@ -49,13 +49,8 @@ player addHeadgear _helmet;
 
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_akm";
-player addPrimaryWeaponItem "rhs_acc_pbs1";
-player addPrimaryWeaponItem "rhs_acc_2dpZenit";
-player addWeapon "rhsusf_weap_glock17g4";
-player addHandgunItem "rhsusf_acc_omega9k";
-player addHandgunItem "acc_flashlight_pistol";
-player addHandgunItem "rhsusf_mag_17Rnd_9x19_JHP";
+player addWeapon "rhs_weap_svdo";
+player addPrimaryWeaponItem "rhs_acc_pso1m21";
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -72,12 +67,9 @@ player addItem "Chemlight_red";
 for "_i" from 1 to 2 do {player addItem "HandGrenade";};
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "SmokeShellBlue";
-player addItem "ACE_M84";
-for "_i" from 1 to 5 do {player addItem "rhs_30Rnd_762x39mm_89";};
-player addItem "rhs_30Rnd_762x39mm_U";
+for "_i" from 1 to 12 do {player addItem "rhs_10Rnd_762x54mmR_7N1";};
 player addItem "ACE_DefusalKit";
 player addItem "IEDLandBig_Remote_Mag";
-player addItem "rhs_30Rnd_762x39mm_89";
 
 
 comment "Add final Gear";
@@ -94,6 +86,4 @@ comment "Set G Force resistance and Medical + Engineer training";
 player setVariable ["ACE_GForceCoef", 1];
 
 [[player],"ace_medical_medicClass", 0, true] call ace_common_fnc_assignObjectsInList;
-[[player],"ACE_IsEngineer", 1, true] call ace_common_fnc_assignObjectsInList;
-
-hint "You're a special activities operative, wearing indigenous clothing and equipment in order pass for a middle easterner. \nYou are equipped with IEDs and a defusal kit.";
+[[player],"ACE_IsEngineer", 0, true] call ace_common_fnc_assignObjectsInList;

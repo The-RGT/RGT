@@ -9,10 +9,6 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_rpk74m_npz", 
-	"rhs_weap_ak103_zenitco01_b33", 
-	"rhs_weap_ak104_zenitco01_b33"] call BIS_fnc_selectRandom;
 _optic = [
 	"rhs_acc_1p87", 
 	"rhsusf_acc_eotech_552", 
@@ -170,25 +166,15 @@ _breach = [
 	"tsp_breach_block_mag",
 	"tsp_breach_linear_mag",
 	"tsp_breach_stick_mag"] call BIS_fnc_selectRandom;
+_muzzle = [
+	"rhs_acc_dtk3", 0.75,
+	"rhs_acc_tgpa", 0.25,
+	"rhs_acc_dtk4short", 0.25] call BIS_fnc_selectRandomWeighted;
 
 comment "Add Weapons and attachments";
-player addWeapon _rifle;
+player addWeapon "rhs_weap_rpk74m_npz";
 player addPrimaryWeaponItem _optic;
-if(_rifle isEqualTo "rhs_weap_rpk74m_npz") then {
-	_muzzle = [
-		"rhs_acc_dtk3", 0.75,
-		"rhs_acc_tgpa", 0.25,
-		"rhs_acc_dtk4short", 0.25] call BIS_fnc_selectRandomWeighted;
-	player addPrimaryWeaponItem _muzzle;
-	player addPrimaryWeaponItem "rhs_acc_perst1ik";
-} else {
-	_muzzle = [
-		"rhs_acc_ak5", 0.75, 
-		"rhs_acc_pbs1", 0.25] call BIS_fnc_selectRandomWeighted;
-	player addPrimaryWeaponItem _muzzle;
-	player addPrimaryWeaponItem "rhsusf_acc_grip1";
-	player addPrimaryWeaponItem "rhs_acc_perst3_2dp_h";
-};
+player addPrimaryWeaponItem _muzzle;
 player addWeapon "hgun_Rook40_F";
 player addHandgunItem "rhsusf_acc_omega9k";
 player addHandgunItem "16Rnd_9x21_Mag";
@@ -216,11 +202,7 @@ player addItem "rhs_mag_f1";
 player addItem "rhs_mag_rgd5";
 for "_i" from 1 to 2 do {player addItem "rhs_mag_fakel";};
 player addItem _breach;
-if(_rifle isEqualTo "rhs_weap_rpk74m_npz") then {
-	for "_i" from 1 to 7 do {player addItem "rhs_60Rnd_545X39_AK_Green";};
-} else {
-	for "_i" from 1 to 6 do {player addItem "rhs_75Rnd_762x39mm_tracer";};
-};
+for "_i" from 1 to 7 do {player addItem "rhs_60Rnd_545X39_7N22_AK";};
 player addItem "tsp_lockpick";
 
 

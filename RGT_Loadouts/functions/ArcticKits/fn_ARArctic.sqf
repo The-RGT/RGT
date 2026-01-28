@@ -9,6 +9,16 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
+_rifle = [
+	"rhs_weap_minimi_para_railed", 0.4,
+	"rhs_weap_m249_pip_S", 0.4,
+	"rhs_weap_m249_pip_S_para", 0.4,
+	"rhs_weap_m249_light_S", 0.4] call BIS_fnc_selectRandomWeighted;
+_bipod = [
+	"rhsusf_acc_grip1", 0.50, 
+	"rhsusf_acc_kac_grip_saw_bipod", 0.10, 
+	"rhsusf_acc_saw_bipod", 0.10, 
+	"rhsusf_acc_grip4_bipod", 0.10] call BIS_fnc_selectRandomWeighted;
 _optic = [
 	"rhsusf_acc_eotech_552", 0.25, 
 	"rhsusf_acc_acog", 0.25, 
@@ -40,6 +50,10 @@ _breach = [
 	"tsp_breach_block_mag",
 	"tsp_breach_linear_mag",
 	"tsp_breach_stick_mag"] call BIS_fnc_selectRandom;
+_mag = [
+	"rhsusf_100Rnd_556x45_mixed_soft_pouch_ucp", 
+	"rhsusf_100Rnd_556x45_mixed_soft_pouch", 
+	"rhsusf_100Rnd_556x45_mixed_soft_pouch_coyote"] call BIS_fnc_selectRandom;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
@@ -49,9 +63,16 @@ player addGoggles _facewear;
 player addBackpack "USP_TACTICAL_PACK_MCA";
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_m27iar_grip";
-player addPrimaryWeaponItem "rhsusf_acc_anpeq15_bk";
-player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
+player addWeapon _rifle;
+if (_rifle isEqualTo "rhs_weap_m249_pip_S") then {
+	player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
+	player addPrimaryWeaponItem "rhsusf_acc_grip1";
+};
+if ((_rifle isEqualTo "rhs_weap_minimi_para_railed") or (_rifle isEqualTo "rhs_weap_m249_pip_S_para") or (_rifle isEqualTo "rhs_weap_m249_light_S")) then {
+	player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
+	player addPrimaryWeaponItem _bipod;
+};
+player addPrimaryWeaponItem "rhsusf_acc_rotex5_grey";
 player addPrimaryWeaponItem _optic;
 player addWeapon "rhsusf_weap_glock17g4";
 player addHandgunItem "rhsusf_acc_omega9k";
@@ -77,7 +98,7 @@ for "_i" from 1 to 2 do {player addItem "HandGrenade";};
 player addItem "SmokeShell"; 
 player addItem "SmokeShellRed";
 player addItem "SmokeShellBlue";
-for "_i" from 1 to 5 do {player addItem "rhs_mag_100Rnd_556x45_M855A1_cmag_mixed";};
+for "_i" from 1 to 5 do {player addItem _mag;};
 player addItem _breach;
 for "_i" from 1 to 2 do {player addItem "ACE_M84";};
 player addItemToBackpack "rhsusf_ANPVS_14";

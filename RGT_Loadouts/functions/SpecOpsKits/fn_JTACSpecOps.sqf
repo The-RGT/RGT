@@ -24,11 +24,11 @@ _lam = [
 	"rhsusf_acc_anpeq15_bk", 0.25, 
 	"rhsusf_acc_anpeq15_wmx", 0.25] call BIS_fnc_selectRandomWeighted;
 _optic = [
-	"rhsusf_acc_EOTECH", 0.50, 
+	"rhsusf_acc_EOTECH", 0.25, 
 	"rhsusf_acc_eotech_xps3", 0.15, 
 	"rhsusf_acc_t1_high", 0.15, 
 	"rhsusf_acc_g33_xps3_tan", 0.15, 
-	"optic_mrco", 0.05] call BIS_fnc_selectRandomWeighted;
+	"optic_mrco", 0.50] call BIS_fnc_selectRandomWeighted;
 _grip = [
 	"rhsusf_acc_rvg_de", 0.90, 
 	"", 0.10, 
@@ -287,6 +287,7 @@ player addItem "tsp_breach_shock";
 player addItem "ACE_MapTools";
 player addItem "ACE_microDAGR";
 player addItem "tsp_lockpick";
+player addItem "itc_land_tablet_rover";
 
 comment "Add final Gear";
 player linkItem "ItemMap";

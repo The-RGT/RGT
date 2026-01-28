@@ -47,9 +47,10 @@ _vest = [
 	"milgp_v_marciras_assaulter_belt_rgr", 
 	"milgp_v_marciras_assaulter_rgr"] call BIS_fnc_selectRandom;
 _mag = [
-	"rhs_30Rnd_545x39_7N10_desert_AK", 
-	"rhs_30Rnd_545x39_7N10_camo_AK", 
-	"rhs_30Rnd_545x39_7N10_plum_AK"] call BIS_fnc_selectRandom;
+	"rhs_30Rnd_545x39_7N22_desert_AK", 
+	"rhs_30Rnd_545x39_7N22_camo_AK", 
+	"rhs_30Rnd_545x39_7N22_plum_AK",
+	"rhs_30Rnd_545x39_7N22_AK"] call BIS_fnc_selectRandom;
 _helmet = [
 	"rhsusf_opscore_mar_fg_pelt", 
 	"rhsusf_opscore_fg_pelt_nsw", 

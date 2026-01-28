@@ -17,11 +17,13 @@ _clothing = [
 	"TRYK_U_taki_G_BL", 
 	"TRYK_U_taki_G_BLK", 
 	"TRYK_U_taki_G_COY", 
-	"TRYK_U_taki_G_WH"] call BIS_fnc_selectRandom;
+	"TRYK_U_taki_G_WH"
+] call BIS_fnc_selectRandom;
 _vest = [
 	"V_TacChestrig_oli_F", 
 	"V_TacChestrig_cbr_F", 
-	"V_TacChestrig_grn_F"] call BIS_fnc_selectRandom;
+	"V_TacChestrig_grn_F"
+] call BIS_fnc_selectRandom;
 _helmet = [
 	"TRYK_H_pakol2", 0.20, 
 	"USP_PAKOL_HAT", 0.20, 
@@ -36,23 +38,27 @@ _helmet = [
 	"LOP_H_Shemag_GRE", 0.05, 
 	"LOP_H_Shemag_RED1", 0.05, 
 	"LOP_H_Shemag_RED2", 0.05, 
-	"LOP_H_Shemag_TAN", 0.05] call BIS_fnc_selectRandomWeighted;
+	"LOP_H_Shemag_TAN", 0.05
+] call BIS_fnc_selectRandomWeighted;
+_backpack = [
+	"rhs_rd54",
+	"rhs_sidor"
+] call BIS_fnc_selectRandom;
+_mag = [
+	"rhs_30Rnd_762x39mm_89",
+	"rhs_30Rnd_762x39mm_bakelite_89"
+] call BIS_fnc_selectRandom;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
 player addVest _vest;
-player addBackpack "TFAR_rt1523g_green";
+player addBackpack _backpack;
 player addHeadgear _helmet;
 
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_akms";
-player addPrimaryWeaponItem "rhs_acc_pbs1";
+player addWeapon "rhs_weap_akm";
 player addPrimaryWeaponItem "rhs_acc_2dpZenit";
-player addWeapon "rhsusf_weap_glock17g4";
-player addHandgunItem "rhsusf_acc_omega9k";
-player addHandgunItem "acc_flashlight_pistol";
-player addHandgunItem "rhsusf_mag_17Rnd_9x19_JHP";
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -64,19 +70,12 @@ player addItem "ACE_Flashlight_MX991";
 player addItem "ACE_MapTools";
 player addItem "ACE_Cellphone";
 player addItem "ACE_microDAGR";
-player addItem "ACE_IR_Strobe_Item";
 player addItem "Chemlight_green";
 player addItem "Chemlight_red";
-player addItem "rhsusf_mag_17Rnd_9x19_JHP";
-player addItem "B_IR_Grenade";
 for "_i" from 1 to 2 do {player addItem "HandGrenade";};
-player addItem "SmokeShell";
-player addItem "SmokeShellRed";
+for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "SmokeShellBlue";
-player addItem "ACE_M84";
-for "_i" from 1 to 3 do {player addItem "rhs_30Rnd_762x39mm_89";};
-for "_i" from 1 to 2 do {player addItem "rhs_30Rnd_762x39mm_89";};
-player addItem "rhs_30Rnd_762x39mm_U";
+for "_i" from 1 to 7 do {player addItem _mag;};
 player addItem "ACE_DefusalKit";
 player addItem "IEDLandBig_Remote_Mag";
 
@@ -95,6 +94,4 @@ comment "Set G Force resistance and Medical + Engineer training";
 player setVariable ["ACE_GForceCoef", 1];
 
 [[player],"ace_medical_medicClass", 0, true] call ace_common_fnc_assignObjectsInList;
-[[player],"ACE_IsEngineer", 0, true] call ace_common_fnc_assignObjectsInList;
-
-hint "You're a espionage team commander. Your team is equipped in middle eastern clothing and equipment. \n \nPROs: Use your sense of clothing style, stealth and use of IEDs to wreak havoc. \n \nCONs: You're team is not equipped to handle long drawn-out firefights.";
+[[player],"ACE_IsEngineer", 1, true] call ace_common_fnc_assignObjectsInList;

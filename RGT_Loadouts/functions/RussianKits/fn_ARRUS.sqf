@@ -41,7 +41,6 @@ _helmet = [
 	"rhs_6b47_ess"] call BIS_fnc_selectRandom;
 _rifle = [
 	"rhs_weap_rpk74m",
-	"rhs_weap_rpk_wood",
 	"rhs_weap_rpk74_wood"] call BIS_fnc_selectRandom;
 
 comment "Add Weapons and attachments";
@@ -69,21 +68,14 @@ player addItem "rhs_mag_rdg2_black";
 player addItem "ACE_microDAGR";
 player addItem "ACE_EntrenchingTool";
 player addItem "rhs_mag_f1";
-switch(_rifle) do {
-	case "rhs_weap_rpk_wood": {
-		for "_i" from 1 to 6 do {player addItem "rhs_75Rnd_762x39mm_tracer";};
+switch(_mag) do {
+	case "rhs_45Rnd_545X39_7N10_AK": {
+		for "_i" from 1 to 10 do {player addItem "rhs_45Rnd_545X39_AK_Green";};
 	};
-	default {
-		switch(_mag) do {
-			case "rhs_45Rnd_545X39_7N10_AK": {
-				for "_i" from 1 to 10 do {player addItem "rhs_45Rnd_545X39_AK_Green";};
-			};
-			case "rhs_60Rnd_545X39_7N10_AK": {
-				for "_i" from 1 to 8 do {player addItem "rhs_60Rnd_545X39_AK_Green";};		
-			};
-		};	
+	case "rhs_60Rnd_545X39_7N10_AK": {
+		for "_i" from 1 to 8 do {player addItem "rhs_60Rnd_545X39_AK_Green";};		
 	};
-};
+};	
 
 comment "Add final Gear";
 player linkItem "ItemMap";

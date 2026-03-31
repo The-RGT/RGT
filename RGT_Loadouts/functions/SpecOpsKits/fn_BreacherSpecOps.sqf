@@ -9,13 +9,14 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
+_grip = "";
 _rifle = [
 	"rhs_weap_hk416d10_LMT_d", 0.50,
-	"rhs_weap_hk416d10_smr_tan", 0.50,
-	"rhs_weap_hk416d10_smr_tan_kac", 0.50,
-	"rhs_weap_mk18_nsr_d", 0.50,
+	"rhs_weap_HK416D10_smr_tan", 0.50,
+	"rhs_weap_HK416D10_smr_kac_tan", 0.50,
+	"rhs_weap_mk18_nsr_tan", 0.50,
 	"rhs_weap_mk18_nsr", 0.50,
-	"rhs_weap_hk416d10_smr", 0.50] call BIS_fnc_selectRandomWeighted;
+	"rhs_weap_HK416D10_smr", 0.50] call BIS_fnc_selectRandomWeighted;
 _muzzle = [
 	"rhsusf_acc_rotex5_grey", 0.75, 
 	"rhsusf_acc_rotex5_tan", 0.25] call BIS_fnc_selectRandomWeighted;
@@ -29,23 +30,6 @@ _optic = [
 	"rhsusf_acc_t1_high", 0.15, 
 	"rhsusf_acc_g33_xps3_tan", 0.15, 
 	"optic_mrco", 0.05] call BIS_fnc_selectRandomWeighted;
-_grip1 = [
-	"rhs_acc_mk18_smr_d", 0.90, 
-	"rhs_acc_mk18_smr_d_bcm", 0.10] call BIS_fnc_selectRandomWeighted;
-_grip3 = [
-	"rhs_acc_mk18_nsr_d", 0.90, 
-	"", 0.10, 
-	"rhs_acc_mk18_nsr_d_bcm", 0.10, 
-	"rhs_acc_mk18_nsr", 0.10, 
-	"rhs_acc_mk18_nsr_bcm", 0.10] call BIS_fnc_selectRandomWeighted;
-_grip5 = [
-	"rhs_acc_mk18_nsr", 0.90, 
-	"rhs_acc_mk18_nsr_bcm", 0.10] call BIS_fnc_selectRandomWeighted;
-_grip6 = [
-	"rhs_acc_mk18_smr", 0.90, 
-	"rhs_acc_mk18_smr_d", 0.10, 
-	"rhs_acc_mk18_smr_bcm", 0.10, 
-	"rhs_acc_mk18_smr_d_bcm", 0.10] call BIS_fnc_selectRandomWeighted;
 _clothing = [
 	"ARD_MC_Blk_Camo_Cyre", 0.60, 
 	"ARD_MC_Blk_Camo_Cyre_SS", 0.30, 
@@ -190,34 +174,65 @@ _flash = [
 	
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-player addPrimaryWeaponItem _muzzle;
-player addPrimaryWeaponItem _lam;
 switch(_rifle) do {
-	case "rhs_weap_hk416d10_LMT_d": {
-		player addPrimaryWeaponItem _optic;
-		player addPrimaryWeaponItem _grip1;
-	};
-	case "rhs_weap_hk416d10_smr_tan": {
-		player addPrimaryWeaponItem _optic;
-		player addPrimaryWeaponItem _grip1;
-	};
-	case "rhs_weap_hk416d10_smr_tan_kac": {
-		player addPrimaryWeaponItem _optic;
-		player addPrimaryWeaponItem _grip1;
-	};
-	case "rhs_weap_mk18_nsr_d": {
-		player addPrimaryWeaponItem _optic;
-		player addPrimaryWeaponItem _grip1;
-	};
 	case "rhs_weap_mk18_nsr": {
-		player addPrimaryWeaponItem _optic;
-		player addPrimaryWeaponItem _grip5;
+		_grip = [
+			"rhs_acc_nsr9_blk",
+			"rhs_acc_nsr9_bcm_blk",
+			"rhs_acc_nsr9_des",
+			"rhs_acc_nsr9_bcm_des",
+			"rhs_acc_nsr9_tan",
+			"rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
 	};
-	case "rhs_weap_hk416d10_smr": {
-		player addPrimaryWeaponItem _optic;
-		player addPrimaryWeaponItem _grip6;
+	case "rhs_weap_mk18_nsr_tan": {
+		_grip = [
+			"rhs_acc_nsr9_blk",
+			"rhs_acc_nsr9_bcm_blk",
+			"rhs_acc_nsr9_des",
+			"rhs_acc_nsr9_bcm_des",
+			"rhs_acc_nsr9_tan",
+			"rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_HK416D10_smr": {
+		_grip = [
+			"rhs_acc_smr_s_blk",
+			"rhs_acc_smr_s_bcm_blk",
+			"rhs_acc_smr_s_tan",
+			"rhs_acc_smr_s_bcm_tan"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_hk416d10_LMT_d": {
+		_grip = [
+			"",
+			"rhsusf_acc_kac_grip_frwd",
+			"rhsusf_acc_rvg_de",
+			"rhsusf_acc_tdstubby_tan"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_HK416D10_smr_tan": {
+		_grip = [
+			"rhs_acc_smr_s_blk",
+			"rhs_acc_smr_s_bcm_blk",
+			"rhs_acc_smr_s_tan",
+			"rhs_acc_smr_s_bcm_tan",
+			"rhs_acc_smr_s_des",
+			"rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_HK416D10_smr_kac_tan": {
+		_grip = [
+			"rhs_acc_smr_s_blk",
+			"rhs_acc_smr_s_bcm_blk",
+			"rhs_acc_smr_s_tan",
+			"rhs_acc_smr_s_bcm_tan",
+			"rhs_acc_smr_s_des",
+			"rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
+	};
+	default {
+		_grip = "";
 	};
 };
+player addPrimaryWeaponItem _optic;
+player addPrimaryWeaponItem _muzzle;
+player addPrimaryWeaponItem _lam;
+player addPrimaryWeaponItem _grip;
 player addWeapon "ACE_VMM3";
 
 comment "Add Uniforms and Gear";

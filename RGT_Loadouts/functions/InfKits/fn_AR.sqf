@@ -10,8 +10,7 @@ removeHeadgear player;
 comment "Create the arrays for different equipment";
 _rifle = [
 	"rhs_weap_m249", 0.90, 
-	"rhs_weap_m249_light_S", 0.05, 
-	"rhs_weap_m27iar_grip", 0.05] call BIS_fnc_selectRandomWeighted;
+	"rhs_weap_m249_light_S", 0.05] call BIS_fnc_selectRandomWeighted;
 _optic = [
 	"rhsusf_acc_eotech_552", 0.70, 
 	"rhsusf_acc_compm4", 0.25] call BIS_fnc_selectRandomWeighted;
@@ -74,11 +73,6 @@ switch(_rifle) do {
 		player addPrimaryWeaponItem "rhsusf_acc_elcan_ard";
 		player addPrimaryWeaponItem "rhsusf_acc_m952v";
 	};
-	case "rhs_weap_m27iar_grip": {
-		player addPrimaryWeaponItem "rhsusf_acc_m952v";
-		player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
-		player addPrimaryWeaponItem _optic;
-	};
 	default {
 		player addPrimaryWeaponItem "rhsusf_acc_saw_bipod";
 	};
@@ -94,11 +88,8 @@ for "_i" from 1 to 2 do {player addItem "HandGrenade";};
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "ACE_EntrenchingTool";
 for "_i" from 1 to 3 do {player addItem "rhsusf_mag_15Rnd_9x19_JHP";};
-if(_rifle isEqualTo "rhs_weap_m27iar_grip") then {
-	for "_i" from 1 to 5 do {player addItem "rhs_mag_100Rnd_556x45_M855A1_cmag";};
-} else {
-	for "_i" from 1 to 3 do {player addItem _mag;};
-};
+player addItem _mag;
+
 player addItem "ACE_EarPlugs";
 player addItem "ACE_Flashlight_MX991";
 player addItem "ACE_MapTools";

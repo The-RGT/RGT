@@ -13,16 +13,18 @@ _rifle = [
 	"rhs_weap_m4a1_blockII_d", 0.25, 
 	"rhs_weap_m4a1_blockII_KAC", 0.48, 
 	"rhs_weap_m4a1", 0.3, 
-	"rhs_weap_mk18", 0.02, 
-	"rhs_weap_m27iar", 0.02,
-	"rhs_weap_m4_urgi", 0.3,
-	"rhs_weap_m4_urgi_kac", 0.3,
-	"rhs_weap_m4_fsp", 0.48,
+	"rhs_weap_mk18", 0.02,
+	"rhs_weap_m4a1_urgi", 0.3,
+	"rhs_weap_m4a1_urgi_kac", 0.3,
 	"rhs_weap_mk18_urgi", 0.02,
 	"rhs_weap_mk18_urgi_kac", 0.02] call BIS_fnc_selectRandomWeighted;
 _optic = [
 	"rhsusf_acc_su230_mrds_c", 0.25, 
 	"rhsusf_acc_ACOG_RMR", 0.75] call BIS_fnc_selectRandomWeighted;
+_lam = [
+	"rhsusf_acc_anpeq15", 0.90, 
+	"rhsusf_acc_anpeq15_wmx", 0.10, 
+	"rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
 _clothing = [
 	"milgp_u_g3_field_set_rolled_mc", 0.75, 
 	"milgp_u_g3_field_set_mc", 0.25, 
@@ -72,64 +74,64 @@ player addBackpack "USP_HYDRATION_PACK_MC";
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
 switch(_rifle) do {
-	case "rhs_weap_m27iar": {
-		player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
-		_lam = ["rhsusf_acc_anpeq15", 0.90, "rhsusf_acc_anpeq15_wmx", 0.10, "rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;			
-		
-	};
 	case "rhs_weap_m4a1_blockII_d": {
-		_grip = ["", "rhsusf_acc_grip2_tan"] call BIS_fnc_selectRandom;
+		_grip = [
+			"", 
+			"rhsusf_acc_grip2_tan"] call BIS_fnc_selectRandom;
 		player addPrimaryWeaponItem _grip;
-		_lam = ["rhsusf_acc_anpeq15", 0.90, "rhsusf_acc_anpeq15_wmx", 0.10, "rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;		
 	};
-	case "rhs_weap_m4_urgi": {
-		_grip = ["rhs_acc_m4_urgi_d", 0.90, "rhs_acc_m4_urgi_d_bcm", 0.10] call BIS_fnc_selectRandomWeighted;
+	case "rhs_weap_m4a1_urgi": {
+		_grip = [
+			"rhs_acc_urgi_bcm_blk",
+			"rhs_acc_urgi_blk",
+			"rhs_acc_urgi_bcm_coy",
+			"rhs_acc_urgi_coy"] call BIS_fnc_selectRandom;
 		player addPrimaryWeaponItem _grip;
-		_lam = ["rhsusf_acc_anpeq15", 0.90, "rhsusf_acc_anpeq15_wmx", 0.10, "rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;		
 	};
 	case "rhs_weap_m4a1": {
-		_grip = ["rhsusf_acc_grip1", "rhsusf_acc_kac_grip", "rhsusf_acc_rvg_de"] call BIS_fnc_selectRandom;
+		_grip = [
+			"rhsusf_acc_grip1", 
+			"rhsusf_acc_kac_grip",
+			"rhsusf_acc_rvg_de"] call BIS_fnc_selectRandom;
 		player addPrimaryWeaponItem _grip;
-		_lam = ["rhsusf_acc_anpeq15", 0.90, "rhsusf_acc_anpeq15_wmx", 0.10, "rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;		
 	};
-	case "rhs_weap_m4_urgi_kac": {
-		_grip = ["rhs_acc_m4_urgi_d", 0.90, "rhs_acc_m4_urgi_d_bcm", 0.10] call BIS_fnc_selectRandomWeighted;
+	case "rhs_weap_m4a1_urgi_kac": {
+		_grip = [
+			"rhs_acc_urgi_bcm_blk",
+			"rhs_acc_urgi_blk",
+			"rhs_acc_urgi_bcm_coy",
+			"rhs_acc_urgi_coy"] call BIS_fnc_selectRandom;
 		player addPrimaryWeaponItem _grip;
-		_lam = ["rhsusf_acc_anpeq15", 0.90, "rhsusf_acc_anpeq15_wmx", 0.10, "rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;		
 	};
 	case "rhs_weap_mk18_urgi": {
-		_grip = ["rhs_weap_mk18_urgi", 0.90, "rhs_acc_mk18_urgi_d_bcm", 0.10] call BIS_fnc_selectRandomWeighted;
+		_grip = [
+			"rhs_acc_urgi_s_blk",
+			"rhs_acc_urgi_s_bcm_blk",
+			"rhs_acc_urgi_s_bcm_coy",
+			"rhs_acc_urgi_s_coy"] call BIS_fnc_selectRandom;
 		player addPrimaryWeaponItem _grip;
-		_lam = ["rhsusf_acc_anpeq15", 0.90, "rhsusf_acc_anpeq15_wmx", 0.10, "rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;		
 	};
 	case "rhs_weap_mk18_urgi_kac": {
-		_grip = ["rhs_weap_mk18_urgi", 0.90, "rhs_acc_mk18_urgi_d_bcm", 0.10] call BIS_fnc_selectRandomWeighted;
+		_grip = [
+			"rhs_acc_urgi_s_blk",
+			"rhs_acc_urgi_s_bcm_blk",
+			"rhs_acc_urgi_s_bcm_coy",
+			"rhs_acc_urgi_s_coy"] call BIS_fnc_selectRandom;
 		player addPrimaryWeaponItem _grip;
-		_lam = ["rhsusf_acc_anpeq15", 0.90, "rhsusf_acc_anpeq15_wmx", 0.10, "rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;		
 	};
 	case "SMA_MK16": {
 		_lam = ["SMA_SFPEQ_SCARTOP_TAN", 0.90, "SMA_SFPEQ_SCARTOP_BLK", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;		
 	};
 	case "SMA_Mk16QCB": {
-		_lam = ["SMA_SFPEQ_SCARTOP_TAN", 0.90, "SMA_SFPEQ_SCARTOP_BLK", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;		
+		_lam = ["SMA_SFPEQ_SCARTOP_TAN", 0.90, "SMA_SFPEQ_SCARTOP_BLK", 0.10] call BIS_fnc_selectRandomWeighted;	
 	};
 	default {
 		_grip = ["", "rhsusf_acc_grip2"] call BIS_fnc_selectRandom;
 		player addPrimaryWeaponItem _grip;
-		_lam = ["rhsusf_acc_anpeq15", 0.90, "rhsusf_acc_anpeq15_wmx", 0.10, "rhsusf_acc_anpeq15_bk", 0.10] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _lam;
 	};
 };
 player addPrimaryWeaponItem _optic;
+player addPrimaryWeaponItem _lam;
 player addWeapon "rhsusf_weap_m9";
 player addWeapon "ACE_VectorDay";
 

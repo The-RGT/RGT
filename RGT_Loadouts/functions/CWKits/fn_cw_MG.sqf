@@ -7,9 +7,22 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
+_ammo = "";
+_ammo1 = "";
 _rifle = [
-	"rhs_weap_mg42", 
-	"rhs_weap_fnmag"] call BIS_fnc_selectRandom;
+	"UK3CB_MG3", 
+	"rhs_weap_fnmag",
+	"UK3CB_Bren_303"] call BIS_fnc_selectRandom;
+switch (_rifle) do {
+	case "UK3CB_MG3": {
+		_ammo = "UK3CB_MG3_100rnd_762x51_RM";
+		_ammo1 = "UK3CB_MG3_50rnd_762x51_RM";
+	};
+	case "rhs_weap_fnmag": {
+		_ammo = "rhsusf_100Rnd_762x51_m62_tracer";
+		_ammo1 = "rhsusf_50Rnd_762x51_m62_tracer";
+	};
+};
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7, 
 	"rhsgref_uniform_woodland", 0.1, 
@@ -35,6 +48,20 @@ _helmet = [
 _bag = [
 	"rhsgref_hidf_alicepack",
 	"rhsgref_ttsko_alicepack",
+	"UK3CB_B_Alice_pack_01",
+	"UK3CB_B_Alice_pack_02_M81",
+	"UK3CB_B_Alice_pack_02",
+	"UK3CB_B_Alice_pack_03_M81",
+	"UK3CB_B_Alice_pack_03",
+	"UK3CB_B_Alice_pack_04",
+	"UK3CB_B_Alice_pack_04_M81",
+	"UK3CB_B_Alice_pack_covered_01",
+	"UK3CB_B_Alice_Bedroll_K",
+	"UK3CB_B_Alice_Bedroll_2_K",
+	"UK3CB_B_Alice_pack_frame_01_M81",
+	"UK3CB_B_Alice_pack_frame_01",
+	"UK3CB_B_Alice_pack_frame_02_M81",
+	"UK3CB_B_Alice_pack_frame_02",
 	"rhsgref_wdl_alicepack",
 	"rhssaf_alice_md2camo",
 	"rhssaf_alice_smb"] call BIS_fnc_selectRandom;
@@ -71,13 +98,12 @@ player addItem _frag;
 player addItem "ACE_EntrenchingTool";
 player addItem _smk;
 switch (_rifle) do {
-	case "rhs_weap_mg42": {
-		player addItem "rhsgref_296Rnd_792x57_SmK_alltracers_belt";
-		player addItem "rhsgref_50Rnd_792x57_SmK_alltracers_drum";
+	case "UK3CB_Bren_303": {
+		for "_i" from 1 to 13 do {player addItem "UK3CB_Bren_30Rnd_303_Magazine_RT";};
 	};
-	case "rhs_weap_fnmag": {
-		for "_i" from 1 to 3 do {player addItem "rhsusf_100Rnd_762x51_m62_tracer";};
-		player addItem "rhsusf_50Rnd_762x51_m62_tracer";
+	default {
+		for "_i" from 1 to 6 do {player addItem _ammo;};
+		player addItem _ammo1;
 	};
 };
 

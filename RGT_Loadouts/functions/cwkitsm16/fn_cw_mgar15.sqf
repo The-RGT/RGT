@@ -9,14 +9,10 @@ removeHeadgear player;
 
 comment "Create the arrays for different equipment";
 _rifle = [
-	"UK3CB_M16_Carbine", 0.30,
-	"UK3CB_M16A1", 0.55,
-	"rhs_weap_m16a2", 0.30,
-	"rhs_weap_m14", 0.05,
-	"rhs_weap_akm", 0.05,
-	"rhs_weap_m1garand_sa43", 0.05]	call BIS_fnc_selectRandomWeighted;
+	"UK3CB_M60", 0.70,
+	"UK3CB_Bren_303", 0.40] call BIS_fnc_selectRandomWeighted;
 _uniform = [
-	"rhs_uniform_bdu_erdl", 0.7, 
+	"rhs_uniform_bdu_erdl", 0.7,
 	"UK3CB_FIA_B_U_M10_CombatUniform_WDL01_01", 0.4,
 	"rhsgref_uniform_woodland", 0.1, 
 	"rhsgref_uniform_ERDL", 0.1, 
@@ -32,14 +28,14 @@ _vest = [
 	"rhs_lifchik_light", 0.05,
 	"rhs_suspender_AK8_chestrig", 0.05] call BIS_fnc_selectRandomWeighted;
 _ammo1 = [
-	"rhs_mag_20Rnd_556x45_M193_Stanag", 0.4,
-	"rhs_mag_20Rnd_556x45_M193_2MAG_Stanag", 0.4,
-	"rhs_mag_20Rnd_556x45_M193_Stanag", 0.4,
+	"rhs_mag_20Rnd_556x45_M193_Stanag", 0.2,
+	"rhs_mag_20Rnd_556x45_M193_2MAG_Stanag", 0.2,
+	"rhs_mag_20Rnd_556x45_M193_Stanag", 0.2,
 	"rhs_mag_30Rnd_556x45_M193_Stanag", 0.1] call BIS_fnc_selectRandomWeighted;
 _helmet = [
 	"rhsgref_helmet_M1_erdl", 0.70,
 	"UK3CB_H_M1_Helmet_Covered_Band_OLI", 0.05,
-	"UK3CB_H_M1_Helmet_Covered_Band_OLI", 0.05, 
+	"UK3CB_H_M1_Helmet_Covered_Band_OLI", 0.05,
 	"rhsgref_helmet_M1_mit", 0.05, 
 	"rhsgref_helmet_M1_bare", 0.05, 
 	"rhsgref_helmet_M1_bare_alt01", 0.05, 
@@ -72,7 +68,7 @@ _smk = [
 	"rhs_mag_an_m8hc",
 	"rhs_grenade_m15_mag",
 	"rhs_grenade_anm8_mag"] call BIS_fnc_selectRandom;
-	
+
 comment "Add Uniforms and Gear";
 player forceAddUniform _uniform;
 player addVest _vest;
@@ -81,7 +77,6 @@ player addBackpack _bag;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-player addWeapon "ACE_VMM3";
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -92,58 +87,31 @@ player addItem "ACE_EarPlugs";
 player addItem "ACE_Flashlight_MX991";
 player addItem "ACE_MapTools";
 player addItem "ACE_microDAGR";
-for "_i" from 1 to 2 do {player addItem _frag;};
+for "_i" from 1 to 3 do {player addItem _frag;};
 player addItem "ACE_EntrenchingTool";
 player addItem _smk;
-player addItem "rhs_mag_m18_yellow";
 switch (_rifle) do {
-	case "rhs_weap_akm": {
-		for "_i" from 1 to 8 do {player addItem "rhs_30Rnd_762x39mm";};
+	case "UK3CB_M60": {
+		for "_i" from 1 to 7 do {player addItem "UK3CB_M60_100rnd_762x51_RM";};
 	};
-	case "rhs_weap_m14": {
-		for "_i" from 1 to 12 do {player addItem "rhsusf_20Rnd_762x51_m80_Mag";};
-	};	
-	case "rhs_weap_m1garand_sa43": {
-		for "_i" from 1 to 20 do {player addItem "rhsgref_8Rnd_762x63_M2B_M1rifle";};
-		for "_i" from 1 to 10 do {player addItem "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle";};
-	};
-	default {
-		switch (_ammo1) do {
-			case "rhs_mag_30Rnd_556x45_M193_Stanag": {
-				for "_i" from 1 to 14 do {player addItem "rhs_mag_30Rnd_556x45_M193_Stanag";};
-			};
-			case "rhs_mag_20Rnd_556x45_M193_Stanag": {
-				for "_i" from 1 to 21 do {player addItem "rhs_mag_20Rnd_556x45_M193_Stanag";};
-			};
-			case "rhs_mag_20Rnd_556x45_M193_2MAG_Stanag": {
-				for "_i" from 1 to 21 do {player addItem "rhs_mag_20Rnd_556x45_M193_2MAG_Stanag";};
-			};
-			case "rhs_mag_20Rnd_556x45_M193_Stanag": {
-				for "_i" from 1 to 21 do {player addItem "rhs_mag_20Rnd_556x45_M193_Stanag";};
-			};
-		};
+	case "UK3CB_Bren_303": {
+		for "_i" from 1 to 13 do {player addItem "UK3CB_Bren_30Rnd_303_Magazine_R";};
 	};
 };
-player addItem "ACE_DefusalKit";
-player addItem "ACE_Clacker";
-player addItem "ACE_SpraypaintGreen";
-player addItem "ACE_SpraypaintRed";
-player addItemToBackpack "DemoCharge_Remote_Mag";
-player addItemToBackpack "SatchelCharge_Remote_Mag";
-for "_i" from 1 to 2 do {player addItemToBackpack "SLAMDirectionalMine_Wire_Mag";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";
 player linkItem "ItemCompass";
-player linkItem "ItemWatch";
+player linkItem "TFAR_microdagr";
 player linkItem "TFAR_anprc152";
 player linkItem "ItemGPS";
+
 player setSpeaker "ACE_NoVoice";
 
 comment "Set G Force resistance and Medical + Engineer training";
 player setVariable ["ACE_GForceCoef", 1];
 
 [[player],"ace_medical_medicClass", 0, true] call ace_common_fnc_assignObjectsInList;
-[[player],"ACE_IsEngineer", 2, true] call ace_common_fnc_assignObjectsInList;
+[[player],"ACE_IsEngineer", 0, true] call ace_common_fnc_assignObjectsInList;
 
-hint "You're now equipped as an Explosive Ordnance Disposal specialist. \nYou're equipped to find and defuse explosives.";
+hint "You're now equipped as an infantry rifleman. \nYour equipment is optimized for long daylight short to medium range firefights.";

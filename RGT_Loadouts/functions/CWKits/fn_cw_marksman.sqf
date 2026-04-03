@@ -8,13 +8,55 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_l1a1", 0.70,
-	"rhs_weap_l1a1_wood", 0.70,
-	"LOP_Weap_LeeEnfield_railed", 0.10]	call BIS_fnc_selectRandomWeighted;
-_optic = [
-	"", 0.70, 
-	"rhsgref_acc_l1a1_l2a2", 0.05] call BIS_fnc_selectRandomWeighted;
+_ammo = "";
+_mags = 0;
+_optic = "";
+_rifles = [
+    ["rhs_weap_l1a1", "L1"], 0.10,
+    ["rhs_weap_l1a1_wood", "L1"], 0.10,
+    ["UK3CB_G3A3V", "G3"], 0.10,
+    ["UK3CB_G3SG1", "G3"], 0.70,
+    ["UK3CB_G3A3", "G3"], 0.10,
+    ["uk3cb_enfield_no4t_walnut", "303enf"], 0.10,
+    ["uk3cb_enfield_no4t", "303enf"], 0.10,
+    ["uk3cb_enfield_no3t", "303enf"], 0.10,
+    ["uk3cb_enfield_l8t_walnut", "762enf"], 0.10,
+    ["uk3cb_enfield_l42_walnut", "762enf"], 0.10,
+    ["uk3cb_enfield_l42", "762enf"], 0.10,
+    ["uk3cb_enfield_l8t", "762enf"], 0.10] call BIS_fnc_selectRandomWeighted;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+
+switch (_rifletype) do {
+	case "303enf": {
+		_mags = 14;
+		_ammo = "uk3cb_no4_enfield_303_10Rnd_magazine";
+		_optic = "uk3cb_optic_no32_distressed";
+	};
+	case "762enf": {
+		_mags = 14;
+		_ammo = "uk3cb_l42_enfield_762_10Rnd_magazine";
+		_optic = "uk3cb_optic_no32_distressed";
+	};
+	case "G3": {
+		_mags = 7;
+		_ammo = [
+			"ACE_20Rnd_762x51_M118LR_Mag", 
+			"ACE_20Rnd_762x51_M993_AP_Mag", 
+			"UK3CB_G3_20rnd_762x51_R", 
+			"UK3CB_G3_20rnd_762x51"] call BIS_fnc_selectRandom;
+		_optic = "uk3cb_optic_STANAGZF2D_G3";
+	};
+	case "L1": {
+		_mags = 7;
+		_ammo = [
+			"rhs_mag_20Rnd_762x51_m61_fnfal", 
+			"rhs_mag_20Rnd_762x51_m62_fnfal", 
+			"rhs_mag_20Rnd_762x51_m80_fnfal", 
+			"rhs_mag_20Rnd_762x51_m80a1_fnfal"] call BIS_fnc_selectRandom;
+		_optic = "rhsgref_acc_l1a1_l2a2";
+	};
+};
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7, 
 	"rhsgref_uniform_woodland", 0.1, 
@@ -30,11 +72,6 @@ _vest = [
 	"rhs_lifchik", 0.05,
 	"rhs_lifchik_light", 0.05,
 	"rhs_suspender_AK8_chestrig", 0.05] call BIS_fnc_selectRandomWeighted;
-_ammo = [
-	"rhs_mag_20Rnd_762x51_m61_fnfal", 
-	"rhs_mag_20Rnd_762x51_m62_fnfal", 
-	"rhs_mag_20Rnd_762x51_m80_fnfal", 
-	"rhs_mag_20Rnd_762x51_m80a1_fnfal"] call BIS_fnc_selectRandom;
 _helmet = [
 	"rhsgref_helmet_M1_erdl", 0.70, 
 	"rhsgref_helmet_M1_mit", 0.05, 
@@ -45,6 +82,20 @@ _helmet = [
 _bag = [
 	"rhsgref_hidf_alicepack",
 	"rhsgref_ttsko_alicepack",
+	"UK3CB_B_Alice_pack_01",
+	"UK3CB_B_Alice_pack_02_M81",
+	"UK3CB_B_Alice_pack_02",
+	"UK3CB_B_Alice_pack_03_M81",
+	"UK3CB_B_Alice_pack_03",
+	"UK3CB_B_Alice_pack_04",
+	"UK3CB_B_Alice_pack_04_M81",
+	"UK3CB_B_Alice_pack_covered_01",
+	"UK3CB_B_Alice_Bedroll_K",
+	"UK3CB_B_Alice_Bedroll_2_K",
+	"UK3CB_B_Alice_pack_frame_01_M81",
+	"UK3CB_B_Alice_pack_frame_01",
+	"UK3CB_B_Alice_pack_frame_02_M81",
+	"UK3CB_B_Alice_pack_frame_02",
 	"rhsgref_wdl_alicepack",
 	"rhssaf_alice_md2camo",
 	"rhssaf_alice_smb"] call BIS_fnc_selectRandom;
@@ -60,19 +111,12 @@ _smk = [
 comment "Add Uniforms and Gear";
 player forceAddUniform _uniform;
 player addVest _vest;
-player addBackpack "TRYK_B_Alicepack";
+player addBackpack _bag;
 player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch (_rifle) do {
-	case "LOP_Weap_LeeEnfield_railed": {
-		player addPrimaryWeaponItem "optic_MRCO";
-	};
-	default {
-		player addPrimaryWeaponItem "rhsgref_acc_l1a1_l2a2";
-	};
-};
+player addPrimaryWeaponItem _optic;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -87,14 +131,7 @@ player addItem "ACE_microDAGR";
 for "_i" from 1 to 3 do {player addItem _frag;};
 player addItem "ACE_EntrenchingTool";
 player addItem _smk;
-switch (_rifle) do {
-	case "LOP_Weap_LeeEnfield_railed": {
-		for "_i" from 1 to 14 do {player addItem "LOP_10rnd_77mm_mag";};
-	};
-	default {
-		for "_i" from 1 to 7 do {player addItem _ammo;};
-	};
-};
+for "_i" from 1 to _mags do {player addItem _ammo;};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

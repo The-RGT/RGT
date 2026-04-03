@@ -175,16 +175,28 @@ _helmet = [
 	"USP_BASEBALL_CAP_CGS", 
 	"USP_BASEBALL_CAP_MCB_CGS", 
 	"USP_BASEBALL_CAP_CT3_RT6"] call BIS_fnc_selectRandom;
+_bag = [
+	"UK3CB_ION_B_B_RIF_MED_BLK",
+	"USP_DELTA_BAG_BLK",
+	"UK3CB_B_TacticalPack_Med_Oli",
+	"UK3CB_LFR_B_B_MESSENGER_MED",
+	"TRYK_B_Medbag_BK"] call BIS_fnc_selectRandom;
+_pistol = [
+	"rhsusf_weap_m1911a1", 
+	"rhs_weap_cz99", 
+	"rhsusf_weap_m9", 
+	"UK3CB_BHP", 
+	"UK3CB_CZ75"] call BIS_fnc_selectRandom;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
 player addVest _vest;
-player addBackpack "TRYK_B_Medbag_BK";
+player addBackpack _bag;
 player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-player addWeapon "rhsusf_weap_m9";
+player addWeapon _pistol;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_EarPlugs";
@@ -197,7 +209,23 @@ player addItem "ACE_Flashlight_XL50";
 player addItem "Chemlight_green";
 player addItem "ACE_Chemlight_IR";
 player addItem "Chemlight_red";
-player addItem "rhsusf_mag_15Rnd_9x19_JHP";
+switch(_pistol) do {
+	case "rhsusf_weap_m1911a1": {
+	for "_i" from 1 to 4 do {player addItem "rhsusf_mag_7x45acp_MHP";};
+	};
+	case "rhsusf_weap_m9": {
+	for "_i" from 1 to 3 do {player addItem "rhsusf_mag_15Rnd_9x19_JHP";};
+	};
+	case "UK3CB_CZ75": {
+	for "_i" from 1 to 3 do {player addItem "UK3CB_CZ75_9_20Rnd";};
+	};
+	case "rhs_weap_cz99": {
+	for "_i" from 1 to 3 do {player addItem "rhssaf_mag_15Rnd_9x19_FMJ";};
+	};
+	case "UK3CB_BHP": {
+	for "_i" from 1 to 3 do {player addItem "UK3CB_BHP_9_13Rnd";};
+	};
+};
 player addItem "ACE_microDAGR";
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "HandGrenade";

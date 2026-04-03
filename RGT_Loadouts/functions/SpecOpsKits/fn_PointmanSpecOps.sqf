@@ -9,10 +9,25 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
+_lam = "rhsusf_acc_anpeq16a";
 _optic = [
-	"rhsusf_acc_T1_high", 0.90, 
-	"rhsusf_acc_eotech", 0.05, 
-	"rhsusf_acc_eotech_552_d", 0.05] call BIS_fnc_selectRandomWeighted;
+    "rhsusf_acc_EOTECH", 0.50, 
+    "rhsusf_acc_eotech_xps3", 0.15, 
+    "tsp_acc_xps3_tan_unity_black", 0.05, 
+    "tsp_acc_xps3_black_unity_black", 0.05,
+    "tsp_acc_t2_hydra_tan", 0.05,  
+    "rhsusf_acc_t1_high", 0.15, 
+    "tsp_acc_t2_unity_tan", 0.15, 
+    "tsp_acc_t2_unity_black", 0.15, 
+    "tsp_acc_xps3_tan_unity_black", 0.15] call BIS_fnc_selectRandomWeighted;
+switch(_optic) do {
+    case "tsp_acc_t2_hydra_tan": {
+        _lam = [
+            "rhsusf_acc_M952V",
+            "rhsusf_acc_wmx",
+            "rhsusf_acc_wmx_bk"] call BIS_fnc_selectRandom;
+    };
+};
 _clothing = [
 	"ARD_MC_Blk_Camo_Cyre", 0.60, 
 	"ARD_MC_Blk_Camo_Cyre_SS", 0.30, 
@@ -112,40 +127,44 @@ _goggles = [
 	"USP_BEARD2_BRN6",
 	"USP_BEARD_BRN4"] call BIS_fnc_selectRandom;
 _nods = [
-	"USP_GPNVG18_WP_GM_TAN", 0.25, 
-	"USP_GPNVG18_WP_GM_TAR_TAN", 0.25,
-	"USP_PVS31_WP_BLK2", 0.50, 
-	"USP_PVS31_WP_TAN", 0.50, 
-	"USP_PVS31_WP_TAN2", 0.25,
-	"USP_PVS31_WP_HIGH_BLK", 0.25,
-	"USP_PVS31_WP_HIGH_BLK2", 0.25,
-	"USP_PVS31_WP_HIGH_TAN", 0.25,
-	"USP_PVS31_WP_HIGH_TAN2", 0.25,
-	"USP_PVS31_WP_LOW_BLK", 0.25,
-	"USP_PVS31_WP_LOW_BLK2", 0.25,
-	"USP_PVS31_WP_LOW_TAN", 0.25,
-	"USP_PVS31_WP_LOW_TAN2", 0.25,
-	"USP_PVS31_WP_MID_BLK", 0.25,
-	"USP_PVS31_WP_MID_BLK2", 0.25,
-	"USP_PVS31_WP_MID_TAN2", 0.25,
-	"USP_PVS31_WP_TAR_BLK", 0.25,
-	"USP_PVS31_WP_TAR_BLK2", 0.25,
-	"USP_PVS31_WP_TAR_TAN", 0.25,
-	"USP_PVS31_WP_TAR_TAN2", 0.25,
-	"USP_PVS31_WP_TAR_HIGH_BLK", 0.25,
-	"USP_PVS31_WP_TAR_HIGH_BLK2", 0.25,
-	"USP_PVS31_WP_TAR_HIGH_TAN", 0.25,
-	"USP_PVS31_WP_TAR_HIGH_TAN2", 0.25,
-	"USP_PVS31_WP_TAR_LOW_BLK", 0.25,
-	"USP_PVS31_WP_TAR_LOW_BLK2", 0.25,
-	"USP_PVS31_WP_TAR_LOW_TAN", 0.25,
-	"USP_PVS31_WP_TAR_LOW_TAN2", 0.25,
-	"USP_PVS31_WP_TAR_MID_BLK", 0.25,
-	"USP_PVS31_WP_TAR_MID_BLK2", 0.25,
-	"USP_PVS31_WP_TAR_MID_TAN", 0.25,
-	"USP_PVS31_WP_TAR_MID_TAN2", 0.25,	
-	"USP_PVS15", 0.25,
-	"USP_PVS15_TAR", 0.25] call BIS_fnc_selectRandomWeighted;
+    "USP_GPNVG18_WP_GM_TAN", 0.25, 
+    "USP_GPNVG18_WP_GM_TAR_TAN", 0.25,
+    "USP_GPNVG18_WP_CB3_TAR_TAN", 0.10,
+    "USP_GPNVG18_WP_CB3_TAN", 0.10,
+    "USP_GPNVG18_WP_CB2_TAR_TAN", 0.10,
+    "USP_GPNVG18_CB2_TAN", 0.10,
+    "USP_PVS31_WP_BLK2", 0.50, 
+    "USP_PVS31_WP_TAN", 0.50, 
+    "USP_PVS31_WP_TAN2", 0.25,
+    "USP_PVS31_WP_HIGH_BLK", 0.25,
+    "USP_PVS31_WP_HIGH_BLK2", 0.25,
+    "USP_PVS31_WP_HIGH_TAN", 0.25,
+    "USP_PVS31_WP_HIGH_TAN2", 0.25,
+    "USP_PVS31_WP_LOW_BLK", 0.25,
+    "USP_PVS31_WP_LOW_BLK2", 0.25,
+    "USP_PVS31_WP_LOW_TAN", 0.25,
+    "USP_PVS31_WP_LOW_TAN2", 0.25,
+    "USP_PVS31_WP_MID_BLK", 0.25,
+    "USP_PVS31_WP_MID_BLK2", 0.25,
+    "USP_PVS31_WP_MID_TAN2", 0.25,
+    "USP_PVS31_WP_TAR_BLK", 0.25,
+    "USP_PVS31_WP_TAR_BLK2", 0.25,
+    "USP_PVS31_WP_TAR_TAN", 0.25,
+    "USP_PVS31_WP_TAR_TAN2", 0.25,
+    "USP_PVS31_WP_TAR_HIGH_BLK", 0.25,
+    "USP_PVS31_WP_TAR_HIGH_BLK2", 0.25,
+    "USP_PVS31_WP_TAR_HIGH_TAN", 0.25,
+    "USP_PVS31_WP_TAR_HIGH_TAN2", 0.25,
+    "USP_PVS31_WP_TAR_LOW_BLK", 0.25,
+    "USP_PVS31_WP_TAR_LOW_BLK2", 0.25,
+    "USP_PVS31_WP_TAR_LOW_TAN", 0.25,
+    "USP_PVS31_WP_TAR_LOW_TAN2", 0.25,
+    "USP_PVS31_WP_TAR_MID_BLK", 0.25,
+    "USP_PVS31_WP_TAR_MID_BLK2", 0.25,
+    "USP_PVS31_WP_TAR_MID_TAN", 0.25,
+    "USP_PVS31_WP_TAR_MID_TAN2", 0.25,    
+    "USP_PVS15", 0.25,
+    "USP_PVS15_TAR", 0.25] call BIS_fnc_selectRandomWeighted;
 _flash = [
 	"ACE_M84",
 	"ACE_CTS9"] call BIS_fnc_selectRandom;
@@ -157,7 +176,7 @@ _breach = [
 comment "Add Weapons and attachments";
 player addWeapon "rhsusf_weap_MP7A2_desert_grip3";
 player addPrimaryWeaponItem "rhsusf_acc_rotex_mp7_desert";
-player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
+player addPrimaryWeaponItem _lam;
 player addPrimaryWeaponItem _optic;
 player addPrimaryWeaponItem "rhsusf_acc_tdstubby_tan";
 player addWeapon "rhs_weap_M320";

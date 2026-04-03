@@ -5,7 +5,7 @@ _this addAction['Get Marksman Loadout',RGT_fnc_cw_marksman_m14,nil,1.5,true,true
 _this addAction['Get Grenadier Loadout',RGT_fnc_cw_grenadier_ar15,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
 _this addAction['Get Leader Loadout', RGT_fnc_cw_leader_ar15,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
 _this addAction['Get Radioman Loadout',RGT_fnc_cw_radioman_ar15,nil,1.5,true,true,"","((_target distance _this)<5)"];   
-_this addAction['Get Machinegunner Loadout',RGT_fnc_cw_MG,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
+_this addAction['Get Machinegunner Loadout',RGT_fnc_cw_mgar15,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
 _this addAction['Get Anti Air Loadout',RGT_fnc_cw_AntiAir_ar15,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
 _this addAction['Get EOD Specialist Loadout',RGT_fnc_cw_EOD_ar15,nil,1.5,true,true,"","((_target distance _this)<5)"];  
 _this addAction["<t color='#2C75FF'>Add Static Line Parachute", RGT_fnc_ParachuteS,nil,1.5,true,true,"","((_target distance _this)<5)"];  

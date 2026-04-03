@@ -139,6 +139,7 @@ class CfgFunctions {
 				class cw_marksman_m14 {};
 				class cw_Rifleman_ar15 {};
 				class cw_LightAT_ar15 {};
+				class cw_mgar15 {};
 		};
 		class WoodlandKits {
 			file = "RGT_Loadouts\functions\WdInfKits";

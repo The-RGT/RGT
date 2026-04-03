@@ -11,7 +11,8 @@ removeGoggles player;
 comment "Create the arrays for different equipment";
 _rifle = [
 	"rhs_weap_m249_pip_S_para", 
-	"rhs_weap_minimi_para_railed"] call BIS_fnc_selectRandom;
+	"rhs_weap_minimi_para_railed",
+	"UK3CB_RPD"] call BIS_fnc_selectRandom;
 _optic = [
 	"rhsusf_acc_eotech_552", 
 	"rhsusf_acc_compm4", 
@@ -169,6 +170,13 @@ _helmet = [
 	"USP_BASEBALL_CAP_CGS", 
 	"USP_BASEBALL_CAP_MCB_CGS", 
 	"USP_BASEBALL_CAP_CT3_RT6"] call BIS_fnc_selectRandom;
+_pistol = [
+	"rhsusf_weap_m1911a1", 
+	"rhsusf_weap_glock17g4",
+	"rhs_weap_cz99", 
+	"rhsusf_weap_m9", 
+	"UK3CB_BHP", 
+	"UK3CB_CZ75"] call BIS_fnc_selectRandom;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
@@ -180,7 +188,7 @@ player addHeadgear _helmet;
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
 player addPrimaryWeaponItem "rhsusf_acc_m952v"; 
-player addWeapon "rhsusf_weap_glock17g4";
+player addWeapon _pistol;
 player addWeapon "rhsusf_bino_m24";
 
 comment "Fill Uniform and Gear";
@@ -193,11 +201,37 @@ player addItem "ACE_MapTools";
 player addItem "ACE_CableTie";
 player addItem "ACE_microDAGR";
 player addItem "B_IR_Grenade";
-player addItem "rhsusf_mag_17Rnd_9x19_FMJ";
+switch(_pistol) do {
+	case "rhsusf_weap_m1911a1": {
+	for "_i" from 1 to 4 do {player addItem "rhsusf_mag_7x45acp_MHP";};
+	};
+	case "rhsusf_weap_m9": {
+	for "_i" from 1 to 3 do {player addItem "rhsusf_mag_15Rnd_9x19_JHP";};
+	};
+	case "UK3CB_CZ75": {
+	for "_i" from 1 to 3 do {player addItem "UK3CB_CZ75_9_20Rnd";};
+	};
+	case "rhs_weap_cz99": {
+	for "_i" from 1 to 3 do {player addItem "rhssaf_mag_15Rnd_9x19_FMJ";};
+	};
+	case "UK3CB_BHP": {
+	for "_i" from 1 to 3 do {player addItem "UK3CB_BHP_9_13Rnd";};
+	};
+	case "rhsusf_weap_glock17g4": {
+	for "_i" from 1 to 3 do {player addItem "rhsusf_mag_17Rnd_9x19_FMJ";};
+	};
+};
 player addItem "HandGrenade";
 player addItem "SmokeShell";
 player addItem "SmokeShellBlue";
-for "_i" from 1 to 4 do {player addItem "rhsusf_100Rnd_556x45_mixed_soft_pouch";};
+switch(_rifle) do {
+	case "UK3CB_RPD": {
+	for "_i" from 1 to 4 do {player addItem "UK3CB_RPD_100rnd_762x39_GM";};
+	};
+	default {
+	for "_i" from 1 to 4 do {player addItem "rhsusf_100Rnd_556x45_mixed_soft_pouch";};
+	};
+};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

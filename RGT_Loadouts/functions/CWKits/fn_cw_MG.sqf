@@ -7,10 +7,22 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
+_ammo = "";
+_ammo1 = "";
 _rifle = [
 	"UK3CB_MG3", 
 	"rhs_weap_fnmag",
 	"UK3CB_Bren_303"] call BIS_fnc_selectRandom;
+switch (_rifle) do {
+	case "UK3CB_MG3": {
+		_ammo = "UK3CB_MG3_100rnd_762x51_RM";
+		_ammo1 = "UK3CB_MG3_50rnd_762x51_RM";
+	};
+	case "rhs_weap_fnmag": {
+		_ammo = "rhsusf_100Rnd_762x51_m62_tracer";
+		_ammo1 = "rhsusf_50Rnd_762x51_m62_tracer";
+	};
+};
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7, 
 	"rhsgref_uniform_woodland", 0.1, 
@@ -86,13 +98,12 @@ player addItem _frag;
 player addItem "ACE_EntrenchingTool";
 player addItem _smk;
 switch (_rifle) do {
-	case "UK3CB_MG3": {
-		for "_i" from 1 to 6 do {player addItem "UK3CB_MG3_100rnd_762x51_RM";};
-		player addItem "UK3CB_MG3_50rnd_762x51_RM";
+	case "UK3CB_Bren_303": {
+		for "_i" from 1 to 13 do {player addItem "UK3CB_Bren_30Rnd_303_Magazine_RT";};
 	};
-	case "rhs_weap_fnmag": {
-		for "_i" from 1 to 6 do {player addItem "rhsusf_100Rnd_762x51_m62_tracer";};
-		player addItem "rhsusf_50Rnd_762x51_m62_tracer";
+	default {
+		for "_i" from 1 to 6 do {player addItem _ammo;};
+		player addItem _ammo1;
 	};
 };
 

@@ -106,20 +106,17 @@ switch (_rifle) do {
 	};
 	case "rhs_weap_m14": {
 		for "_i" from 1 to 12 do {player addItem "rhsusf_20Rnd_762x51_m80_Mag";};
-	};	
+	};
 	case "rhs_weap_l1a1": {
 		for "_i" from 1 to 12 do {player addItem _ammo;};
-	};		
+	};
 	case "rhs_weap_l1a1_wood": {
 		for "_i" from 1 to 12 do {player addItem _ammo;};
-	};	
-	case "rhs_weap_m14": {
-		for "_i" from 1 to 12 do {player addItem "rhsusf_20Rnd_762x51_m80_Mag";};
-	};	
+	};
 	case "rhs_weap_m1garand_sa43": {
 		for "_i" from 1 to 20 do {player addItem "rhsgref_8Rnd_762x63_M2B_M1rifle";};
 		for "_i" from 1 to 10 do {player addItem "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle";};
-	};		
+	};
 	default {
 		for "_i" from 1 to 12 do {player addItem _ammo1;};
 	};

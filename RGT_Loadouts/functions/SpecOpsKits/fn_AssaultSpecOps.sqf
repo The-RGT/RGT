@@ -10,126 +10,22 @@ removeGoggles player;
 
 comment "Create the arrays for different equipment";
 _grip = "";
-_rifle = [
-    "rhs_weap_hk416d145_d", 0.05,
-    "rhs_weap_HK416D15_smr_tan", 0.05,
-    "rhs_weap_HK416D15_smr_kac_tan", 0.05,
-    "rhs_weap_m4a1_nsr_tan", 0.05,
-    "rhs_weap_m4a1_nsr", 0.05,
-    "rhs_weap_hk416d10_LMT_d", 0.50,
-    "rhs_weap_HK416D10_smr_tan", 0.50,
-    "rhs_weap_HK416D10_smr_kac_tan", 0.50,
-    "rhs_weap_HK416D10_smr_kac_des", 0.50,
-    "rhs_weap_mk18_nsr_tan", 0.50,
-    "rhs_weap_mk18_nsr", 0.50,
-    "rhs_weap_HK416D10_smr", 0.50] call BIS_fnc_selectRandomWeighted;
-switch(_rifle) do {
-	case "rhs_weap_hk416d145_d": {
-		_optic = "optic_mrco";
-		_grip = "rhsusf_acc_grip2_tan";
-	};
-	case "rhs_weap_HK416D15_smr_tan": {
-		_optic = "optic_mrco";
-		_grip = [
-			"rhs_acc_smr_bcm_tan",
-			"rhs_acc_smr_tan",
-			"rhs_acc_smr_des",
-			"rhs_acc_smr_bcm_des"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_HK416D15_smr_tan_kac": {
-		_optic = "optic_mrco";
-		_grip = [
-			"rhs_acc_smr_bcm_tan",
-			"rhs_acc_smr_tan",
-			"rhs_acc_smr_des",
-			"rhs_acc_smr_bcm_des"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_m4a1_nsr_tan": {
-		_optic = "optic_mrco";
-		_grip = [
-			"rhs_acc_nsr_tan", 0.60,
-			"rhs_acc_nsr_bcm_tan", 0.60,
-			"rhs_acc_nsr13_tan", 0.60,
-			"rhs_acc_nsr13_bcm_tan", 0.60,
-			"rhs_acc_nsr_des", 0.60,
-			"rhs_acc_nsr_bcm_des", 0.60,
-			"rhs_acc_nsr13_des", 0.60,
-			"rhs_acc_nsr13_bcm_des", 0.60,
-			"rhs_acc_nsr_blk", 0.10,
-			"rhs_acc_nsr_bcm_blk", 0.10,
-			"rhs_acc_nsr13_blk", 0.10,
-			"rhs_acc_nsr13_bcm_blk", 0.10] call BIS_fnc_selectRandomWeighted;
-	};
-	case "rhs_weap_m4a1_nsr_tan": {
-		_optic = "optic_mrco";
-		_grip = [
-			"rhs_acc_nsr_tan",
-			"rhs_acc_nsr_bcm_tan",
-			"rhs_acc_nsr13_tan",
-			"rhs_acc_nsr13_bcm_tan",
-			"rhs_acc_nsr_des",
-			"rhs_acc_nsr_bcm_des",
-			"rhs_acc_nsr13_des",
-			"rhs_acc_nsr13_bcm_des",
-			"rhs_acc_nsr_blk",
-			"rhs_acc_nsr_bcm_blk",
-			"rhs_acc_nsr13_blk",
-			"rhs_acc_nsr13_bcm_blk"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_mk18_nsr": {
-		_grip = [
-			"rhs_acc_nsr9_blk",
-			"rhs_acc_nsr9_bcm_blk",
-			"rhs_acc_nsr9_des",
-			"rhs_acc_nsr9_bcm_des",
-			"rhs_acc_nsr9_tan",
-			"rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_mk18_nsr_tan": {
-		_grip = [
-			"rhs_acc_nsr9_blk",
-			"rhs_acc_nsr9_bcm_blk",
-			"rhs_acc_nsr9_des",
-			"rhs_acc_nsr9_bcm_des",
-			"rhs_acc_nsr9_tan",
-			"rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_HK416D10_smr": {
-		_grip = [
-			"rhs_acc_smr_s_blk",
-			"rhs_acc_smr_s_bcm_blk",
-			"rhs_acc_smr_s_tan",
-			"rhs_acc_smr_s_bcm_tan"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_hk416d10_LMT_d": {
-		_grip = [
-			"",
-			"rhsusf_acc_kac_grip_frwd",
-			"rhsusf_acc_rvg_de",
-			"rhsusf_acc_tdstubby_tan"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_HK416D10_smr_tan": {
-		_grip = [
-			"rhs_acc_smr_s_blk",
-			"rhs_acc_smr_s_bcm_blk",
-			"rhs_acc_smr_s_tan",
-			"rhs_acc_smr_s_bcm_tan",
-			"rhs_acc_smr_s_des",
-			"rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_HK416D10_smr_kac_tan": {
-		_grip = [
-			"rhs_acc_smr_s_blk",
-			"rhs_acc_smr_s_bcm_blk",
-			"rhs_acc_smr_s_tan",
-			"rhs_acc_smr_s_bcm_tan",
-			"rhs_acc_smr_s_des",
-			"rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
-	};
-};
-_muzzle = [
-	"rhsusf_acc_rotex5_grey", 0.75, 
-	"rhsusf_acc_rotex5_tan", 0.25] call BIS_fnc_selectRandomWeighted;
+_rifles = [
+    ["rhs_weap_hk416d145_d", "416_145"], 0.05,
+    ["rhs_weap_HK416D15_smr_tan", "416_15"], 0.05,
+    ["rhs_weap_HK416D15_smr_kac_tan", "416_15"], 0.05,
+    ["rhs_weap_m4a1_nsr_tan", "M4_NSR"], 0.05,
+    ["rhs_weap_m4a1_nsr", "M4_NSR"], 0.05,
+    ["rhs_weap_hk416d10_LMT_d", "416_10"], 0.50,
+    ["rhs_weap_HK416D10_smr_tan", "416_10_SMR"], 0.50,
+    ["rhs_weap_HK416D10_smr_kac_tan", "416_10_SMR"], 0.50,
+    ["rhs_weap_HK416D10_smr_kac_des", "416_10_SMR"], 0.50,
+    ["rhs_weap_mk18_nsr_tan", "MK18"], 0.50,
+    ["rhs_weap_mk18_nsr", "MK18"], 0.50,
+    ["rhs_weap_HK416D10_smr", "416_10_SMR"], 0.50
+] call BIS_fnc_selectRandomWeighted;
+_rifle     = _rifles select 0;
+_rifletype = _rifles select 1;
 _lam = [
 	"rhsusf_acc_anpeq15", 0.50, 
 	"rhsusf_acc_anpeq15_bk", 0.25, 
@@ -159,6 +55,69 @@ switch(_optic) do {
             "rhsusf_acc_wmx_bk"] call BIS_fnc_selectRandom;
     };
 };
+switch (_rifletype) do {
+    case "416_145": {
+        _optic = "optic_mrco";
+        _grip = "rhsusf_acc_grip2_tan";
+    };
+    case "416_15": {
+        _optic = "optic_mrco";
+        _grip = [
+            "rhs_acc_smr_bcm_tan",
+            "rhs_acc_smr_tan",
+            "rhs_acc_smr_des",
+            "rhs_acc_smr_bcm_des"
+        ] call BIS_fnc_selectRandom;
+    };
+    case "M4_NSR": {
+        _optic = "optic_mrco";
+        _grip = [
+            "rhs_acc_nsr_tan",
+            "rhs_acc_nsr_bcm_tan",
+            "rhs_acc_nsr13_tan",
+            "rhs_acc_nsr13_bcm_tan",
+            "rhs_acc_nsr_des",
+            "rhs_acc_nsr_bcm_des",
+            "rhs_acc_nsr13_des",
+            "rhs_acc_nsr13_bcm_des",
+            "rhs_acc_nsr_blk",
+            "rhs_acc_nsr_bcm_blk",
+            "rhs_acc_nsr13_blk",
+            "rhs_acc_nsr13_bcm_blk"
+        ] call BIS_fnc_selectRandom;
+    };
+    case "MK18": {
+        _grip = [
+            "rhs_acc_nsr9_blk",
+            "rhs_acc_nsr9_bcm_blk",
+            "rhs_acc_nsr9_des",
+            "rhs_acc_nsr9_bcm_des",
+            "rhs_acc_nsr9_tan",
+            "rhs_acc_nsr9_bcm_tan"
+        ] call BIS_fnc_selectRandom;
+    };
+    case "416_10": {
+        _grip = [
+            "",
+            "rhsusf_acc_kac_grip_frwd",
+            "rhsusf_acc_rvg_de",
+            "rhsusf_acc_tdstubby_tan"
+        ] call BIS_fnc_selectRandom;
+    };
+    case "416_10_SMR": {
+        _grip = [
+            "rhs_acc_smr_s_blk",
+            "rhs_acc_smr_s_bcm_blk",
+            "rhs_acc_smr_s_tan",
+            "rhs_acc_smr_s_bcm_tan",
+            "rhs_acc_smr_s_des",
+            "rhs_acc_smr_s_bcm_des"
+        ] call BIS_fnc_selectRandom;
+    };
+};
+_muzzle = [
+	"rhsusf_acc_rotex5_grey", 0.75, 
+	"rhsusf_acc_rotex5_tan", 0.25] call BIS_fnc_selectRandomWeighted;
 _clothing = [
 	"ARD_MC_Blk_Camo_Cyre", 0.60, 
 	"ARD_MC_Blk_Camo_Cyre_SS", 0.30, 

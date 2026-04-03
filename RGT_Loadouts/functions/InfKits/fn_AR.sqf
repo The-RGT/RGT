@@ -88,7 +88,7 @@ for "_i" from 1 to 2 do {player addItem "HandGrenade";};
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "ACE_EntrenchingTool";
 for "_i" from 1 to 3 do {player addItem "rhsusf_mag_15Rnd_9x19_JHP";};
-player addItem _mag;
+for "_i" from 1 to 3 do {player addItem _mag;};
 
 player addItem "ACE_EarPlugs";
 player addItem "ACE_Flashlight_MX991";

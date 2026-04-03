@@ -10,11 +10,15 @@ removeHeadgear player;
 comment "Create the arrays for different equipment";
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7, 
+	"UK3CB_FIA_B_U_M10_CombatUniform_WDL01_01", 0.4,
 	"rhsgref_uniform_woodland", 0.1, 
 	"rhsgref_uniform_ERDL", 0.1, 
 	"rhsgref_uniform_og107_erdl", 0.1, 
 	"rhsgref_uniform_woodland_olive", 0.1, 
 	"rhs_uniform_afghanka_wdl", 0.05] call BIS_fnc_selectRandomWeighted;
+_rifle = [
+	"rhs_weap_m16a2_m203",
+	"UK3CB_M16A2_UGL"] call BIS_fnc_selectRandom;
 _vest = [
 	"rhsgref_alice_webbing", 0.40, 
 	"rhsgref_chicom", 0.40, 
@@ -24,7 +28,8 @@ _vest = [
 	"rhs_lifchik_light", 0.05,
 	"rhs_suspender_AK8_chestrig", 0.05] call BIS_fnc_selectRandomWeighted;
 _helmet = [
-	"rhsgref_helmet_M1_erdl", 0.70, 
+	"rhsgref_helmet_M1_erdl", 0.70,
+	"UK3CB_H_M1_Helmet_Covered_Band_OLI", 0.05,
 	"rhsgref_helmet_M1_mit", 0.05, 
 	"rhsgref_helmet_M1_bare", 0.05, 
 	"rhsgref_helmet_M1_bare_alt01", 0.05, 
@@ -34,10 +39,24 @@ _ammo1 = [
 	"rhs_mag_20Rnd_556x45_M193_Stanag", 0.2,
 	"rhs_mag_20Rnd_556x45_M193_2MAG_Stanag", 0.2,
 	"rhs_mag_20Rnd_556x45_M193_Stanag", 0.2,
-	"rhs_mag_30Rnd_556x45_M193_Stanag", 0.4] call BIS_fnc_selectRandomWeighted;
+	"rhs_mag_30Rnd_556x45_M193_Stanag", 0.1] call BIS_fnc_selectRandomWeighted;
 _bag = [
 	"rhsgref_hidf_alicepack",
 	"rhsgref_ttsko_alicepack",
+	"UK3CB_B_Alice_pack_01",
+	"UK3CB_B_Alice_pack_02_M81",
+	"UK3CB_B_Alice_pack_02",
+	"UK3CB_B_Alice_pack_03_M81",
+	"UK3CB_B_Alice_pack_03",
+	"UK3CB_B_Alice_pack_04",
+	"UK3CB_B_Alice_pack_04_M81",
+	"UK3CB_B_Alice_pack_covered_01",
+	"UK3CB_B_Alice_Bedroll_K",
+	"UK3CB_B_Alice_Bedroll_2_K",
+	"UK3CB_B_Alice_pack_frame_01_M81",
+	"UK3CB_B_Alice_pack_frame_01",
+	"UK3CB_B_Alice_pack_frame_02_M81",
+	"UK3CB_B_Alice_pack_frame_02",
 	"rhsgref_wdl_alicepack",
 	"rhssaf_alice_md2camo",
 	"rhssaf_alice_smb"] call BIS_fnc_selectRandom;
@@ -52,11 +71,11 @@ _smk = [
 comment "Add Uniforms and Gear";
 player forceAddUniform _uniform;
 player addVest _vest;
-player addBackpack "TRYK_B_Alicepack";
+player addBackpack _bag;
 player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_m16a2_m203";
+player addWeapon _rifle;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";

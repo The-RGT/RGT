@@ -9,9 +9,13 @@ removeHeadgear player;
 
 comment "Create the arrays for different equipment";
 _rifle = [
-	"rhs_weap_l1a1", 0.70,
-	"rhs_weap_l1a1_wood", 0.70,
-	"rhs_weap_m14", 0.20,
+	"uk3cb_m1a1_carbine", 0.70,
+	"uk3cb_m2a1_carbine", 0.70,
+	"UK3CB_Sten", 0.40,
+	"uk3cb_m1carbine", 0.20,
+	"uk3cb_thompson_m1a1", 0.20,
+	"uk3cb_thompson_m1928a1", 0.20,
+	"uk3cb_thompson_m1928", 0.20,
 	"rhs_weap_akm", 0.10,
 	"rhs_weap_m1garand_sa43", 0.05]	call BIS_fnc_selectRandomWeighted;
 _uniform = [
@@ -30,10 +34,8 @@ _vest = [
 	"rhs_lifchik_light", 0.05,
 	"rhs_suspender_AK8_chestrig", 0.05] call BIS_fnc_selectRandomWeighted;
 _ammo = [
-	"rhs_mag_20Rnd_762x51_m61_fnfal", 
-	"rhs_mag_20Rnd_762x51_m62_fnfal", 
-	"rhs_mag_20Rnd_762x51_m80_fnfal", 
-	"rhs_mag_20Rnd_762x51_m80a1_fnfal"] call BIS_fnc_selectRandom;
+	"UK3CB_M1_15Rnd_30Carbine_Magazine", 0.80,
+	"UK3CB_M1_30Rnd_30Carbine_Magazine", 0.20] call BIS_fnc_selectRandomWeighted;
 _helmet = [
 	"rhsgref_helmet_M1_erdl", 0.70, 
 	"rhsgref_helmet_M1_mit", 0.05, 
@@ -48,13 +50,19 @@ _smk = [
 	"rhs_mag_an_m8hc",
 	"rhs_grenade_m15_mag",
 	"rhs_grenade_anm8_mag"] call BIS_fnc_selectRandom;
-
+_rto = [
+	"UK3CB_B_B_Alice_pack_frame_radio_01_M81", 0.70, 
+	"TFAR_rt1523g_big_bwmod", 0.05, 
+	"UK3CB_B_B_Alice_pack_frame_radio_01", 0.05, 
+	"UK3CB_PLM_B_B_R148_RADIO", 0.05, 
+	"UK3CB_B_B_Radio_Backpack", 0.10, 
+	"UK3CB_LDF_B_B_RadioBag_GEO", 0.10] call BIS_fnc_selectRandomWeighted;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _uniform;
 player addVest _vest;
 player addHeadgear _helmet;
-player addBackpack "TFAR_rt1523g_big_bwmod";
+player addBackpack _rto;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
@@ -77,8 +85,19 @@ switch (_rifle) do {
 	case "rhs_weap_akm": {
 		for "_i" from 1 to 8 do {player addItem "rhs_30Rnd_762x39mm";};
 	};
-	case "rhs_weap_m14": {
-		for "_i" from 1 to 12 do {player addItem "rhsusf_20Rnd_762x51_m80_Mag";};
+	case "uk3cb_thompson_m1a1": {
+		for "_i" from 1 to 8 do {player addItem "UK3CB_Thompson_30rnd_1143x23_M1911B_Magazine";};
+	};	
+	case "uk3cb_thompson_m1928a1": {
+		for "_i" from 1 to 4 do {player addItem "UK3CB_Thompson_30rnd_1143x23_M1911B_Magazine";};
+		for "_i" from 1 to 2 do {player addItem "UK3CB_Thompson_50rnd_1143x23_M1911B_Magazine";};
+	};		
+	case "UK3CB_Sten": {
+		for "_i" from 1 to 7 do {player addItem "UK3CB_Sten_34Rnd_Magazine";};
+	};		
+	case "uk3cb_thompson_m1928": {
+		for "_i" from 1 to 4 do {player addItem "UK3CB_Thompson_30rnd_1143x23_M1911B_Magazine";};
+		for "_i" from 1 to 2 do {player addItem "UK3CB_Thompson_50rnd_1143x23_M1911B_Magazine";};
 	};	
 	case "rhs_weap_m1garand_sa43": {
 		for "_i" from 1 to 20 do {player addItem "rhsgref_8Rnd_762x63_M2B_M1rifle";};

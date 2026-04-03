@@ -11,17 +11,122 @@ removeGoggles player;
 comment "Create the arrays for different equipment";
 _grip = "";
 _rifle = [
-	"rhs_weap_hk416d145_d", 0.05,
-	"rhs_weap_HK416D15_smr_tan", 0.05,
-	"rhs_weap_HK416D15_smr_kac_tan", 0.05,
-	"rhs_weap_m4a1_nsr_tan", 0.05,
-	"rhs_weap_m4a1_nsr", 0.05,
-	"rhs_weap_hk416d10_LMT_d", 0.50,
-	"rhs_weap_HK416D10_smr_tan", 0.50,
-	"rhs_weap_HK416D10_smr_kac_tan", 0.50,
-	"rhs_weap_mk18_nsr_tan", 0.50,
-	"rhs_weap_mk18_nsr", 0.50,
-	"rhs_weap_HK416D10_smr", 0.50] call BIS_fnc_selectRandomWeighted;
+    "rhs_weap_hk416d145_d", 0.05,
+    "rhs_weap_HK416D15_smr_tan", 0.05,
+    "rhs_weap_HK416D15_smr_kac_tan", 0.05,
+    "rhs_weap_m4a1_nsr_tan", 0.05,
+    "rhs_weap_m4a1_nsr", 0.05,
+    "rhs_weap_hk416d10_LMT_d", 0.50,
+    "rhs_weap_HK416D10_smr_tan", 0.50,
+    "rhs_weap_HK416D10_smr_kac_tan", 0.50,
+    "rhs_weap_HK416D10_smr_kac_des", 0.50,
+    "rhs_weap_mk18_nsr_tan", 0.50,
+    "rhs_weap_mk18_nsr", 0.50,
+    "rhs_weap_HK416D10_smr", 0.50] call BIS_fnc_selectRandomWeighted;
+switch(_rifle) do {
+	case "rhs_weap_hk416d145_d": {
+		_optic = "optic_mrco";
+		_grip = "rhsusf_acc_grip2_tan";
+	};
+	case "rhs_weap_HK416D15_smr_tan": {
+		_optic = "optic_mrco";
+		_grip = [
+			"rhs_acc_smr_bcm_tan",
+			"rhs_acc_smr_tan",
+			"rhs_acc_smr_des",
+			"rhs_acc_smr_bcm_des"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_HK416D15_smr_tan_kac": {
+		_optic = "optic_mrco";
+		_grip = [
+			"rhs_acc_smr_bcm_tan",
+			"rhs_acc_smr_tan",
+			"rhs_acc_smr_des",
+			"rhs_acc_smr_bcm_des"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_m4a1_nsr_tan": {
+		_optic = "optic_mrco";
+		_grip = [
+			"rhs_acc_nsr_tan", 0.60,
+			"rhs_acc_nsr_bcm_tan", 0.60,
+			"rhs_acc_nsr13_tan", 0.60,
+			"rhs_acc_nsr13_bcm_tan", 0.60,
+			"rhs_acc_nsr_des", 0.60,
+			"rhs_acc_nsr_bcm_des", 0.60,
+			"rhs_acc_nsr13_des", 0.60,
+			"rhs_acc_nsr13_bcm_des", 0.60,
+			"rhs_acc_nsr_blk", 0.10,
+			"rhs_acc_nsr_bcm_blk", 0.10,
+			"rhs_acc_nsr13_blk", 0.10,
+			"rhs_acc_nsr13_bcm_blk", 0.10] call BIS_fnc_selectRandomWeighted;
+	};
+	case "rhs_weap_m4a1_nsr_tan": {
+		_optic = "optic_mrco";
+		_grip = [
+			"rhs_acc_nsr_tan",
+			"rhs_acc_nsr_bcm_tan",
+			"rhs_acc_nsr13_tan",
+			"rhs_acc_nsr13_bcm_tan",
+			"rhs_acc_nsr_des",
+			"rhs_acc_nsr_bcm_des",
+			"rhs_acc_nsr13_des",
+			"rhs_acc_nsr13_bcm_des",
+			"rhs_acc_nsr_blk",
+			"rhs_acc_nsr_bcm_blk",
+			"rhs_acc_nsr13_blk",
+			"rhs_acc_nsr13_bcm_blk"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_mk18_nsr": {
+		_grip = [
+			"rhs_acc_nsr9_blk",
+			"rhs_acc_nsr9_bcm_blk",
+			"rhs_acc_nsr9_des",
+			"rhs_acc_nsr9_bcm_des",
+			"rhs_acc_nsr9_tan",
+			"rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_mk18_nsr_tan": {
+		_grip = [
+			"rhs_acc_nsr9_blk",
+			"rhs_acc_nsr9_bcm_blk",
+			"rhs_acc_nsr9_des",
+			"rhs_acc_nsr9_bcm_des",
+			"rhs_acc_nsr9_tan",
+			"rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_HK416D10_smr": {
+		_grip = [
+			"rhs_acc_smr_s_blk",
+			"rhs_acc_smr_s_bcm_blk",
+			"rhs_acc_smr_s_tan",
+			"rhs_acc_smr_s_bcm_tan"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_hk416d10_LMT_d": {
+		_grip = [
+			"",
+			"rhsusf_acc_kac_grip_frwd",
+			"rhsusf_acc_rvg_de",
+			"rhsusf_acc_tdstubby_tan"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_HK416D10_smr_tan": {
+		_grip = [
+			"rhs_acc_smr_s_blk",
+			"rhs_acc_smr_s_bcm_blk",
+			"rhs_acc_smr_s_tan",
+			"rhs_acc_smr_s_bcm_tan",
+			"rhs_acc_smr_s_des",
+			"rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
+	};
+	case "rhs_weap_HK416D10_smr_kac_tan": {
+		_grip = [
+			"rhs_acc_smr_s_blk",
+			"rhs_acc_smr_s_bcm_blk",
+			"rhs_acc_smr_s_tan",
+			"rhs_acc_smr_s_bcm_tan",
+			"rhs_acc_smr_s_des",
+			"rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
+	};
+};
 _muzzle = [
 	"rhsusf_acc_rotex5_grey", 0.75, 
 	"rhsusf_acc_rotex5_tan", 0.25] call BIS_fnc_selectRandomWeighted;
@@ -30,11 +135,30 @@ _lam = [
 	"rhsusf_acc_anpeq15_bk", 0.25, 
 	"rhsusf_acc_anpeq15_wmx", 0.25] call BIS_fnc_selectRandomWeighted;
 _optic = [
-	"rhsusf_acc_EOTECH", 0.50, 
-	"rhsusf_acc_eotech_xps3", 0.15, 
-	"rhsusf_acc_t1_high", 0.15, 
-	"rhsusf_acc_g33_xps3_tan", 0.15, 
-	"optic_mrco", 0.05] call BIS_fnc_selectRandomWeighted;
+    "rhsusf_acc_EOTECH", 0.50, 
+    "rhsusf_acc_eotech_xps3", 0.15, 
+    "tsp_acc_xps3_tan_unity_black", 0.05, 
+    "tsp_acc_xps3_black_unity_black", 0.05,
+    "tsp_acc_t2_hydra_tan", 0.05,  
+    "rhsusf_acc_t1_high", 0.15, 
+    "tsp_acc_t2_unity_tan", 0.15, 
+    "tsp_acc_t2_unity_black", 0.15, 
+    "tsp_acc_xps3_tan_unity_black", 0.15, 
+    "tsp_acc_t2_unity_black_g33_black_flip", 0.05, 
+    "tsp_acc_t2_unity_tan_g33_black_flip", 0.05, 
+    "tsp_acc_t2_unity_tan_g33_tan_flip", 0.05, 
+    "tsp_acc_xps3_tan_unity_tan_g33_black_flip", 0.05, 
+    "tsp_acc_xps3_tan_unity_black_g33_tan_flip", 0.05, 
+    "rhsusf_acc_g33_xps3_tan", 0.15, 
+    "optic_mrco", 0.05] call BIS_fnc_selectRandomWeighted;
+switch(_optic) do {
+    case "tsp_acc_t2_hydra_tan": {
+        _lam = [
+            "rhsusf_acc_M952V",
+            "rhsusf_acc_wmx",
+            "rhsusf_acc_wmx_bk"] call BIS_fnc_selectRandom;
+    };
+};
 _clothing = [
 	"ARD_MC_Blk_Camo_Cyre", 0.60, 
 	"ARD_MC_Blk_Camo_Cyre_SS", 0.30, 
@@ -147,40 +271,44 @@ _goggles = [
 	"USP_BEARD2_BRN6",
 	"USP_BEARD_BRN4"] call BIS_fnc_selectRandom;
 _nods = [
-	"USP_GPNVG18_WP_GM_TAN", 0.25, 
-	"USP_GPNVG18_WP_GM_TAR_TAN", 0.25,
-	"USP_PVS31_WP_BLK2", 0.50, 
-	"USP_PVS31_WP_TAN", 0.50, 
-	"USP_PVS31_WP_TAN2", 0.25,
-	"USP_PVS31_WP_HIGH_BLK", 0.25,
-	"USP_PVS31_WP_HIGH_BLK2", 0.25,
-	"USP_PVS31_WP_HIGH_TAN", 0.25,
-	"USP_PVS31_WP_HIGH_TAN2", 0.25,
-	"USP_PVS31_WP_LOW_BLK", 0.25,
-	"USP_PVS31_WP_LOW_BLK2", 0.25,
-	"USP_PVS31_WP_LOW_TAN", 0.25,
-	"USP_PVS31_WP_LOW_TAN2", 0.25,
-	"USP_PVS31_WP_MID_BLK", 0.25,
-	"USP_PVS31_WP_MID_BLK2", 0.25,
-	"USP_PVS31_WP_MID_TAN2", 0.25,
-	"USP_PVS31_WP_TAR_BLK", 0.25,
-	"USP_PVS31_WP_TAR_BLK2", 0.25,
-	"USP_PVS31_WP_TAR_TAN", 0.25,
-	"USP_PVS31_WP_TAR_TAN2", 0.25,
-	"USP_PVS31_WP_TAR_HIGH_BLK", 0.25,
-	"USP_PVS31_WP_TAR_HIGH_BLK2", 0.25,
-	"USP_PVS31_WP_TAR_HIGH_TAN", 0.25,
-	"USP_PVS31_WP_TAR_HIGH_TAN2", 0.25,
-	"USP_PVS31_WP_TAR_LOW_BLK", 0.25,
-	"USP_PVS31_WP_TAR_LOW_BLK2", 0.25,
-	"USP_PVS31_WP_TAR_LOW_TAN", 0.25,
-	"USP_PVS31_WP_TAR_LOW_TAN2", 0.25,
-	"USP_PVS31_WP_TAR_MID_BLK", 0.25,
-	"USP_PVS31_WP_TAR_MID_BLK2", 0.25,
-	"USP_PVS31_WP_TAR_MID_TAN", 0.25,
-	"USP_PVS31_WP_TAR_MID_TAN2", 0.25,	
-	"USP_PVS15", 0.25,
-	"USP_PVS15_TAR", 0.25] call BIS_fnc_selectRandomWeighted;
+    "USP_GPNVG18_WP_GM_TAN", 0.25, 
+    "USP_GPNVG18_WP_GM_TAR_TAN", 0.25,
+    "USP_GPNVG18_WP_CB3_TAR_TAN", 0.10,
+    "USP_GPNVG18_WP_CB3_TAN", 0.10,
+    "USP_GPNVG18_WP_CB2_TAR_TAN", 0.10,
+    "USP_GPNVG18_CB2_TAN", 0.10,
+    "USP_PVS31_WP_BLK2", 0.50, 
+    "USP_PVS31_WP_TAN", 0.50, 
+    "USP_PVS31_WP_TAN2", 0.25,
+    "USP_PVS31_WP_HIGH_BLK", 0.25,
+    "USP_PVS31_WP_HIGH_BLK2", 0.25,
+    "USP_PVS31_WP_HIGH_TAN", 0.25,
+    "USP_PVS31_WP_HIGH_TAN2", 0.25,
+    "USP_PVS31_WP_LOW_BLK", 0.25,
+    "USP_PVS31_WP_LOW_BLK2", 0.25,
+    "USP_PVS31_WP_LOW_TAN", 0.25,
+    "USP_PVS31_WP_LOW_TAN2", 0.25,
+    "USP_PVS31_WP_MID_BLK", 0.25,
+    "USP_PVS31_WP_MID_BLK2", 0.25,
+    "USP_PVS31_WP_MID_TAN2", 0.25,
+    "USP_PVS31_WP_TAR_BLK", 0.25,
+    "USP_PVS31_WP_TAR_BLK2", 0.25,
+    "USP_PVS31_WP_TAR_TAN", 0.25,
+    "USP_PVS31_WP_TAR_TAN2", 0.25,
+    "USP_PVS31_WP_TAR_HIGH_BLK", 0.25,
+    "USP_PVS31_WP_TAR_HIGH_BLK2", 0.25,
+    "USP_PVS31_WP_TAR_HIGH_TAN", 0.25,
+    "USP_PVS31_WP_TAR_HIGH_TAN2", 0.25,
+    "USP_PVS31_WP_TAR_LOW_BLK", 0.25,
+    "USP_PVS31_WP_TAR_LOW_BLK2", 0.25,
+    "USP_PVS31_WP_TAR_LOW_TAN", 0.25,
+    "USP_PVS31_WP_TAR_LOW_TAN2", 0.25,
+    "USP_PVS31_WP_TAR_MID_BLK", 0.25,
+    "USP_PVS31_WP_TAR_MID_BLK2", 0.25,
+    "USP_PVS31_WP_TAR_MID_TAN", 0.25,
+    "USP_PVS31_WP_TAR_MID_TAN2", 0.25,    
+    "USP_PVS15", 0.25,
+    "USP_PVS15_TAR", 0.25] call BIS_fnc_selectRandomWeighted;
 _flash = [
 	"ACE_M84",
 	"ACE_CTS9"] call BIS_fnc_selectRandom;
@@ -191,113 +319,6 @@ _breach = [
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch(_rifle) do {
-	case "rhs_weap_hk416d145_d": {
-		_optic = "optic_mrco";
-		_grip = "rhsusf_acc_grip2_tan";
-	};
-	case "rhs_weap_HK416D15_smr_tan": {
-		_optic = "optic_mrco";
-		_grip = [
-			"rhs_acc_smr_bcm_tan",
-			"rhs_acc_smr_tan",
-			"rhs_acc_smr_des",
-			"rhs_acc_smr_bcm_des"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_HK416D15_smr_tan_kac": {
-		_optic = "optic_mrco";
-		_grip = [
-			"rhs_acc_smr_bcm_tan",
-			"rhs_acc_smr_tan",
-			"rhs_acc_smr_des",
-			"rhs_acc_smr_bcm_des"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_m4a1_nsr_tan": {
-		_optic = "optic_mrco";
-		_grip = [
-			"rhs_acc_nsr_tan", 0.60,
-			"rhs_acc_nsr_bcm_tan", 0.60,
-			"rhs_acc_nsr13_tan", 0.60,
-			"rhs_acc_nsr13_bcm_tan", 0.60,
-			"rhs_acc_nsr_des", 0.60,
-			"rhs_acc_nsr_bcm_des", 0.60,
-			"rhs_acc_nsr13_des", 0.60,
-			"rhs_acc_nsr13_bcm_des", 0.60,
-			"rhs_acc_nsr_blk", 0.10,
-			"rhs_acc_nsr_bcm_blk", 0.10,
-			"rhs_acc_nsr13_blk", 0.10,
-			"rhs_acc_nsr13_bcm_blk", 0.10] call BIS_fnc_selectRandomWeighted;
-	};
-	case "rhs_weap_m4a1_nsr_tan": {
-		_optic = "optic_mrco";
-		_grip = [
-			"rhs_acc_nsr_tan",
-			"rhs_acc_nsr_bcm_tan",
-			"rhs_acc_nsr13_tan",
-			"rhs_acc_nsr13_bcm_tan",
-			"rhs_acc_nsr_des",
-			"rhs_acc_nsr_bcm_des",
-			"rhs_acc_nsr13_des",
-			"rhs_acc_nsr13_bcm_des",
-			"rhs_acc_nsr_blk",
-			"rhs_acc_nsr_bcm_blk",
-			"rhs_acc_nsr13_blk",
-			"rhs_acc_nsr13_bcm_blk"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_mk18_nsr": {
-		_grip = [
-			"rhs_acc_nsr9_blk",
-			"rhs_acc_nsr9_bcm_blk",
-			"rhs_acc_nsr9_des",
-			"rhs_acc_nsr9_bcm_des",
-			"rhs_acc_nsr9_tan",
-			"rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_mk18_nsr_tan": {
-		_grip = [
-			"rhs_acc_nsr9_blk",
-			"rhs_acc_nsr9_bcm_blk",
-			"rhs_acc_nsr9_des",
-			"rhs_acc_nsr9_bcm_des",
-			"rhs_acc_nsr9_tan",
-			"rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_HK416D10_smr": {
-		_grip = [
-			"rhs_acc_smr_s_blk",
-			"rhs_acc_smr_s_bcm_blk",
-			"rhs_acc_smr_s_tan",
-			"rhs_acc_smr_s_bcm_tan"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_hk416d10_LMT_d": {
-		_grip = [
-			"",
-			"rhsusf_acc_kac_grip_frwd",
-			"rhsusf_acc_rvg_de",
-			"rhsusf_acc_tdstubby_tan"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_HK416D10_smr_tan": {
-		_grip = [
-			"rhs_acc_smr_s_blk",
-			"rhs_acc_smr_s_bcm_blk",
-			"rhs_acc_smr_s_tan",
-			"rhs_acc_smr_s_bcm_tan",
-			"rhs_acc_smr_s_des",
-			"rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
-	};
-	case "rhs_weap_HK416D10_smr_kac_tan": {
-		_grip = [
-			"rhs_acc_smr_s_blk",
-			"rhs_acc_smr_s_bcm_blk",
-			"rhs_acc_smr_s_tan",
-			"rhs_acc_smr_s_bcm_tan",
-			"rhs_acc_smr_s_des",
-			"rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
-	};
-	default {
-		_grip = "";
-	};
-};
 player addPrimaryWeaponItem _optic;
 player addPrimaryWeaponItem _muzzle;
 player addPrimaryWeaponItem _lam;

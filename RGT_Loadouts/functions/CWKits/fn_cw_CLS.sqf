@@ -11,6 +11,9 @@ comment "Create the arrays for different equipment";
 _rifle = [
 	"rhs_weap_l1a1", 0.70,
 	"rhs_weap_l1a1_wood", 0.70,
+	"UK3CB_M14", 0.20,
+	"UK3CB_G3A3V", 0.20,
+	"UK3CB_G3A3", 0.20,
 	"rhs_weap_m14", 0.20,
 	"rhs_weap_akm", 0.10,
 	"rhs_weap_m1garand_sa43", 0.05]	call BIS_fnc_selectRandomWeighted;
@@ -30,13 +33,34 @@ _ammo = [
 	"rhs_mag_20Rnd_762x51_m62_fnfal", 
 	"rhs_mag_20Rnd_762x51_m80_fnfal", 
 	"rhs_mag_20Rnd_762x51_m80a1_fnfal"] call BIS_fnc_selectRandom;
+_ammo1 = [
+	"ACE_20Rnd_762x51_M118LR_Mag", 
+	"ACE_20Rnd_762x51_M993_AP_Mag", 
+	"UK3CB_G3_20rnd_762x51_R", 
+	"UK3CB_G3_20rnd_762x51"] call BIS_fnc_selectRandom;
 _helmet = [
-	"rhsgref_helmet_M1_erdl", 0.70, 
-	"rhsgref_helmet_M1_mit", 0.05, 
-	"rhsgref_helmet_M1_bare", 0.05, 
-	"rhsgref_helmet_M1_bare_alt01", 0.05, 
-	"rhsgref_helmet_M1_painted", 0.10, 
-	"rhsgref_helmet_M1_painted_alt01", 0.10] call BIS_fnc_selectRandomWeighted;
+	"UK3CB_MDF_B_H_M1_ALT_MED", 0.70,
+	"UK3CB_MDF_B_H_M1_MED", 0.05] call BIS_fnc_selectRandomWeighted;
+_bag = [
+	"rhsgref_hidf_alicepack",
+	"rhsgref_ttsko_alicepack",
+	"UK3CB_B_Alice_pack_01",
+	"UK3CB_B_Alice_pack_02_M81",
+	"UK3CB_B_Alice_pack_02",
+	"UK3CB_B_Alice_pack_03_M81",
+	"UK3CB_B_Alice_pack_03",
+	"UK3CB_B_Alice_pack_04",
+	"UK3CB_B_Alice_pack_04_M81",
+	"UK3CB_B_Alice_pack_covered_01",
+	"UK3CB_B_Alice_Bedroll_K",
+	"UK3CB_B_Alice_Bedroll_2_K",
+	"UK3CB_B_Alice_pack_frame_01_M81",
+	"UK3CB_B_Alice_pack_frame_01",
+	"UK3CB_B_Alice_pack_frame_02_M81",
+	"UK3CB_B_Alice_pack_frame_02",
+	"rhsgref_wdl_alicepack",
+	"rhssaf_alice_md2camo",
+	"rhssaf_alice_smb"] call BIS_fnc_selectRandom;
 _frag = [
 	"HandGrenade",
 	"rhs_grenade_mkii_mag"] call BIS_fnc_selectRandom;
@@ -50,7 +74,7 @@ comment "Add Uniforms and Gear";
 player forceAddUniform _uniform;
 player addVest _vest;
 player addHeadgear _helmet;
-player addBackpack "TRYK_B_Medbag_BK";
+player addBackpack _bag;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;

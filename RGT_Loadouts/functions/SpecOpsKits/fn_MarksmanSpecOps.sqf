@@ -9,14 +9,31 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_sr25_ec_d",
-	"rhs_weap_sr25_d", 
-	"rhs_weap_mk17_STD"] call BIS_fnc_selectRandom;
-_lam = [
-	"rhsusf_acc_anpeq15", 
-	"rhsusf_acc_anpeq15_wmx_sc", 
-	"rhsusf_acc_anpeq15_wmx"] call BIS_fnc_selectRandom;
+_lam = "";
+_mag1 = "";
+_mag2 = "";
+_rifleinfo = [
+	["rhs_weap_sr25_ec_d", "rhsgref_sdn6_suppressor", "sr25"],
+	["rhs_weap_sr25_d", "rhsusf_acc_sr25s_d", "sr25"], 
+	["rhs_weap_mk17_STD", "rhsgref_sdn6_suppressor", "scar"]] call BIS_fnc_selectRandom;
+_rifle = _rifleinfo select 0;
+_muzzle = _rifleinfo select 1;
+_rifletype = _rifleinfo select 2;
+switch (_rifletype) do {
+	case "sr25": {
+		_lam = "rhsusf_acc_anpeq16a";
+		_mag1 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
+		_mag2 = "rhsusf_20Rnd_762x51_SR25_m993_Mag";
+	};
+	case "scar": {
+		_lam = [
+			"rhsusf_acc_anpeq15", 
+			"rhsusf_acc_anpeq15_wmx_sc", 
+			"rhsusf_acc_anpeq15_wmx"] call BIS_fnc_selectRandom;
+		_mag1 = "rhs_mag_20Rnd_SCAR_762x51_mk316_special";
+		_mag2 = "rhs_mag_20Rnd_SCAR_762x51_m61_ap";
+	};
+};
 _clothing = [
 	"ARD_MC_Blk_Camo_Cyre", 0.60, 
 	"ARD_MC_Blk_Camo_Cyre_SS", 0.30, 
@@ -162,20 +179,8 @@ _breach = [
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch (_rifle) do {
-	case "rhs_weap_sr25_ec_d": {
-		player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
-		player addPrimaryWeaponItem "rhsgref_sdn6_suppressor"; 
-	};
-	case "rhs_weap_sr25_d": {
-		player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
-		player addPrimaryWeaponItem "rhsusf_acc_sr25s_d"; 
-	};
-	case "rhs_weap_mk17_STD": {
-		player addPrimaryWeaponItem _lam;
-		player addPrimaryWeaponItem "rhsgref_sdn6_suppressor"; 
-	};
-};
+player addPrimaryWeaponItem _muzzle;
+player addPrimaryWeaponItem _lam;
 player addPrimaryWeaponItem "optic_mrco";
 player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
 player addWeapon "rhsusf_weap_glock17g4";
@@ -205,19 +210,8 @@ player addItem "SmokeShellBlue";
 player addItem _breach;
 for "_i" from 1 to 2 do {player addItem _flash;};
 player addItem "SmokeShell";
-switch (_rifle) do {
-	case "rhs_weap_mk17_STD": {
-		for "_i" from 1 to 3 do {player addItem "rhs_mag_20Rnd_SCAR_762x51_mk316_special";};
-		for "_i" from 1 to 2 do {player addItem "rhs_mag_20Rnd_SCAR_762x51_m61_ap";};
-	};
-	case "SMA_HK417_16in": {
-		for "_i" from 1 to 7 do {player addItem "20Rnd_762x51_Mag";};
-	};	
-	default {
-		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
-		for "_i" from 1 to 2 do {player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";};
-	};
-};
+for "_i" from 1 to 3 do {player addItem _mag1;};
+for "_i" from 1 to 2 do {player addItem _mag2;};
 player addItem "ACE_Flashlight_MX991";
 player addItem "tsp_breach_shock";
 player addItem "ACE_MapTools";

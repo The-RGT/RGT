@@ -8,9 +8,21 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
+_optic = "";
+_grip = "";
+_rail = "";
 _rifle = [
 	"rhs_weap_m249", 0.90, 
 	"rhs_weap_m249_light_S", 0.05] call BIS_fnc_selectRandomWeighted;
+switch(_rifle) do {
+	case "rhs_weap_m249_light_S": {
+		_optic = "rhsusf_acc_elcan_ard";
+		_rail = "rhsusf_acc_m952v";
+	};
+	case "rhs_weap_m249": {
+		_grip = "rhsusf_acc_saw_bipod";
+	};
+};
 _optic = [
 	"rhsusf_acc_eotech_552", 0.70, 
 	"rhsusf_acc_compm4", 0.25] call BIS_fnc_selectRandomWeighted;
@@ -68,15 +80,9 @@ player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch(_rifle) do {
-	case "rhs_weap_m249_light_S": {
-		player addPrimaryWeaponItem "rhsusf_acc_elcan_ard";
-		player addPrimaryWeaponItem "rhsusf_acc_m952v";
-	};
-	default {
-		player addPrimaryWeaponItem "rhsusf_acc_saw_bipod";
-	};
-};
+player addPrimaryWeaponItem _optic;
+player addPrimaryWeaponItem _rail;
+player addPrimaryWeaponItem _grip;
 player addWeapon "rhsusf_weap_m9";
 
 comment "Fill Uniform and Gear";

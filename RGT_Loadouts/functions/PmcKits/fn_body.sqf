@@ -80,10 +80,10 @@ switch (_role) do {
             case "rhsusf_weap_MP7A2": {
                 player addPrimaryWeaponItem "rhs_acc_grip_ffg2";
                 player addPrimaryWeaponItem "rhsusf_acc_mrds";
-                for "_i" from 1 to 5 do { player addItemToBackpack "rhsusf_mag_40Rnd_46x30_FMJ" };
+                for "_i" from 1 to 5 do { player addItem "rhsusf_mag_40Rnd_46x30_FMJ" };
             };
             default {
-                for "_i" from 1 to 5 do { player addItemToBackpack "UK3CB_MP5_30Rnd_9x19_Magazine" };
+                for "_i" from 1 to 5 do { player addItem "UK3CB_MP5_30Rnd_9x19_Magazine" };
             };
         };
 		for "_i" from 1 to 3 do {player addItem _pammo;};

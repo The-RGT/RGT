@@ -33,7 +33,7 @@ _helmet = [
 	"USP_BASEBALL_CAP_CT3_MCA",
 	"USP_BASEBALL_CAP_CT3_KTYETI",
 	"USP_BASEBALL_CAP_CT3O_KTYETI"] call BIS_fnc_selectRandom;
-_LRR = [
+_bag = [
 	"USP_TACTICAL_PACK_MCA_CCT",
 	"USP_TACTICAL_PACK_MCA_CCT5",
 	"USP_TACTICAL_PACK_MCA_CCT6"] call BIS_fnc_selectRandom;
@@ -47,7 +47,7 @@ player forceAddUniform _clothing;
 player addVest _vest;
 player addHeadgear _helmet;
 player addGoggles "rhsusf_shemagh_white";
-player addBackpack _LRR;
+player addBackpack _bag;
 
 comment "Add Weapons and attachments";
 player addWeapon "rhs_weap_mk18_KAC_bk";

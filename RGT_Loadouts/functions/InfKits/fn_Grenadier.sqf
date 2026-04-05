@@ -8,12 +8,23 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_m4a1_m203s", 0.70, 
-	"rhs_weap_m4a1_blockII_M203", 0.10, 	
-	"rhs_weap_m4a1_m203", 0.10, 
-	"rhs_weap_mk18_m320", 0.10, 
-	"rhs_weap_m4a1_m320", 0.10] call BIS_fnc_selectRandomWeighted;
+_grip = "";
+_rifles = [
+	["rhs_weap_m4a1_m203s", "m203grip"], 0.70, 
+	["rhs_weap_m4a1_blockII_M203", "m203gripd"], 0.10, 	
+	["rhs_weap_m4a1_m203", "m203grip"], 0.10, 
+	["rhs_weap_mk18_m320", ""], 0.10, 
+	["rhs_weap_m4a1_m320", ""], 0.10] call BIS_fnc_selectRandomWeighted;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+switch (_rifletype) do {
+	case "m203grip": {
+		_grip = ["rhsusf_acc_grip_m203_blk", 0.1, "", 0.9] call BIS_fnc_selectRandomWeighted;
+	};
+	case "m203gripd": {
+		_grip = ["rhsusf_acc_grip_m203_blk", 0.05, "rhsusf_acc_grip_m203_d", 0.05, "", 0.9] call BIS_fnc_selectRandomWeighted;
+	};
+};
 _rail = [
 	"rhsusf_acc_M952V", 
 	"acc_flashlight", 
@@ -83,20 +94,7 @@ comment "Add Weapons and attachments";
 player addWeapon _rifle;
 player addPrimaryWeaponItem _rail;
 player addPrimaryWeaponItem _optic;
-switch(_rifle) do {
-	case "rhs_weap_m4a1_m203s": {
-		_grip = ["rhsusf_acc_grip_m203_blk", 0.1, "", 0.9] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_m4a1_m203": {
-		_grip = ["rhsusf_acc_grip_m203_blk", 0.1, "", 0.9] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_m4a1_blockII_M203": {
-		_grip = ["rhsusf_acc_grip_m203_blk", 0.2, "rhsusf_acc_grip_m203_d", 0.1, "", 0.7] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _grip;
-	};
-};
+player addPrimaryWeaponItem _grip;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";

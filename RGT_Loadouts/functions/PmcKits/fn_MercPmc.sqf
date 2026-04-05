@@ -9,13 +9,29 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_savz58p_rail_black",
-	"rhs_weap_savz58v_rail_black",
-	"rhs_weap_savz58v_ris",
-	"rhs_weap_m21a_pr",
-	"rhs_weap_m21s_pr",
-	"rhs_weap_aks74n_2_npz"] call BIS_fnc_selectRandom;
+_ammo = "";
+_rifles = [
+	["rhs_weap_savz58p_rail_black", "savz58", "rhsgref_acc_zendl", ""],
+	["rhs_weap_savz58v_rail_black", "savz58", "", ""],
+	["rhs_weap_savz58v_ris", "savz58", "rhsgref_acc_zendl", "rhs_acc_2dpZenit_ris"],
+	["rhs_weap_m21a_pr", "m21", "", "rhs_acc_2dpZenit"],
+	["rhs_weap_m21s_pr", "m21", "", "rhs_acc_2dpZenit"],
+	["rhs_weap_aks74n_2_npz", "ak", "", "rhs_acc_2dpZenit"]] call BIS_fnc_selectRandom;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+_mysterysauce = _rifles select 2;
+_lam = _rifles select 3;
+switch (_rifletype) do {
+	case "savz58": {
+		_ammo = "rhs_30Rnd_762x39mm_Savz58";
+	};
+	case "m21": {
+		_ammo = "rhsgref_30rnd_556x45_m21";
+	};
+	case "ak": {
+		_ammo = ["rhs_30Rnd_545x39_7N10_2mag_AK", "rhs_30Rnd_545x39_7N10_2mag_camo_AK", "rhs_30Rnd_545x39_7N10_2mag_desert_AK", "rhs_30Rnd_545x39_7N10_2mag_plum_AK", "rhs_30Rnd_545x39_7N10_camo_AK", "rhs_30Rnd_545x39_7N10_desert_AK", "rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N10_AK"] call BIS_fnc_selectRandom;
+	};
+};
 _optic = [
 	"rhsusf_acc_eotech_552", 
 	"rhsusf_acc_compm4", 
@@ -181,12 +197,14 @@ _helmet = [
 	"USP_BASEBALL_CAP_CGS", 
 	"USP_BASEBALL_CAP_MCB_CGS", 
 	"USP_BASEBALL_CAP_CT3_RT6"] call BIS_fnc_selectRandom;
-_pistol = [
-	"rhsusf_weap_m1911a1", 
-	"rhs_weap_cz99", 
-	"rhsusf_weap_m9", 
-	"UK3CB_BHP", 
-	"UK3CB_CZ75"] call BIS_fnc_selectRandom;
+_pistols = [
+	["rhsusf_weap_m1911a1", "rhsusf_mag_7x45acp_MHP"], 
+	["rhs_weap_cz99", "rhssaf_mag_15Rnd_9x19_FMJ"], 
+	["rhsusf_weap_m9", "rhsusf_mag_15Rnd_9x19_JHP"], 
+	["UK3CB_BHP", "UK3CB_BHP_9_13Rnd"], 
+	["UK3CB_CZ75", "UK3CB_CZ75_9_20Rnd"]] call BIS_fnc_selectRandom;
+_pistol = _pistols select 0;
+_pammo = _pistols select 1;
 	
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
@@ -196,8 +214,9 @@ player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-player addPrimaryWeaponItem "rhsusf_acc_m952v";
 player addPrimaryWeaponItem _optic;
+player addPrimaryWeaponItem _lam;
+player addPrimaryWeaponItem _mysterysauce;
 player addWeapon _pistol;
 
 comment "Fill Uniform and Gear";
@@ -210,23 +229,8 @@ player addItem "ACE_Flashlight_XL50";
 player addItem "Chemlight_green";
 player addItem "ACE_Chemlight_IR";
 player addItem "Chemlight_red";
-switch(_pistol) do {
-	case "rhsusf_weap_m1911a1": {
-	for "_i" from 1 to 4 do {player addItem "rhsusf_mag_7x45acp_MHP";};
-	};
-	case "rhsusf_weap_m9": {
-	for "_i" from 1 to 3 do {player addItem "rhsusf_mag_15Rnd_9x19_JHP";};
-	};
-	case "UK3CB_CZ75": {
-	for "_i" from 1 to 3 do {player addItem "UK3CB_CZ75_9_20Rnd";};
-	};
-	case "rhs_weap_cz99": {
-	for "_i" from 1 to 3 do {player addItem "rhssaf_mag_15Rnd_9x19_FMJ";};
-	};
-	case "UK3CB_BHP": {
-	for "_i" from 1 to 3 do {player addItem "UK3CB_BHP_9_13Rnd";};
-	};
-};
+for "_i" from 1 to 4 do {player addItem _pammo;};
+
 
 player addItem "ACE_microDAGR";
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};

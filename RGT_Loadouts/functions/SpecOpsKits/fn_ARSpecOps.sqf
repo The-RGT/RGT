@@ -9,19 +9,33 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_minimi_para_railed", 0.4,
-	"rhs_weap_m249_pip_S", 0.4,
-	"rhs_weap_m249_pip_S_para", 0.4,
-	"rhs_weap_m249_light_S", 0.4] call BIS_fnc_selectRandomWeighted;
-_bipod = [
-	"rhsusf_acc_grip1", 0.50, 
-	"rhsusf_acc_kac_grip_saw_bipod", 0.10, 
-	"rhsusf_acc_saw_bipod", 0.10, 
-	"rhsusf_acc_grip4_bipod", 0.10] call BIS_fnc_selectRandomWeighted;
+_bipod = "";
+_rifleinfo = [
+	["rhs_weap_m249_pip_S", 1], 0.4,
+	["rhs_weap_minimi_para_railed", 2], 0.4,
+	["rhs_weap_m249_pip_S_para", 2], 0.4,
+	["rhs_weap_m249_light_S", 2], 0.4] call BIS_fnc_selectRandomWeighted;
+_rifle = _rifleinfo select 0;
+_rifletype = _rifleinfo select 1;
+switch (_rifletype) do {
+	case 1: {
+		_bipod = "rhsusf_acc_grip1";
+	};
+	case 2: {
+		_bipod = [
+			"rhsusf_acc_grip1", 0.50, 
+			"rhsusf_acc_kac_grip_saw_bipod", 0.10, 
+			"rhsusf_acc_saw_bipod", 0.10, 
+			"rhsusf_acc_grip4_bipod", 0.10] call BIS_fnc_selectRandomWeighted;
+	};
+};
 _optic = [
-	"rhsusf_acc_eotech_xps3", 0.50, 
-	"rhsusf_acc_g33_xps3", 0.50] call BIS_fnc_selectRandomWeighted;
+    "rhsusf_acc_EOTECH", 0.50, 
+    "rhsusf_acc_eotech_xps3", 0.15, 
+    "tsp_acc_xps3_black_unity_black", 0.05,
+    "tsp_acc_xps3_tan_unity_tan_g33_black_flip", 0.05, 
+    "tsp_acc_xps3_tan_unity_black_g33_tan_flip", 0.05, 
+    "rhsusf_acc_g33_xps3", 0.15] call BIS_fnc_selectRandomWeighted;
 _clothing = [
 	"ARD_MC_Blk_Camo_Cyre", 0.60, 
 	"ARD_MC_Blk_Camo_Cyre_SS", 0.30, 
@@ -167,14 +181,8 @@ _mag = [
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-if (_rifle isEqualTo "rhs_weap_m249_pip_S") then {
-	player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
-	player addPrimaryWeaponItem "rhsusf_acc_grip1";
-};
-if ((_rifle isEqualTo "rhs_weap_minimi_para_railed") or (_rifle isEqualTo "rhs_weap_m249_pip_S_para") or (_rifle isEqualTo "rhs_weap_m249_light_S")) then {
-	player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
-	player addPrimaryWeaponItem _bipod;
-};
+player addPrimaryWeaponItem _bipod;
+player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
 player addPrimaryWeaponItem "rhsusf_acc_rotex5_grey";
 player addPrimaryWeaponItem _optic;
 player addWeapon "rhsusf_weap_glock17g4";

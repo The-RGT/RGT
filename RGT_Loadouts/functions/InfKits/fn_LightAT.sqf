@@ -8,16 +8,39 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_m4a1_blockII", 0.48, 
-	"rhs_weap_m4a1_blockII_d", 0.25, 
-	"rhs_weap_m4a1_blockII_KAC", 0.48, 
-	"rhs_weap_m4a1", 0.3, 
-	"rhs_weap_mk18", 0.02,
-	"rhs_weap_m4a1_urgi", 0.3,
-	"rhs_weap_m4a1_urgi_kac", 0.3,
-	"rhs_weap_mk18_urgi", 0.02,
-	"rhs_weap_mk18_urgi_kac", 0.02] call BIS_fnc_selectRandomWeighted;
+_grip = [
+	"", 
+	"rhsusf_acc_grip1",
+	"rhsusf_acc_grip2",
+	"rhsusf_acc_rvg_blk"] call BIS_fnc_selectRandom;
+_rifles = [
+	["rhs_weap_m4a1_blockII", "grip"], 0.48, 
+	["rhs_weap_m4a1_blockII_d", "grip"], 0.25, 
+	["rhs_weap_m4a1_blockII_KAC", "grip"], 0.48, 
+	["rhs_weap_m4a1", "grip"], 0.3, 
+	["rhs_weap_mk18", "grip"], 0.02,
+	["rhs_weap_m4a1_urgi", "m4urgi"], 0.3,
+	["rhs_weap_m4a1_urgi_kac", "m4urgi"], 0.3,
+	["rhs_weap_mk18_urgi", "mk18urgi"], 0.02,
+	["rhs_weap_mk18_urgi_kac", "mk18urgi_kac"], 0.02] call BIS_fnc_selectRandomWeighted;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+switch (_rifletype) do {
+	case "m4urgi": {
+		_grip = [
+			"rhs_acc_urgi_bcm_blk",
+			"rhs_acc_urgi_blk",
+			"rhs_acc_urgi_bcm_coy",
+			"rhs_acc_urgi_coy"] call BIS_fnc_selectRandom;
+	};
+	case "mk18urgi": {
+		_grip = [
+			"rhs_acc_urgi_s_blk",
+			"rhs_acc_urgi_s_bcm_blk",
+			"rhs_acc_urgi_s_bcm_coy",
+			"rhs_acc_urgi_s_coy"] call BIS_fnc_selectRandom;
+	};
+};
 _rail = [
 	"rhsusf_acc_M952V", 
 	"acc_flashlight", 
@@ -83,61 +106,9 @@ player addBackpack "USP_HYDRATION_PACK_MC";
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch(_rifle) do {
-	case "rhs_weap_m4a1_blockII_d": {
-		_grip = [
-			"", 
-			"rhsusf_acc_grip2_tan"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_m4a1_urgi": {
-		_grip = [
-			"rhs_acc_urgi_bcm_blk",
-			"rhs_acc_urgi_blk",
-			"rhs_acc_urgi_bcm_coy",
-			"rhs_acc_urgi_coy"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_m4a1": {
-		_grip = [
-			"rhsusf_acc_grip1", 
-			"rhsusf_acc_kac_grip",
-			"rhsusf_acc_rvg_de"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_m4a1_urgi_kac": {
-		_grip = [
-			"rhs_acc_urgi_bcm_blk",
-			"rhs_acc_urgi_blk",
-			"rhs_acc_urgi_bcm_coy",
-			"rhs_acc_urgi_coy"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_mk18_urgi": {
-		_grip = [
-			"rhs_acc_urgi_s_blk",
-			"rhs_acc_urgi_s_bcm_blk",
-			"rhs_acc_urgi_s_bcm_coy",
-			"rhs_acc_urgi_s_coy"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_mk18_urgi_kac": {
-		_grip = [
-			"rhs_acc_urgi_s_blk",
-			"rhs_acc_urgi_s_bcm_blk",
-			"rhs_acc_urgi_s_bcm_coy",
-			"rhs_acc_urgi_s_coy"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	default {
-		_grip = [
-			"", 
-			"rhsusf_acc_grip2"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-};
 player addPrimaryWeaponItem _rail;
 player addPrimaryWeaponItem _optic;
+player addPrimaryWeaponItem _grip;
 player addWeapon "rhs_weap_M136";
 
 comment "Fill Uniform and Gear";

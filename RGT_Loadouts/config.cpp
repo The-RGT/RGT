@@ -82,8 +82,10 @@ class CfgFunctions {
 				class AntiAir_AmmoBearerRUS {};
 				class Ghilliearid1 {};
 				class Ghilliearid2 {};
+				class Ghilliearid3 {};
 				class Ghillietrop1 {};
 				class Ghillietrop2 {};
+				class Ghillietrop3 {};
 				class MG_AmmoBearerRUS {};
 				class GrenadierAmmoBearerRUS {};
 		};
@@ -207,6 +209,8 @@ class CfgFunctions {
 				class MarksmanRUS {};
 				class MGRUS {};
 				class RiflemanRUS {};
+				class SniperRUS {};
+				class SpotterRUS {};
 				class RWcrewRUS {};
 				class FWcrewRUS {};
 				class AFVcrewRUS {};

@@ -8,16 +8,36 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_m14ebrri", 
-	"rhs_weap_mk17_LB", 
-	"srifle_DMR_06_camo_F", 
-	"rhs_weap_sr25_d", 
-	"rhs_weap_sr25", 
-	"rhs_weap_m14_rail",  
-	"rhs_weap_m14_rail_d", 
-	"rhs_weap_m14_rail_fiberglass",
-	"rhs_weap_m14_rail_wd"] call BIS_fnc_selectRandom;
+_lam ="";
+_ammo = "";
+_ammo1 = "";
+_rifles = [
+	["rhs_weap_mk17_LB", "scar"], 
+	["rhs_weap_sr25_d", "sr25"], 
+	["rhs_weap_sr25", "sr25"], 
+	["rhs_weap_m14ebrri", "m14"], 
+	["rhs_weap_m14_rail", "m14"],  
+	["rhs_weap_m14_rail_d", "m14"], 
+	["rhs_weap_m14_rail_fiberglass", "m14"],
+	["rhs_weap_m14_rail_wd", "m14"]] call BIS_fnc_selectRandom;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+switch (_rifletype) do {
+	case "scar": {
+		_lam = "rhsusf_acc_anpeq15_wmx_sc";
+		_ammo = "rhs_mag_20Rnd_SCAR_762x51_mk316_special";
+		_ammo1 = "rhs_mag_20Rnd_SCAR_762x51_m61_ap";
+	};
+	case "sr25": {
+		_lam = "rhsusf_acc_anpeq15side";
+		_ammo = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
+		_ammo1 = "rhsusf_20Rnd_762x51_SR25_m993_Mag";
+	};
+	case "m14": {
+		_ammo = "ACE_20Rnd_762x51_M118LR_Mag";
+		_ammo1 = "ACE_20Rnd_762x51_M993_AP_Mag";
+	};
+};
 _uniform = [
 	"milgp_u_g3_field_set_mc",
 	"USP_G3F_MC",
@@ -71,11 +91,7 @@ player addHeadgear _helmet;
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
 player addPrimaryWeaponItem "optic_MRCO";
-if (_rifle isEqualTo "rhs_weap_mk17_LB") then { 
-	player addPrimaryWeaponItem "rhsusf_acc_anpeq15_wmx_sc";
-}	else	{
-	player addPrimaryWeaponItem "rhsusf_acc_anpeq15side";
-};
+player addPrimaryWeaponItem _lam;
 player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
 player addPrimaryWeaponItem "rhsusf_acc_m14_bipod";
 player addWeapon "rhsusf_weap_m9";
@@ -98,24 +114,8 @@ for "_i" from 1 to 2 do {player addItem "HandGrenade";};
 player addItem "ACE_EntrenchingTool";
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "SmokeShellBlue";
-switch (_rifle) do {
-	case "rhs_weap_sr25_d": {
-		for "_i" from 1 to 4 do {player addItem "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
-		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";};
-	};
-	case "rhs_weap_sr25": {
-		for "_i" from 1 to 4 do {player addItem "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
-		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";};
-	};
-	case "rhs_weap_mk17_LB": {
-		for "_i" from 1 to 4 do {player addItem "rhs_mag_20Rnd_SCAR_762x51_mk316_special";};
-		for "_i" from 1 to 3 do {player addItem "rhs_mag_20Rnd_SCAR_762x51_m61_ap";};
-	};
-	default {
-		for "_i" from 1 to 4 do {player addItem "ACE_20Rnd_762x51_M118LR_Mag";};
-		for "_i" from 1 to 3 do {player addItem "ACE_20Rnd_762x51_M993_AP_Mag";};
-	};
-};
+for "_i" from 1 to 4 do {player addItem _ammo;};
+for "_i" from 1 to 3 do {player addItem _ammo1;};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

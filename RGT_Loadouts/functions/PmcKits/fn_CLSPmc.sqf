@@ -9,13 +9,29 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_savz58p_rail_black",
-	"rhs_weap_savz58v_rail_black",
-	"rhs_weap_savz58v_ris",
-	"rhs_weap_m21a_pr",
-	"rhs_weap_m21s_pr",
-	"rhs_weap_aks74n_2_npz"] call BIS_fnc_selectRandom;
+_ammo = "";
+_rifles = [
+	["rhs_weap_savz58p_rail_black", "savz58", "rhsgref_acc_zendl", ""],
+	["rhs_weap_savz58v_rail_black", "savz58", "", ""],
+	["rhs_weap_savz58v_ris", "savz58", "rhsgref_acc_zendl", "rhs_acc_2dpZenit_ris"],
+	["rhs_weap_m21a_pr", "m21", "", "rhs_acc_2dpZenit"],
+	["rhs_weap_m21s_pr", "m21", "", "rhs_acc_2dpZenit"],
+	["rhs_weap_aks74n_2_npz", "ak", "", "rhs_acc_2dpZenit"]] call BIS_fnc_selectRandom;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+_mysterysauce = _rifles select 2;
+_lam = _rifles select 3;
+switch (_rifletype) do {
+	case "savz58": {
+		_ammo = "rhs_30Rnd_762x39mm_Savz58";
+	};
+	case "m21": {
+		_ammo = "rhsgref_30rnd_556x45_m21";
+	};
+	case "ak": {
+		_ammo = ["rhs_30Rnd_545x39_7N10_2mag_AK", "rhs_30Rnd_545x39_7N10_2mag_camo_AK", "rhs_30Rnd_545x39_7N10_2mag_desert_AK", "rhs_30Rnd_545x39_7N10_2mag_plum_AK", "rhs_30Rnd_545x39_7N10_camo_AK", "rhs_30Rnd_545x39_7N10_desert_AK", "rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N10_AK"] call BIS_fnc_selectRandom;
+	};
+};
 _optic = [
 	"rhsusf_acc_eotech_552", 
 	"rhsusf_acc_compm4", 
@@ -44,11 +60,6 @@ _clothing = [
 	"TRYK_U_B_BLK_tan_Rollup_CombatUniform", 
 	"TRYK_U_B_wh_tan_Rollup_CombatUniform", 
 	"TRYK_shirts_DENIM_BK", 
-	"TRYK_shirts_DENIM_BL", 
-	"TRYK_shirts_DENIM_BWH", 
-	"TRYK_shirts_DENIM_od", 
-	"TRYK_shirts_DENIM_R", 
-	"TRYK_shirts_DENIM_RED2", 
 	"TRYK_shirts_DENIM_WH", 
 	"TRYK_shirts_DENIM_WHB", 
 	"TRYK_shirts_DENIM_ylb", 
@@ -181,12 +192,14 @@ _bag = [
 	"UK3CB_B_TacticalPack_Med_Oli",
 	"UK3CB_LFR_B_B_MESSENGER_MED",
 	"TRYK_B_Medbag_BK"] call BIS_fnc_selectRandom;
-_pistol = [
-	"rhsusf_weap_m1911a1", 
-	"rhs_weap_cz99", 
-	"rhsusf_weap_m9", 
-	"UK3CB_BHP", 
-	"UK3CB_CZ75"] call BIS_fnc_selectRandom;
+_pistols = [
+	["rhsusf_weap_m1911a1", "rhsusf_mag_7x45acp_MHP"], 
+	["rhs_weap_cz99", "rhssaf_mag_15Rnd_9x19_FMJ"], 
+	["rhsusf_weap_m9", "rhsusf_mag_15Rnd_9x19_JHP"], 
+	["UK3CB_BHP", "UK3CB_BHP_9_13Rnd"], 
+	["UK3CB_CZ75", "UK3CB_CZ75_9_20Rnd"]] call BIS_fnc_selectRandom;
+_pistol = _pistols select 0;
+_pammo = _pistols select 1;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
@@ -196,6 +209,9 @@ player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
+player addPrimaryWeaponItem _optic;
+player addPrimaryWeaponItem _lam;
+player addPrimaryWeaponItem _mysterysauce;
 player addWeapon _pistol;
 
 comment "Fill Uniform and Gear";
@@ -209,62 +225,13 @@ player addItem "ACE_Flashlight_XL50";
 player addItem "Chemlight_green";
 player addItem "ACE_Chemlight_IR";
 player addItem "Chemlight_red";
-switch(_pistol) do {
-	case "rhsusf_weap_m1911a1": {
-	for "_i" from 1 to 4 do {player addItem "rhsusf_mag_7x45acp_MHP";};
-	};
-	case "rhsusf_weap_m9": {
-	for "_i" from 1 to 3 do {player addItem "rhsusf_mag_15Rnd_9x19_JHP";};
-	};
-	case "UK3CB_CZ75": {
-	for "_i" from 1 to 3 do {player addItem "UK3CB_CZ75_9_20Rnd";};
-	};
-	case "rhs_weap_cz99": {
-	for "_i" from 1 to 3 do {player addItem "rhssaf_mag_15Rnd_9x19_FMJ";};
-	};
-	case "UK3CB_BHP": {
-	for "_i" from 1 to 3 do {player addItem "UK3CB_BHP_9_13Rnd";};
-	};
-};
+for "_i" from 1 to 4 do {player addItem _pammo;};
 player addItem "ACE_microDAGR";
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "HandGrenade";
 player addItem "SmokeShellGreen";
 player addItem "SmokeShellRed";
-switch (_rifle) do {
-	case "rhs_weap_savz58p_rail_black": {
-		player addPrimaryWeaponItem _optic;
-		for "_i" from 1 to 5 do {player addItem "rhs_30Rnd_762x39mm_Savz58";};
-		player addPrimaryWeaponItem "rhsgref_acc_zendl";		
-	};
-	case "rhs_weap_savz58v_rail_black": {
-		player addPrimaryWeaponItem _optic;		
-		for "_i" from 1 to 5 do {player addItem "rhs_30Rnd_762x39mm_Savz58";};
-	};
-	case "rhs_weap_savz58v_ris": {
-		player addPrimaryWeaponItem _optic;
-		for "_i" from 1 to 5 do {player addItem "rhs_30Rnd_762x39mm_Savz58";};
-		player addPrimaryWeaponItem "rhs_acc_2dpZenit_ris";
-		player addPrimaryWeaponItem "rhsgref_acc_zendl";		
-	};
-	case "rhs_weap_m21a_pr": {
-		player addPrimaryWeaponItem _optic;
-		for "_i" from 1 to 5 do {player addItem "rhsgref_30rnd_556x45_m21";};
-		player addPrimaryWeaponItem "rhs_acc_2dpZenit";		
-	};
-	case "rhs_weap_m21s_pr": {
-		player addPrimaryWeaponItem _optic;
-		for "_i" from 1 to 5 do {player addItem "rhsgref_30rnd_556x45_m21";};
-		player addPrimaryWeaponItem "rhs_acc_2dpZenit";
-	};
-	case "rhs_weap_aks74n_2_npz": {
-		_mags = ["rhs_30Rnd_545x39_7N10_2mag_AK", "rhs_30Rnd_545x39_7N10_2mag_camo_AK", "rhs_30Rnd_545x39_7N10_2mag_desert_AK", "rhs_30Rnd_545x39_7N10_2mag_plum_AK", "rhs_30Rnd_545x39_7N10_camo_AK", "rhs_30Rnd_545x39_7N10_desert_AK", "rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N10_AK"] call BIS_fnc_selectRandom;
-		for "_i" from 1 to 5 do {player addItem _mags;};
-		player addPrimaryWeaponItem _optic;
-		player addPrimaryWeaponItem "rhs_acc_2dpZenit";
-	};
-};
-for "_i" from 1 to 2 do {player addItem "rhsusf_mag_15Rnd_9x19_JHP";};
+for "_i" from 1 to 5 do {player addItem _ammo;};
 
 comment "Start of standard medical gear";
 for "_i" from 1 to 10 do {player addItemToBackpack "ACE_morphine";};

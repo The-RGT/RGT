@@ -34,12 +34,14 @@ player addHandgunItem "rhsusf_acc_omega9k";
 player addHandgunItem "acc_flashlight_pistol";
 player addHandgunItem "rhsusf_mag_17Rnd_9x19_FMJ";
 
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
+
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
 player addVest "USP_EAGLE_MBAV_LOAD_MCA";
 player addGoggles _facewear;
 player addHeadgear "USP_OPSCORE_FASTMTC_MCA_CGSW";
-player addBackpack "TRYK_B_Medbag_BK";
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_EarPlugs";
@@ -60,31 +62,6 @@ player addItem "SmokeShellRed";
 for "_i" from 1 to 6 do {player addItem "rhs_mag_30Rnd_556x45_M855A1_PMAG";};
 player addItemToBackpack "rhsusf_ANPVS_14";
 player addItem "tsp_lockpick";
-
-//Start of standard medical gear
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_epinephrine";};
-player addItemToBackpack "ACE_bodyBag";
-player addItemToBackpack "ACE_EntrenchingTool";
-player addItemToBackpack "ACE_SpraypaintRed";
-player addItemToBackpack "ACE_plasmaIV";
-player addItemToBackpack "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_plasmaIV_500";};
-player addItemToBackpack "ACE_plasmaIV_250";
-player addItemToBackpack "ACE_salineIV_250";
-player addItemToBackpack "ACE_surgicalKit";
-player addItemToBackpack "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItemToBackpack "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItemToBackpack "ACE_tourniquet";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_adenosine";};
-//End of Medical gear
-
-
-
-
 
 comment "Add final Gear";
 player linkItem "ItemMap";

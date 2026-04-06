@@ -70,10 +70,6 @@ _mag = [
 	"rhs_30Rnd_545x39_7N10_desert_AK", 
 	"rhs_30Rnd_545x39_7N10_plum_AK",
 	"rhs_30Rnd_545x39_7N10_AK"] call BIS_fnc_selectRandom;
-_medbag = [
-	"TRYK_B_Medbag_BK",
-	"USP_DELTA_BAG_BLK",
-	"USP_DELTA_BAG_MCB"] call BIS_fnc_selectRandom;
 _head = [
 	"rhsusf_opscore_coy_cover", 0.10, 
 	"rhsusf_opscore_mar_ut_pelt", 0.10, 
@@ -152,9 +148,11 @@ player addHandgunItem "rhsusf_mag_17Rnd_9x19_FMJ";
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
 player addVest _vest;
-player addBackpack _medbag;
 player addHeadgear _head;
 player addGoggles _goggles;
+
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_EarPlugs";
@@ -176,26 +174,6 @@ player addItem "SmokeShellRed";
 for "_i" from 1 to 6 do {player addItem _mag;};
 player addItem "ACE_M84";
 player addItem "tsp_lockpick";
-
-comment "Start of standard medical gear";
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_epinephrine";};
-player addItemToBackpack "ACE_bodyBag";
-player addItemToBackpack "ACE_SpraypaintRed";
-player addItemToBackpack "ACE_plasmaIV";
-player addItemToBackpack "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_plasmaIV_500";};
-player addItemToBackpack "ACE_plasmaIV_250";
-player addItemToBackpack "ACE_salineIV_250";
-player addItemToBackpack "ACE_surgicalKit";
-player addItemToBackpack "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItemToBackpack "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItemToBackpack "ACE_tourniquet";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_adenosine";};
-comment "End of Medical gear";
 
 
 comment "Add final Gear";

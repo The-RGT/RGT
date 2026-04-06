@@ -11,10 +11,11 @@ removeGoggles player;
 comment "Create the arrays for different equipment";
 _rifle = [
 	"rhs_weap_m249_pip_S_vfg1", 0.40, 
-	"rhs_weap_minimi_para_railed", 0.20, 
-	"rhs_weap_m249", 0.20, 
-	"rhs_weap_m249_pip", 0.20, 
-	"rhs_weap_m27iar_grip", 0.10] call BIS_fnc_selectRandomWeighted;
+	"rhs_weap_minimi_para_railed", 0.20] call BIS_fnc_selectRandomWeighted;
+_optic = [
+	"rhsusf_acc_ELCAN_ard", 0.50, 
+	"rhsusf_acc_su230", 0.25, 
+	"rhsusf_acc_su230_mrds", 0.25] call BIS_fnc_selectRandomWeighted;
 _clothing = [
 	"milgp_u_g3_field_set_rolled_mctropic", 0.60, 
 	"milgp_u_g3_field_set_mctropic", 0.15, 
@@ -77,19 +78,10 @@ player addBackpack _pack;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-if ((_rifle isEqualTo "rhs_weap_m249_pip_S_vfg1") or (_rifle isEqualTo "rhs_weap_minimi_para_railed")) then {
-	_optic = ["rhsusf_acc_ELCAN_ard", 0.50, "rhsusf_acc_su230", 0.25, "rhsusf_acc_su230_mrds", 0.25] call BIS_fnc_selectRandomWeighted;
-	player addPrimaryWeaponItem "rhsusf_acc_rotex5_grey";
-	player addPrimaryWeaponItem "rhsusf_acc_anpeq15side_bk";
-	player addPrimaryWeaponItem _optic;
-	player addPrimaryWeaponItem "rhsusf_acc_grip1";
-};
-if(_rifle isEqualTo "rhs_weap_m27iar_grip") then {
-	player addPrimaryWeaponItem "rhsusf_acc_m952v";
-	player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
-	_optic = ["rhsusf_acc_su230_mrds", "rhsusf_acc_su230"] call BIS_fnc_selectRandom;
-	player addPrimaryWeaponItem _optic;
-};
+player addPrimaryWeaponItem _optic;
+player addPrimaryWeaponItem "rhsusf_acc_rotex5_grey";
+player addPrimaryWeaponItem "rhsusf_acc_anpeq15side_bk";
+player addPrimaryWeaponItem "rhsusf_acc_grip1";
 player addWeapon "rhsusf_bino_m24_ARD";
 
 comment "Fill Uniform and Gear";
@@ -113,11 +105,7 @@ player addItem "SmokeShellBlue";
 player addItem "USP_PVS14";
 player addItem "A3_NVGHeadGearBlk_F";
 player addItem "APERSTripMine_Wire_Mag";
-if(_rifle isEqualTo "rhs_weap_m27iar_grip") then {
-	for "_i" from 1 to 8 do {player addItem "rhs_mag_100Rnd_556x45_M855A1_cmag";};
-} else {
-	for "_i" from 1 to 5 do {player addItem "rhsusf_200rnd_556x45_mixed_box";};
-};
+for "_i" from 1 to 5 do {player addItem "rhsusf_200rnd_556x45_mixed_box";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

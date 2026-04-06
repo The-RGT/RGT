@@ -10,27 +10,25 @@ removeGoggles player;
 
 comment "Create the arrays for different equipment";
 _rifle = [
-	"rhs_weap_mk18_bk", 0.05, 
-	"rhs_weap_mk18_urgi_kac", 0.05,
-	"rhs_weap_m4_urgi_kac", 0.1,
-	"rhs_weap_mk18_KAC_bk", 0.05, 
-	"rhs_weap_m4a1_blockII_bk", 0.40, 
-	"rhs_weap_m4a1_blockII_KAC_bk", 0.40, 
-	"rhs_weap_hk416d10_LMT", 0.05,
-	"rhs_weap_hk416d10_smr", 0.05,
-	"rhs_weap_hk416d10_smr_kac", 0.05,
-	"rhs_weap_hk416d15_smr", 0.05,
-	"rhs_weap_hk416d15_smr_kac", 0.05,
-	"rhs_weap_hk416d10", 0.05] call BIS_fnc_selectRandomWeighted;
+	"uk3cb_auga3_blk",
+	"uk3cb_auga3",
+	"uk3cb_auga2_blk",
+	"uk3cb_auga2"] call BIS_fnc_selectRandom;
 _lam = [
-	"rhsusf_acc_anpeq15", 0.50, 
-	"rhsusf_acc_anpeq15_bk", 0.25, 
-	"rhsusf_acc_anpeq15_wmx_light", 0.25] call BIS_fnc_selectRandomWeighted;
+	"rhsusf_acc_anpeq15side", 
+	"rhsusf_acc_anpeq15side_bk"] call BIS_fnc_selectRandom;
 _optic = [
 	"rhsusf_acc_eotech_xps3", 0.70, 
-	"optic_mrco", 0.05, 
+	"optic_mrco", 0.05,
+	"rhsusf_acc_ACOG2", 0.05, 
 	"rhsusf_acc_t1_high", 0.10, 
-	"rhsusf_acc_g33_xps3", 0.10] call BIS_fnc_selectRandomWeighted;
+	"tsp_acc_xps3_black_unity_black_g33_tan_flip", 0.10,
+	"tsp_acc_xps3_black_unity_black_g33_black_flip", 0.10] call BIS_fnc_selectRandomWeighted;
+_muzzle = [
+	"",
+	"ACE_muzzle_mzls_L",
+	"rhsusf_acc_SF3P556",
+	"rhsusf_acc_SFMB556"] call BIS_fnc_selectRandom;
 _clothing = [
 	"U_I_C_Soldier_Bandit_2_F", 
 	"U_I_C_Soldier_Bandit_3_F", 
@@ -182,41 +180,10 @@ player addBackpack _pack;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-player addPrimaryWeaponItem "ace_muzzle_mzls_l";
+player addPrimaryWeaponItem _muzzle;
 player addPrimaryWeaponItem _lam;
 player addPrimaryWeaponItem _optic;
 player addWeapon "ACE_VMM3";
-switch(_rifle) do {
-	case "rhs_weap_mk18_urgi_kac": {
-		player addPrimaryWeaponItem "rhs_acc_mk18_urgi";
-	};
-	case "rhs_weap_m4_urgi_kac": {
-		player addPrimaryWeaponItem "rhs_acc_m4_urgi";
-	};
-	case "rhs_weap_hk416d10_smr": {
-		player addPrimaryWeaponItem "rhs_acc_mk18_smr";
-	};
-	case "rhs_weap_hk416d10_smr_kac": {
-		player addPrimaryWeaponItem "rhs_acc_mk18_smr";
-	};	
-	case "rhs_weap_hk416d15_smr": {
-		player addPrimaryWeaponItem "rhs_acc_m4_smr";
-	};
-	case "rhs_weap_mk18_bk": {
-		_grip = ["", "rhsusf_acc_grip2"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_mk18_KAC_bk": {
-		_grip = ["", "rhsusf_acc_grip2"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_m4a1_blockII_bk": {
-		player addPrimaryWeaponItem "rhsusf_acc_grip2";
-	};	
-	case "rhs_weap_m4a1_blockII_KAC_bk": {
-		player addPrimaryWeaponItem "rhsusf_acc_grip2";
-	};		
-};
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_EarPlugs";
@@ -232,7 +199,7 @@ player addItem "ACE_Chemlight_IR";
 player addItem "Chemlight_red";
 player addItem "HandGrenade";
 player addItem "SmokeShellRed";
-for "_i" from 1 to 5 do {player addItem _mag;};
+for "_i" from 1 to 6 do {player addItem "UK3CB_AUG_30Rnd_556x45_Magazine_G";};
 player addItem "SmokeShell";
 player addItemToBackpack "ACE_EntrenchingTool";
 player addItemToBackpack "ACE_wirecutter";

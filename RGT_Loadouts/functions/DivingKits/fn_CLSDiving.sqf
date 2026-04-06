@@ -96,7 +96,6 @@ player forceAddUniform _uniform;
 player addVest _vest;
 player addHeadgear _helmet;
 player addGoggles "G_B_Diving";
-player addBackpack "TRYK_B_Medbag_BK";
 
 
 comment "Add Weapons and attachments";
@@ -110,6 +109,9 @@ player addWeapon "rhsusf_weap_glock17g4";
 player addHandgunItem "rhsusf_acc_omega9k";
 player addHandgunItem "acc_flashlight_pistol";
 player addHandgunItem "rhsusf_mag_17Rnd_9x19_JHP";
+
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
 
 comment "Fill Uniform and Gear";
 for "_i" from 1 to 5 do {player addItem "ACE_fieldDressing";};
@@ -128,25 +130,6 @@ player addItem "rhsusf_mag_17Rnd_9x19_JHP";
 player addItem "SmokeShell";
 player addItem "ACE_microDAGR";
 player addItem "tsp_breach_shock";
-
-comment "Start of standard medical gear";
-for "_i" from 1 to 10 do {player addItem "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItem "ACE_epinephrine";};
-player addItem "ACE_SpraypaintRed";
-player addItem "ACE_plasmaIV";
-player addItem "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItem "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItem "ACE_plasmaIV_500";};
-player addItem "ACE_plasmaIV_250";
-player addItem "ACE_salineIV_250";
-player addItem "ACE_surgicalKit";
-player addItem "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItem "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItem "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItem "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItem "ACE_tourniquet";};
-for "_i" from 1 to 2 do {player addItem "ACE_adenosine";};
-comment "End of Medical gear";
 
 player addItem "arifle_SDAR_F";
 player addItem _breach;

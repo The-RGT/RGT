@@ -19,7 +19,7 @@ _optic = [
 	"sma_spitfire_03_rds_black", 0.4,
 	"sma_spitfire_03_rds_low_black", 0.4,
 	"rhsusf_acc_anpas13gv1", 0.01] call BIS_fnc_selectRandomWeighted;
-_optic1 = [
+_poptic = [
 	"optic_mrd", 
 	"optic_mrd_black"] call BIS_fnc_selectRandom;
 _clothing = [
@@ -193,7 +193,7 @@ player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
 player addWeapon "hgun_Pistol_heavy_01_F";
 player addHandgunItem "acc_flashlight_pistol";
 player addHandgunItem "11Rnd_45ACP_Mag";
-player addHandgunItem _optic1;
+player addHandgunItem _poptic;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -218,9 +218,6 @@ switch(_rifle) do {
 	case "rhs_weap_sr25_ec": {
 		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";};
 		for "_i" from 1 to 4 do {player addItem "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
-		};
-	case "SMA_HK417_16in": {
-		for "_i" from 1 to 7 do {player addItem "SMA_20Rnd_762x51mm_Mk316_Mod_0_Special_Long_Range_IR";};
 		};
 	default {
 		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";};

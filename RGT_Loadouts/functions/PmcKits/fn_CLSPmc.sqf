@@ -186,12 +186,6 @@ _helmet = [
 	"USP_BASEBALL_CAP_CGS", 
 	"USP_BASEBALL_CAP_MCB_CGS", 
 	"USP_BASEBALL_CAP_CT3_RT6"] call BIS_fnc_selectRandom;
-_bag = [
-	"UK3CB_ION_B_B_RIF_MED_BLK",
-	"USP_DELTA_BAG_BLK",
-	"UK3CB_B_TacticalPack_Med_Oli",
-	"UK3CB_LFR_B_B_MESSENGER_MED",
-	"TRYK_B_Medbag_BK"] call BIS_fnc_selectRandom;
 _pistols = [
 	["rhsusf_weap_m1911a1", "rhsusf_mag_7x45acp_MHP"], 
 	["rhs_weap_cz99", "rhssaf_mag_15Rnd_9x19_FMJ"], 
@@ -204,7 +198,6 @@ _pammo = _pistols select 1;
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
 player addVest _vest;
-player addBackpack _bag;
 player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
@@ -213,6 +206,9 @@ player addPrimaryWeaponItem _optic;
 player addPrimaryWeaponItem _lam;
 player addPrimaryWeaponItem _mysterysauce;
 player addWeapon _pistol;
+
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_EarPlugs";
@@ -232,27 +228,6 @@ player addItem "HandGrenade";
 player addItem "SmokeShellGreen";
 player addItem "SmokeShellRed";
 for "_i" from 1 to 5 do {player addItem _ammo;};
-
-comment "Start of standard medical gear";
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_epinephrine";};
-player addItemToBackpack "ACE_bodyBag";
-player addItemToBackpack "ACE_SpraypaintRed";
-player addItemToBackpack "ACE_plasmaIV";
-player addItemToBackpack "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_plasmaIV_500";};
-player addItemToBackpack "ACE_plasmaIV_250";
-player addItemToBackpack "ACE_salineIV_250";
-player addItemToBackpack "ACE_surgicalKit";
-player addItemToBackpack "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItemToBackpack "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItemToBackpack "ACE_tourniquet";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_adenosine";};
-comment "End of Medical gear";
-
 
 comment "Add final Gear";
 player linkItem "ItemMap";

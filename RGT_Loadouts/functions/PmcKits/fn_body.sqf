@@ -139,5 +139,5 @@ player setSpeaker "ACE_NoVoice";
 comment "Set G Force resistance and Medical + Engineer training";
 player setVariable ["ACE_GForceCoef", 1];
 
-[[player],"ace_medical_medicClass", 1, true] call ace_common_fnc_assignObjectsInList;
+[[player],"ace_medical_medicClass", 2, true] call ace_common_fnc_assignObjectsInList;
 [[player],"ACE_IsEngineer", 0, true] call ace_common_fnc_assignObjectsInList;

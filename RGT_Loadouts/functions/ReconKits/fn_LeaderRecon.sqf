@@ -25,7 +25,7 @@ _vest = [
 	"rhsgref_chestrig", 0.10, 
 	"rhsgref_chicom", 0.10] call BIS_fnc_selectRandomWeighted;
 _ammo = [
-	"rhs_mag_30Rnd_556x45_Mk318_PMAG", 
+	"rhs_mag_30Rnd_556x45_Mk262_PMAG", 
 	"rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", 
 	"rhs_mag_30Rnd_556x45_Mk262_Stanag_Ranger", 
 	"rhs_mag_30Rnd_556x45_Mk262_Stanag"] call BIS_fnc_selectRandom;

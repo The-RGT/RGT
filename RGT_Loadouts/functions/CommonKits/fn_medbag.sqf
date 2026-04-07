@@ -29,5 +29,3 @@ for "_i" from 1 to 10 do {player addItemToBackpack "ACE_quikclot";};
 for "_i" from 1 to 7 do {player addItemToBackpack "ACE_tourniquet";};
 for "_i" from 1 to 2 do {player addItemToBackpack "ACE_adenosine";};
 comment "end of Medical gear";
-
-hint "You shouldered a first aid bag.";

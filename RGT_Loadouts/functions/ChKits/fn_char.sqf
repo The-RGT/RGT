@@ -10,14 +10,21 @@ removeGoggles player;
 
 comment "Create the arrays for different equipment";
 _rifle = [
-	"rhs_weap_minimi_para_railed", 
-	"rhs_weap_m249_pip_S_vfg1", 
-	"rhs_weap_m249_pip_S"]call BIS_fnc_selectRandom;
+	"uk3cb_auga2_lsw_blk", 
+	"uk3cb_auga2_lsw"]call BIS_fnc_selectRandom;
 _optic = [
-	"", 0.75, 
-	"rhsusf_acc_eotech_xps3", 0.25, 
-	"rhsusf_acc_g33_xps3", 0.25] call BIS_fnc_selectRandomWeighted;
-_optic1 = [
+	"rhsusf_acc_eotech_xps3", 0.70, 
+	"optic_mrco", 0.05,
+	"rhsusf_acc_ACOG2", 0.05, 
+	"rhsusf_acc_t1_high", 0.10, 
+	"tsp_acc_xps3_black_unity_black_g33_tan_flip", 0.10,
+	"tsp_acc_xps3_black_unity_black_g33_black_flip", 0.10] call BIS_fnc_selectRandomWeighted;
+_muzzle = [
+	"",
+	"ACE_muzzle_mzls_L",
+	"rhsusf_acc_SF3P556",
+	"rhsusf_acc_SFMB556"] call BIS_fnc_selectRandom;
+_poptic = [
 	"optic_mrd", 
 	"optic_mrd_black"] call BIS_fnc_selectRandom;
 _clothing = [
@@ -168,13 +175,12 @@ player addGoggles _goggles;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
 player addPrimaryWeaponItem _optic;
-player addPrimaryWeaponItem "rhsusf_acc_grip1";
+player addPrimaryWeaponItem _muzzle;
 player addWeapon "hgun_Pistol_heavy_01_F";
 player addHandgunItem "acc_flashlight_pistol";
 player addHandgunItem "11Rnd_45ACP_Mag";
-player addHandgunItem _optic1;
+player addHandgunItem _poptic;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -190,8 +196,7 @@ player addItem "HandGrenade";
 player addItem "SmokeShell";
 player addItem "SmokeShellRed";
 player addItem "ACE_M84";
-for "_i" from 1 to 3 do {player addItem "rhsusf_200rnd_556x45_mixed_box";};
-player addItem "rhsusf_100Rnd_556x45_mixed_soft_pouch";
+for "_i" from 1 to 16 do {player addItem "UK3CB_AUG_42Rnd_556x45_Magazine_GT";};
 
 
 comment "Add final Gear";

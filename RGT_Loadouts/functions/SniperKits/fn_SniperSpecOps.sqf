@@ -31,11 +31,12 @@ _suit = [
 	"USP_SOFTSHELL_G3C_MX_MC", 
 	"USP_SOFTSHELL_G3C_OR_MC"] call BIS_fnc_selectRandom;
 _helmet = [
-	"rhsusf_ach_helmet_ocp_norotos", "rhsusf_ach_helmet_camo_ocp", "rhsusf_ach_helmet_headset_ess_ocp", "rhsusf_ach_helmet_headset_ocp", "rhsusf_ach_helmet_ESS_ocp", "rhsusf_ach_helmet_ocp"] call BIS_fnc_selectRandom;
-_pack = [
-	"TRYK_B_BAF_BAG_mcamo",
-	"B_Kitbag_tan",
-	"rhssaf_kitbag_md2camo"] call BIS_fnc_selectRandom;
+	"rhsusf_ach_helmet_ocp_norotos", 
+	"rhsusf_ach_helmet_camo_ocp", 
+	"rhsusf_ach_helmet_headset_ess_ocp", 
+	"rhsusf_ach_helmet_headset_ocp", 
+	"rhsusf_ach_helmet_ESS_ocp", 
+	"rhsusf_ach_helmet_ocp"] call BIS_fnc_selectRandom;
 _vest = [
 	"V_TacChestrig_grn_F",
 	"V_TacChestrig_cbr_F",
@@ -44,7 +45,6 @@ _vest = [
 
 player forceAddUniform _suit;
 player addVest _vest;
-player addBackpack _pack;
 player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
@@ -54,8 +54,10 @@ player addPrimaryWeaponItem "rhsusf_acc_premier_mrds";
 player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
 player addWeapon "ACE_Vector";
 
-comment "Fill Uniform and Gear";
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
 
+comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
 for "_i" from 1 to 5 do {player addItem "ACE_fieldDressing";};
 for "_i" from 1 to 3 do {player addItem "ACE_tourniquet";};
@@ -73,21 +75,6 @@ player addItem "ACE_Chemlight_IR";
 player addItem "ACE_microDAGR";
 for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "HandGrenade";
-for "_i" from 1 to 10 do {player addItem "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItem "ACE_epinephrine";};
-player addItem "ACE_plasmaIV";
-player addItem "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItem "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItem "ACE_plasmaIV_500";};
-player addItem "ACE_plasmaIV_250";
-player addItem "ACE_salineIV_250";
-player addItem "ACE_surgicalKit";
-player addItem "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItem "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItem "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItem "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItem "ACE_tourniquet";};
-for "_i" from 1 to 2 do {player addItem "ACE_adenosine";};
 player addItem "rhsusf_acc_premier_anpvs27";
 for "_i" from 1 to 4 do {player addItem "APERSTripMine_Wire_Mag";};
 

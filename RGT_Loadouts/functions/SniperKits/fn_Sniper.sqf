@@ -41,15 +41,6 @@ _helmet = [
 	"rhsusf_ach_helmet_camo_ocp", 
 	"rhsusf_ach_helmet_headset_ess_ocp", 
 	"rhsusf_ach_helmet_headset_ocp"] call BIS_fnc_selectRandom;
-_pack = [
-	"rhsgref_hidf_alicepack",
-	"rhssaf_alice_md2camo",
-	"rhssaf_alice_smb",
-	"rhsgref_ttsko_alicepack",
-	"rhsgref_wdl_alicepack",
-	"USP_PATROL_PACK_CB_CS_FH_RP_ZT",
-	"USP_45L_RUCKSACK_MC",
-	"USP_45L_RUCKSACK_TAN"] call BIS_fnc_selectRandom;
 
 comment "Add Weapons and attachments";
 player addWeapon "rhs_weap_m4a1_d_mstock_grip3";
@@ -61,8 +52,10 @@ player addPrimaryWeaponItem "rhsusf_acc_grip3_tan";
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
 player addVest _vest;
-player addBackpack _pack;
 player addHeadgear _helmet;
+
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -92,23 +85,6 @@ player addItem "rhsusf_acc_premier_anpvs27";
 player addItem "rhs_weap_XM2010_sa";
 for "_i" from 1 to 4 do {player addItem "rhsusf_5Rnd_300winmag_xm2010";};
 
-comment "Start of medical gear";
-for "_i" from 1 to 10 do {player addItem "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItem "ACE_epinephrine";};
-player addItem "ACE_plasmaIV";
-player addItem "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItem "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItem "ACE_plasmaIV_500";};
-player addItem "ACE_plasmaIV_250";
-player addItem "ACE_salineIV_250";
-player addItem "ACE_surgicalKit";
-player addItem "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItem "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItem "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItem "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItem "ACE_tourniquet";};
-for "_i" from 1 to 2 do {player addItem "ACE_adenosine";};
-comment "End of Medical gear";
 
 comment "Add final Gear";
 player linkItem "ItemMap";

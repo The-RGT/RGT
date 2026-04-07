@@ -54,7 +54,6 @@ _helmet = [
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
-player addBackpack "rhs_medic_bag";
 player addHeadgear _helmet;
 
 
@@ -62,6 +61,9 @@ comment "Add Weapons and attachments";
 player addWeapon "rhs_weap_m3a1_specops";
 player addPrimaryWeaponItem "rhsgref_acc_rx01_camo";
 player addWeapon "rhs_weap_tt33";
+
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_EarPlugs";
@@ -79,23 +81,6 @@ for "_i" from 1 to 2 do {player addItem "rhs_mag_762x25_8";};
 for "_i" from 1 to 5 do {player addItem "rhsgref_30rnd_1143x23_M1T_2mag_SMG";};
 player addItem "ACE_bodyBag";
 player addItem "ACE_SpraypaintRed";
-
-comment "Start of standard medical gear";
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_epinephrine";};
-player addItemToBackpack "ACE_plasmaIV";
-player addItemToBackpack "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_plasmaIV_500";};
-player addItemToBackpack "ACE_plasmaIV_250";
-player addItemToBackpack "ACE_salineIV_250";
-player addItemToBackpack "ACE_surgicalKit";
-player addItem "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItemToBackpack "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItem "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItem "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItem "ACE_tourniquet";};
-comment "end of Medical gear";
 
 comment "Add final Gear";
 player linkItem "ItemMap";

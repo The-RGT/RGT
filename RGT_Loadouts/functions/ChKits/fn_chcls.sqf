@@ -10,34 +10,28 @@ removeGoggles player;
 
 comment "Create the arrays for different equipment";
 _rifle = [
-	"rhs_weap_mk18_bk", 0.05, 
-	"rhs_weap_mk18_urgi_kac", 0.05,
-	"rhs_weap_m4_urgi_kac", 0.1,
-	"rhs_weap_mk18_KAC_bk", 0.05, 
-	"rhs_weap_m4a1_blockII_bk", 0.40, 
-	"rhs_weap_m4a1_blockII_KAC_bk", 0.40, 
-	"rhs_weap_hk416d10_LMT", 0.05,
-	"rhs_weap_hk416d10_smr", 0.05,
-	"rhs_weap_hk416d10_smr_kac", 0.05,
-	"rhs_weap_hk416d15_smr", 0.05,
-	"rhs_weap_hk416d15_smr_kac", 0.05,
-	"rhs_weap_hk416d10", 0.05] call BIS_fnc_selectRandomWeighted;
+	"uk3cb_auga3_blk",
+	"uk3cb_auga3",
+	"uk3cb_auga2_blk",
+	"uk3cb_auga2"] call BIS_fnc_selectRandom;
 _lam = [
-	"rhsusf_acc_anpeq15", 0.50, 
-	"rhsusf_acc_anpeq15_bk", 0.25, 
-	"rhsusf_acc_anpeq15_wmx_light", 0.25] call BIS_fnc_selectRandomWeighted;
+	"rhsusf_acc_anpeq15side", 
+	"rhsusf_acc_anpeq15side_bk"] call BIS_fnc_selectRandom;
 _optic = [
 	"rhsusf_acc_eotech_xps3", 0.70, 
-	"optic_mrco", 0.05, 
+	"optic_mrco", 0.05,
+	"rhsusf_acc_ACOG2", 0.05, 
 	"rhsusf_acc_t1_high", 0.10, 
-	"rhsusf_acc_g33_xps3", 0.10] call BIS_fnc_selectRandomWeighted;
-_optic1 = [
+	"tsp_acc_xps3_black_unity_black_g33_tan_flip", 0.10,
+	"tsp_acc_xps3_black_unity_black_g33_black_flip", 0.10] call BIS_fnc_selectRandomWeighted;
+_muzzle = [
+	"",
+	"ACE_muzzle_mzls_L",
+	"rhsusf_acc_SF3P556",
+	"rhsusf_acc_SFMB556"] call BIS_fnc_selectRandom;
+_poptic = [
 	"optic_mrd", 
 	"optic_mrd_black"] call BIS_fnc_selectRandom;
-_medbag = [
-	"TRYK_B_Medbag_BK",
-	"USP_DELTA_BAG_BLK",
-	"USP_DELTA_BAG_MCB"] call BIS_fnc_selectRandom;
 _clothing = [
 	"U_I_C_Soldier_Bandit_2_F", 
 	"U_I_C_Soldier_Bandit_3_F", 
@@ -166,51 +160,21 @@ player forceAddUniform _clothing;
 player addVest _vest;
 player addHeadgear _helmet;
 player addGoggles _goggles;
-player addBackpack _medbag;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-player addPrimaryWeaponItem "ace_muzzle_mzls_l";
+player addPrimaryWeaponItem _muzzle;
 player addPrimaryWeaponItem _lam;
 player addPrimaryWeaponItem _optic;
 player addWeapon "hgun_Pistol_heavy_01_F";
 player addHandgunItem "acc_flashlight_pistol";
 player addHandgunItem "11Rnd_45ACP_Mag";
-player addHandgunItem _optic1;
-switch(_rifle) do {
-	case "rhs_weap_mk18_urgi_kac": {
-		player addPrimaryWeaponItem "rhs_acc_mk18_urgi";
-	};
-	case "rhs_weap_m4_urgi_kac": {
-		player addPrimaryWeaponItem "rhs_acc_m4_urgi";
-	};
-	case "rhs_weap_hk416d10_smr": {
-		player addPrimaryWeaponItem "rhs_acc_mk18_smr";
-	};
-	case "rhs_weap_hk416d10_smr_kac": {
-		player addPrimaryWeaponItem "rhs_acc_mk18_smr";
-	};	
-	case "rhs_weap_hk416d15_smr": {
-		player addPrimaryWeaponItem "rhs_acc_m4_smr";
-	};
-	case "rhs_weap_mk18_bk": {
-		_grip = ["", "rhsusf_acc_grip2"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_mk18_KAC_bk": {
-		_grip = ["", "rhsusf_acc_grip2"] call BIS_fnc_selectRandom;
-		player addPrimaryWeaponItem _grip;
-	};
-	case "rhs_weap_m4a1_blockII_bk": {
-		player addPrimaryWeaponItem "rhsusf_acc_grip2";
-	};	
-	case "rhs_weap_m4a1_blockII_KAC_bk": {
-		player addPrimaryWeaponItem "rhsusf_acc_grip2";
-	};		
-};
+player addHandgunItem _poptic;
+
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
 
 comment "Fill Uniform and Gear";
-
 player addItem "ACE_EarPlugs";
 player addItem "ACE_MapTools";
 player addItem "ACE_CableTie";
@@ -226,30 +190,7 @@ for "_i" from 1 to 2 do {player addItem "SmokeShell";};
 player addItem "HandGrenade";
 player addItem "SmokeShellGreen";
 player addItem "SmokeShellRed";
-for "_i" from 1 to 5 do {player addItem "rhs_mag_30Rnd_556x45_Mk318_PMAG";};
-
-comment "Start of standard medical gear";
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_epinephrine";};
-player addItemToBackpack "ACE_bodyBag";
-player addItemToBackpack "ACE_SpraypaintRed";
-player addItemToBackpack "ACE_plasmaIV";
-player addItemToBackpack "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_plasmaIV_500";};
-player addItemToBackpack "ACE_plasmaIV_250";
-player addItemToBackpack "ACE_salineIV_250";
-player addItemToBackpack "ACE_surgicalKit";
-player addItemToBackpack "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItemToBackpack "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItemToBackpack "ACE_tourniquet";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_adenosine";};
-comment "End of Medical gear";
-
-
-
+for "_i" from 1 to 6 do {player addItem "UK3CB_AUG_30Rnd_556x45_Magazine_G";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

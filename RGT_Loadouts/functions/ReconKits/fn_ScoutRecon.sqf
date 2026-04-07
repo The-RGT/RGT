@@ -9,6 +9,38 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
+_grip = "";
+_rifles = [
+	["rhs_weap_m4a1_blockII_KAC_wd", "grip"],
+	["rhs_weap_m4a1_blockII_wd", "grip"],
+	["rhs_weap_hk416d145_wd", "grip"],
+	["rhs_weap_hk416d145_wd_2", "grip"],
+	["rhs_weap_m4a1_nsr_wdl", "nsr"],
+	["rhs_weap_m4a1_urgi_kac_wdl", "urgi"],
+	["rhs_weap_m4a1_urgi_wdl", "urgi"]] call BIS_fnc_selectRandom;
+_rifle = _rifles select 0;
+_rifletype = _rifle select 1;
+switch (_rifletype) do {
+	case "grip": {
+		_grip = [
+			"", 
+			"rhsusf_acc_grip2_wd",
+			"rhsusf_acc_rvg_blk"] call BIS_fnc_selectRandom;
+	};
+	case "nsr": {
+		_grip = [
+			"rhs_acc_nsr_wdl",
+			"rhs_acc_nsr13_wdl"
+		] call BIS_fnc_selectRandom;
+	};
+	case "urgi": {
+		_grip = "rhs_acc_urgi_wdl";
+	};
+};
+_muzzle = [
+	"rhsgref_sdn6_suppressor",
+	"rhsusf_acc_rotex5_grey"
+];
 _clothing = [
 	"milgp_u_g3_field_set_rolled_mctropic", 0.60, 
 	"milgp_u_g3_field_set_mctropic", 0.15, 
@@ -22,7 +54,7 @@ _vest = [
 	"rhsgref_chestrig", 0.10, 
 	"rhsgref_chicom", 0.10] call BIS_fnc_selectRandomWeighted;
 _ammo = [
-	"rhs_mag_30Rnd_556x45_Mk318_PMAG", 
+	"rhs_mag_30Rnd_556x45_Mk262_PMAG", 
 	"rhs_mag_30Rnd_556x45_Mk262_Stanag_Pull", 
 	"rhs_mag_30Rnd_556x45_Mk262_Stanag_Ranger", 
 	"rhs_mag_30Rnd_556x45_Mk262_Stanag"] call BIS_fnc_selectRandom;
@@ -75,11 +107,11 @@ player addGoggles _goggles;
 player addBackpack _pack;
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_m4a1_blockII_KAC_wd";
-player addPrimaryWeaponItem "muzzle_snds_m_khk_F";
+player addWeapon _rifle;
+player addPrimaryWeaponItem _muzzle;
 player addPrimaryWeaponItem "rhsusf_acc_anpeq15side_bk";
 player addPrimaryWeaponItem "rhsusf_acc_su230";
-player addPrimaryWeaponItem "rhsusf_acc_grip2_wd";
+player addPrimaryWeaponItem _grip;
 player addWeapon "rhs_weap_m72a7";
 player addSecondaryWeaponItem "rhsusf_acc_anpeq15side";
 player addWeapon "rhsusf_bino_m24_ARD";

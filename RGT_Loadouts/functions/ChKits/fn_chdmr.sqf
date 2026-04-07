@@ -9,17 +9,42 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
+_muzzle = "";
+_rail = "";
+_mag1 = "";
+_mag2 = "";
 _rifle = [
 	"rhs_weap_sr25_ec", 0.25, 
 	"rhs_weap_sr25", 0.75,
 	"rhs_weap_SCARH_STD", 0.25] call BIS_fnc_selectRandomWeighted;
+switch(_rifle) do {
+	case "rhs_weap_sr25_ec": {
+		_muzzle = "rhsusf_acc_aac_762sdn6_silencer";
+		_rail = "rhsusf_acc_anpeq16a";
+		_mag1 = "rhsusf_20Rnd_762x51_SR25_m993_Mag";
+		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
+		};
+	case "rhs_weap_SCARH_STD": {
+		_muzzle = "rhsusf_acc_aac_762sdn6_silencer";
+		_rail = [
+			"rhsusf_acc_anpeq15", 0.4, 
+			"rhsusf_acc_anpeq15_bk", 0.4, 
+			"rhsusf_acc_anpeq16a_top", 0.4, 
+			"rhsusf_acc_anpeq16a_top", 0.1] call BIS_fnc_selectRandomWeighted;
+		_mag1 = "rhs_mag_20Rnd_SCAR_762x51_m61_ap_bk";
+		_mag2 = "rhs_mag_20Rnd_SCAR_762x51_m118_special_bk";
+		};
+	default {
+		_muzzle = "rhsusf_acc_sr25s";
+		_rail = "rhsusf_acc_anpeq16a";
+		_mag1 = "rhsusf_20Rnd_762x51_SR25_m993_Mag";
+		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
+		};
+};
 _optic = [
 	"optic_mrco", 0.90,
-	"sma_spitfire_03_rds_low_ard_black", 0.4,
-	"sma_spitfire_03_rds_black", 0.4,
-	"sma_spitfire_03_rds_low_black", 0.4,
 	"rhsusf_acc_anpas13gv1", 0.01] call BIS_fnc_selectRandomWeighted;
-_optic1 = [
+_poptic = [
 	"optic_mrd", 
 	"optic_mrd_black"] call BIS_fnc_selectRandom;
 _clothing = [
@@ -173,27 +198,14 @@ player addGoggles _goggles;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch(_rifle) do {
-	case "rhs_weap_sr25_ec": {
-		player addPrimaryWeaponItem "rhsusf_acc_aac_762sdn6_silencer";
-		player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
-		};
-	case "rhs_weap_SCARH_STD": {
-		player addPrimaryWeaponItem "rhsusf_acc_aac_762sdn6_silencer";
-		_rail = ["rhsusf_acc_anpeq15", 0.4, "rhsusf_acc_anpeq15_bk", 0.4, "rhsusf_acc_anpeq16a_top", 0.4, "rhsusf_acc_anpeq16a_top", 0.1] call BIS_fnc_selectRandomWeighted;
-		player addPrimaryWeaponItem _rail;
-		};
-	default {
-		player addPrimaryWeaponItem "rhsusf_acc_sr25s";
-		player addPrimaryWeaponItem "rhsusf_acc_anpeq16a";
-		};
-};
+player addPrimaryWeaponItem _muzzle;
+player addPrimaryWeaponItem _rail;
 player addPrimaryWeaponItem _optic;
 player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
 player addWeapon "hgun_Pistol_heavy_01_F";
 player addHandgunItem "acc_flashlight_pistol";
 player addHandgunItem "11Rnd_45ACP_Mag";
-player addHandgunItem _optic1;
+player addHandgunItem _poptic;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -214,19 +226,8 @@ player addItem "SmokeShellBlue";
 player addItem "tsp_breach_linear_mag";
 for "_i" from 1 to 2 do {player addItem "ACE_M84";};
 player addItem "SmokeShell";
-switch(_rifle) do {
-	case "rhs_weap_sr25_ec": {
-		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";};
-		for "_i" from 1 to 4 do {player addItem "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
-		};
-	case "SMA_HK417_16in": {
-		for "_i" from 1 to 7 do {player addItem "SMA_20Rnd_762x51mm_Mk316_Mod_0_Special_Long_Range_IR";};
-		};
-	default {
-		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";};
-		for "_i" from 1 to 4 do {player addItem "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
-		};
-};
+for "_i" from 1 to 3 do {player addItem _mag1;};
+for "_i" from 1 to 4 do {player addItem _mag2;};
 player addItem "11Rnd_45ACP_Mag";
 
 comment "Add final Gear";

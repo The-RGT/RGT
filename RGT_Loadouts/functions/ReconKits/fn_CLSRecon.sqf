@@ -31,10 +31,6 @@ _helmet = [
 	"H_Watchcap_camo", 0.10, 
 	"TRYK_H_Bandana_H", 0.05, 
 	"TRYK_H_Bandana_wig", 0.05] call BIS_fnc_selectRandomWeighted;
-_medbag = [
-	"TRYK_B_Medbag_BK",
-	"USP_DELTA_BAG_BLK",
-	"USP_DELTA_BAG_MCB"] call BIS_fnc_selectRandom;
 _goggles = [
 	"", 0.60,  
 	"milgp_f_face_shield_BLK", 0.10, 
@@ -53,7 +49,6 @@ player forceAddUniform _clothing;
 player addVest _vest;
 player addHeadgear _helmet;
 player addGoggles _goggles;
-player addBackpack _medbag;
 
 comment "Add Weapons and attachments";
 player addWeapon "rhs_weap_sr25_ec_wd";
@@ -62,6 +57,9 @@ player addPrimaryWeaponItem "rhsusf_acc_anpeq15side_bk";
 player addPrimaryWeaponItem _optic;
 player addPrimaryWeaponItem "rhsusf_acc_harris_bipod";
 player addWeapon "rhsusf_bino_m24_ARD";
+
+comment "Add standard medical gear";
+player call RGT_fnc_medbag;
 
 comment "Fill Uniform and Gear";
 for "_i" from 1 to 2 do {player addItem "ACE_morphine";};
@@ -77,28 +75,8 @@ player addItem "Chemlight_red";
 player addItem "ACE_microDAGR";
 player addItem "HandGrenade";
 player addItem "SmokeShell";
-
-comment "Start of standard medical gear";
 for "_i" from 1 to 4 do {player addItem "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 for "_i" from 1 to 2 do {player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_morphine";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_epinephrine";};
-player addItemToBackpack "ACE_bodyBag";
-player addItemToBackpack "ACE_SpraypaintRed";
-player addItemToBackpack "ACE_plasmaIV";
-player addItemToBackpack "ACE_salineIV";
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_salineIV_500";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_plasmaIV_500";};
-player addItemToBackpack "ACE_plasmaIV_250";
-player addItemToBackpack "ACE_salineIV_250";
-player addItemToBackpack "ACE_surgicalKit";
-player addItemToBackpack "ACE_personalAidKit";
-for "_i" from 1 to 20 do {player addItemToBackpack "ACE_elasticBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_packingBandage";};
-for "_i" from 1 to 10 do {player addItemToBackpack "ACE_quikclot";};
-for "_i" from 1 to 7 do {player addItemToBackpack "ACE_tourniquet";};
-for "_i" from 1 to 2 do {player addItemToBackpack "ACE_adenosine";};
-comment "End of Medical gear";
 
 player addItem "SLAMDirectionalMine_Wire_Mag";
 player addItem "rhsusf_20Rnd_762x51_SR25_m993_Mag";

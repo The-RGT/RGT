@@ -9,10 +9,7 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
-_muzzle = "";
-_rail = "";
-_mag1 = "";
-_mag2 = "";
+private ["_muzzle", "_rail", "_mag1", "_mag2"];
 _rifle = [
 	"rhs_weap_sr25_ec", 0.25, 
 	"rhs_weap_sr25", 0.75,

@@ -35,11 +35,11 @@ if (_rifle in ["rhs_weap_m21a_pr_pbg40", "rhs_weap_m70b3n_pbg40"]) then {
 if (_rifle isEqualTo "rhs_weap_m70b3n_pbg40") then {
 	_optic = [
 		"rhs_acc_ekp1", 
-	"rhs_acc_ekp8_02", 
-	"rhs_acc_nita", 
-	"rhs_acc_okp7_dovetail", 
-	"rhs_acc_pkas", 
-	"rhs_acc_1p63"] call BIS_fnc_selectRandom;
+		"rhs_acc_ekp8_02", 
+		"rhs_acc_nita", 
+		"rhs_acc_okp7_dovetail", 
+		"rhs_acc_pkas", 
+		"rhs_acc_1p63"] call BIS_fnc_selectRandom;
 };
 _clothing = [
 	"TRYK_B_TRYK_UCP_T", 

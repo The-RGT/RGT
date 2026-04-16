@@ -8,14 +8,37 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"UK3CB_M1903A1_unertl", 0.50,
-	"UK3CB_CZ550", 0.10,
-	"rhs_weap_m14_rail_wd", 0.10,
-	"rhs_weap_m14_rail", 0.10]	call BIS_fnc_selectRandomWeighted;
-_optic = [
-	"", 0.70, 
-	"rhsgref_acc_l1a1_l2a2", 0.05] call BIS_fnc_selectRandomWeighted;
+private ["_optic", "_ammo1", "_ammo2", "_mag1", "_mag2"];
+_rifles = [
+	["UK3CB_M1903A1_unertl", "m1903"], 0.50,
+	["UK3CB_CZ550", "cz550"], 0.10,
+	["rhs_weap_m14_rail_wd", "m14"], 0.10,
+	["rhs_weap_m14_rail", "m14"], 0.10]	call BIS_fnc_selectRandomWeighted;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+switch (_rifletype) do {
+	case "m1903": {
+		_optic = "rhsgref_acc_l1a1_l2a2";
+		_ammo1 = "UK3CB_M1903A1_3006_5rnd_Magazine";
+		_ammo2 = "UK3CB_M1903A1_3006_5rnd_Magazine_R";
+		_mag1 = 10;
+		_mag2 = 8;
+	};
+	case "cz550": {
+		_optic = "uk3cb_optic_sro";
+		_ammo1 = "UK3CB_CZ550_5rnd_Mag";
+		_ammo2 = "UK3CB_CZ550_5rnd_Mag_R";
+		_mag1 = 10;
+		_mag2 = 8;
+	};
+	case "m14": {
+		_optic = "optic_MRCO";
+		_ammo1 = "rhsusf_20Rnd_762x51_m118_special_Mag";
+		_ammo2 = "rhsusf_20Rnd_762x51_m993_Mag";
+		_mag1 = 4;
+		_mag2 = 3;
+	};
+};
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7, 
 	"UK3CB_FIA_B_U_M10_CombatUniform_WDL01_01", 0.4,
@@ -32,11 +55,6 @@ _vest = [
 	"rhs_lifchik", 0.05,
 	"rhs_lifchik_light", 0.05,
 	"rhs_suspender_AK8_chestrig", 0.05] call BIS_fnc_selectRandomWeighted;
-_ammo = [
-	"rhs_mag_20Rnd_762x51_m61_fnfal", 
-	"rhs_mag_20Rnd_762x51_m62_fnfal", 
-	"rhs_mag_20Rnd_762x51_m80_fnfal", 
-	"rhs_mag_20Rnd_762x51_m80a1_fnfal"] call BIS_fnc_selectRandom;
 _helmet = [
 	"rhsgref_helmet_M1_erdl", 0.70,
 	"UK3CB_H_M1_Helmet_Covered_Band_OLI", 0.05,
@@ -82,20 +100,7 @@ player addHeadgear _helmet;
 
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
-switch (_rifle) do {
-	case "rhs_weap_m14_rail_wd": {
-		player addPrimaryWeaponItem "optic_MRCO";
-	};
-	case "rhs_weap_m14_rail": {
-		player addPrimaryWeaponItem "optic_MRCO";
-	};
-	case "UK3CB_CZ550": {
-		player addPrimaryWeaponItem "uk3cb_optic_sro";
-	};
-	default {
-		player addPrimaryWeaponItem "rhsgref_acc_l1a1_l2a2";
-	};
-};
+player addPrimaryWeaponItem _optic;
 
 comment "Fill Uniform and Gear";
 player addItem "ACE_morphine";
@@ -110,27 +115,8 @@ player addItem "ACE_microDAGR";
 for "_i" from 1 to 3 do {player addItem _frag;};
 player addItem "ACE_EntrenchingTool";
 player addItem _smk;
-switch (_rifle) do {
-	case "rhs_weap_m14_rail_wd": {
-		for "_i" from 1 to 4 do {player addItem "rhsusf_20Rnd_762x51_m118_special_Mag";};
-		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_m993_Mag";};
-	};
-	case "rhs_weap_m14_rail": {
-		for "_i" from 1 to 4 do {player addItem "rhsusf_20Rnd_762x51_m118_special_Mag";};
-		for "_i" from 1 to 3 do {player addItem "rhsusf_20Rnd_762x51_m993_Mag";};
-	};
-	case "UK3CB_M1903A1_unertl": {
-		for "_i" from 1 to 10 do {player addItem "UK3CB_M1903A1_3006_5rnd_Magazine";};
-		for "_i" from 1 to 8 do {player addItem "UK3CB_M1903A1_3006_5rnd_Magazine_R";};
-	};
-	case "UK3CB_CZ550": {
-		for "_i" from 1 to 10 do {player addItem "UK3CB_CZ550_5rnd_Mag";};
-		for "_i" from 1 to 8 do {player addItem "UK3CB_CZ550_5rnd_Mag_R";};
-	};
-	default {
-		for "_i" from 1 to 7 do {player addItem _ammo;};
-	};
-};
+for "_i" from 1 to _mag1 do {player addItem _ammo1;};
+for "_i" from 1 to _mag2 do {player addItem _ammo2;};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

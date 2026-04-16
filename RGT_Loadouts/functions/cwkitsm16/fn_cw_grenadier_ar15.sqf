@@ -8,6 +8,7 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
+_mags = 0;
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7, 
 	"UK3CB_FIA_B_U_M10_CombatUniform_WDL01_01", 0.4,
@@ -35,11 +36,19 @@ _helmet = [
 	"rhsgref_helmet_M1_bare_alt01", 0.05, 
 	"rhsgref_helmet_M1_painted", 0.10, 
 	"rhsgref_helmet_M1_painted_alt01", 0.10] call BIS_fnc_selectRandomWeighted;
-_ammo1 = [
+_ammo = [
 	"rhs_mag_20Rnd_556x45_M193_Stanag", 0.2,
 	"rhs_mag_20Rnd_556x45_M193_2MAG_Stanag", 0.2,
 	"rhs_mag_20Rnd_556x45_M193_Stanag", 0.2,
 	"rhs_mag_30Rnd_556x45_M193_Stanag", 0.1] call BIS_fnc_selectRandomWeighted;
+switch(_ammo) do {
+	case "rhs_mag_30Rnd_556x45_M193_Stanag": {
+		_mags = 10;
+	};
+	default {
+		_mags = 15;
+	};
+};
 _bag = [
 	"rhsgref_hidf_alicepack",
 	"rhsgref_ttsko_alicepack",
@@ -97,20 +106,7 @@ for "_i" from 1 to 2 do {player addItem "UGL_FlareWhite_F";};
 for "_i" from 1 to 2 do {player addItem "ACE_HuntIR_M203";};
 player addItem "ACE_HuntIR_monitor";
 player addItem "ACE_CableTie";
-switch (_ammo1) do {
-	case "rhs_mag_30Rnd_556x45_M193_Stanag": {
-		for "_i" from 1 to 10 do {player addItem "rhs_mag_30Rnd_556x45_M193_Stanag";};
-	};
-	case "rhs_mag_20Rnd_556x45_M193_Stanag": {
-		for "_i" from 1 to 15 do {player addItem "rhs_mag_20Rnd_556x45_M193_Stanag";};
-	};
-	case "rhs_mag_20Rnd_556x45_M193_2MAG_Stanag": {
-		for "_i" from 1 to 15 do {player addItem "rhs_mag_20Rnd_556x45_M193_2MAG_Stanag";};
-	};
-	case "rhs_mag_20Rnd_556x45_M193_Stanag": {
-		for "_i" from 1 to 15 do {player addItem "rhs_mag_20Rnd_556x45_M193_Stanag";};
-	};
-};
+for "_i" from 1 to _mags do {player addItem _ammo;};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

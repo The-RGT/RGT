@@ -8,17 +8,20 @@ removeBackpack player;
 removeHeadgear player;
 
 _helmet = [
-	"rhsusf_ach_helmet_ocp_norotos", 		"rhsusf_ach_helmet_camo_ocp", "rhsusf_ach_helmet_headset_ess_ocp", "rhsusf_ach_helmet_headset_ocp", "rhsusf_ach_helmet_ESS_ocp", "rhsusf_ach_helmet_ocp"] call BIS_fnc_selectRandom;
+	"rhsusf_ach_helmet_ocp_norotos",
+	"rhsusf_ach_helmet_camo_ocp", 
+	"rhsusf_ach_helmet_headset_ess_ocp", 
+	"rhsusf_ach_helmet_headset_ocp", 
+	"rhsusf_ach_helmet_ESS_ocp", 
+	"rhsusf_ach_helmet_ocp"] call BIS_fnc_selectRandom;
 _suit = [
-	"milgp_u_g3_field_set_mc", "milgp_u_g3_field_set_rolled_mc"] call BIS_fnc_selectRandom;
-_pack = ["TFAR_rt1523g_sage",
-	"USP_TACTICAL_PACK_CCT",
+	"milgp_u_g3_field_set_mc", 
+	"milgp_u_g3_field_set_rolled_mc"] call BIS_fnc_selectRandom;
+_pack = [
+	"TFAR_rt1523g_sage",
 	"USP_TACTICAL_PACK_CCT",
 	"USP_TACTICAL_PACK_CCT2",
-	"USP_TACTICAL_PACK_CCT2",
 	"USP_TACTICAL_PACK_CCT3",
-	"USP_TACTICAL_PACK_CCT3",
-	"USP_TACTICAL_PACK_CCT4",
 	"USP_TACTICAL_PACK_CCT4"] call BIS_fnc_selectRandom;
 _grip = [
 	"", 0.9,

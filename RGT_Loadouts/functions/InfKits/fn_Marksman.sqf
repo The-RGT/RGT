@@ -8,9 +8,8 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_lam ="";
-_ammo = "";
-_ammo1 = "";
+private ["_ammo", "_ammo1"];
+_lam = "";
 _rifles = [
 	["rhs_weap_mk17_LB", "scar"], 
 	["rhs_weap_sr25_d", "sr25"], 

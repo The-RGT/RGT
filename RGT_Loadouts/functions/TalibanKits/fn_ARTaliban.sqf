@@ -17,13 +17,11 @@ _clothing = [
 	"TRYK_U_taki_G_BL", 
 	"TRYK_U_taki_G_BLK", 
 	"TRYK_U_taki_G_COY", 
-	"TRYK_U_taki_G_WH"
-] call BIS_fnc_selectRandom;
+	"TRYK_U_taki_G_WH"] call BIS_fnc_selectRandom;
 _vest = [
 	"V_TacChestrig_oli_F", 
 	"V_TacChestrig_cbr_F", 
-	"V_TacChestrig_grn_F"
-] call BIS_fnc_selectRandom;
+	"V_TacChestrig_grn_F"] call BIS_fnc_selectRandom;
 _helmet = [
 	"TRYK_H_pakol2", 0.20, 
 	"USP_PAKOL_HAT", 0.20, 
@@ -38,8 +36,7 @@ _helmet = [
 	"LOP_H_Shemag_GRE", 0.05, 
 	"LOP_H_Shemag_RED1", 0.05, 
 	"LOP_H_Shemag_RED2", 0.05, 
-	"LOP_H_Shemag_TAN", 0.05
-] call BIS_fnc_selectRandomWeighted;
+	"LOP_H_Shemag_TAN", 0.05] call BIS_fnc_selectRandomWeighted;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;

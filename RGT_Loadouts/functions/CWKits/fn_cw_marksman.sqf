@@ -8,9 +8,7 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_ammo = "";
-_mags = 0;
-_optic = "";
+private ["_optic", "_ammo", "_mags"];
 _rifles = [
     ["rhs_weap_l1a1", "L1"], 0.10,
     ["rhs_weap_l1a1_wood", "L1"], 0.10,

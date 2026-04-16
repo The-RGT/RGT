@@ -27,6 +27,7 @@ class CfgFunctions {
 				class AmmoWestButtons {};
 				class BarbieButtons {};
 				class MedButtons {};
+				class test {};
 		};
 		class Quartermasters {
 			file = "RGT_Loadouts\functions\Quartermasters";

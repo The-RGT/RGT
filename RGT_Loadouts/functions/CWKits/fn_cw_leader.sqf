@@ -8,17 +8,59 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"uk3cb_m1a1_carbine", 0.70,
-	"uk3cb_m2a1_carbine", 0.70,
-	"UK3CB_Sten", 0.40,
-	"uk3cb_m1carbine", 0.20,
-	"uk3cb_thompson_m1a1", 0.20,
-	"uk3cb_thompson_m1928a1", 0.20,
-	"uk3cb_thompson_m1928", 0.20,
-	"rhs_weap_akm", 0.10,
-	"rhs_weap_m1garand_sa43", 0.05,
-	"rhs_weap_m3a1", 0.30]	call BIS_fnc_selectRandomWeighted;
+_ammo = "";
+_mags = 0;
+_rifles = [
+	["uk3cb_m1a1_carbine", "m1c"], 0.70,
+	["uk3cb_m2a1_carbine", "m1c"], 0.70,
+	["UK3CB_Sten", "sten"], 0.40,
+	["uk3cb_m1carbine", "m1c"], 0.20,
+	["uk3cb_thompson_m1928a1", "thompson"], 0.20,
+	["uk3cb_thompson_m1928", "thompson"], 0.20,
+	["rhs_weap_akm", "akm"], 0.10,
+	["rhs_weap_m1garand_sa43", "m1"], 0.05,
+	["rhs_weap_m3a1", "m3"], 0.30]	call BIS_fnc_selectRandomWeighted;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+switch (_rifletype) do {
+	case "m1c": {
+		_ammo = [
+			"UK3CB_M1_15Rnd_30Carbine_Magazine", 
+			"UK3CB_M1_30Rnd_30Carbine_Magazine"] call BIS_fnc_selectRandom;
+		switch (_ammo) do {
+			case "UK3CB_M1_15Rnd_30Carbine_Magazine": {
+				_mags = 20;
+			};
+			case "UK3CB_M1_30Rnd_30Carbine_Magazine": {
+				_mags = 10;
+			};
+		};
+	};
+	case "sten": {
+		_ammo = "UK3CB_Sten_34Rnd_Magazine";
+		_mags = 7;
+	};
+	case "thompson": {
+		_ammo = "UK3CB_Thompson_30rnd_1143x23_M1911B_Magazine";
+		_mags = 4;
+	};
+	case "akm": {
+		_ammo = "rhs_30Rnd_762x39mm";
+		_mags = 8;
+	};
+	case "m1": {
+		_ammo = [
+			"rhsgref_8Rnd_762x63_M2B_M1rifle", 
+			"rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle"] call BIS_fnc_selectRandom;
+		_mags = 30;
+	};
+	case "m3": {
+		_ammo = [
+			"rhsgref_30rnd_1143x23_M1911B_SMG", 
+			"rhsgref_30rnd_1143x23_M1911B_2mag_SMG"] call BIS_fnc_selectRandom;
+		_mags = 14;
+	};
+};
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7, 
 	"rhsgref_uniform_woodland", 0.1, 
@@ -34,12 +76,6 @@ _vest = [
 	"rhs_lifchik", 0.05,
 	"rhs_lifchik_light", 0.05,
 	"rhs_suspender_AK8_chestrig", 0.05] call BIS_fnc_selectRandomWeighted;
-_ammo = [
-	"UK3CB_M1_15Rnd_30Carbine_Magazine", 0.80,
-	"UK3CB_M1_30Rnd_30Carbine_Magazine", 0.20] call BIS_fnc_selectRandomWeighted;
-_ammo1 = [
-	"rhsgref_30rnd_1143x23_M1911B_SMG", 
-	"rhsgref_30rnd_1143x23_M1911B_2mag_SMG"] call BIS_fnc_selectRandom;
 _helmet = [
 	"rhsgref_helmet_M1_erdl", 0.70, 
 	"rhsgref_helmet_M1_mit", 0.05, 
@@ -99,41 +135,9 @@ for "_i" from 1 to 3 do {player addItem _frag;};
 player addItem "ACE_EntrenchingTool";
 for "_i" from 1 to 2 do {player addItem _smk;};
 player addItem "rhs_mag_m18_yellow";
-switch (_rifle) do {
-	case "rhs_weap_akm": {
-		for "_i" from 1 to 8 do {player addItem "rhs_30Rnd_762x39mm";};
-	};
-	case "uk3cb_thompson_m1a1": {
-		for "_i" from 1 to 8 do {player addItem "UK3CB_Thompson_30rnd_1143x23_M1911B_Magazine";};
-	};	
-	case "uk3cb_thompson_m1928a1": {
-		for "_i" from 1 to 4 do {player addItem "UK3CB_Thompson_30rnd_1143x23_M1911B_Magazine";};
-		for "_i" from 1 to 2 do {player addItem "UK3CB_Thompson_50rnd_1143x23_M1911B_Magazine";};
-	};		
-	case "UK3CB_Sten": {
-		for "_i" from 1 to 7 do {player addItem "UK3CB_Sten_34Rnd_Magazine";};
-	};		
-	case "uk3cb_thompson_m1928": {
-		for "_i" from 1 to 4 do {player addItem "UK3CB_Thompson_30rnd_1143x23_M1911B_Magazine";};
-		for "_i" from 1 to 2 do {player addItem "UK3CB_Thompson_50rnd_1143x23_M1911B_Magazine";};
-	};	
-	case "rhs_weap_m1garand_sa43": {
-		for "_i" from 1 to 20 do {player addItem "rhsgref_8Rnd_762x63_M2B_M1rifle";};
-		for "_i" from 1 to 10 do {player addItem "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle";};
-	};	
-	case "rhs_weap_m3a1": {
-		switch (_ammo1) do {
-			case "rhsgref_30rnd_1143x23_M1911B_SMG": {
-				for "_i" from 1 to 14 do {player addItem "rhsgref_30rnd_1143x23_M1911B_SMG";};
-			};
-			case "rhsgref_30rnd_1143x23_M1911B_2mag_SMG": {
-				for "_i" from 1 to 14 do {player addItem "rhsgref_30rnd_1143x23_M1911B_2mag_SMG";};
-			};
-		};
-	};
-	default {
-		for "_i" from 1 to 12 do {player addItem _ammo;};
-	};
+for "_i" from 1 to _mags do {player addItem _ammo;};
+if (_rifletype == "thompson") then {
+	for "_i" from 1 to 2 do {player addItem "UK3CB_Thompson_50rnd_1143x23_M1911B_Magazine";};
 };
 
 comment "Add final Gear";

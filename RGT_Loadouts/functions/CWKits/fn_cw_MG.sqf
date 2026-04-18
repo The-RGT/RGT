@@ -9,6 +9,7 @@ removeHeadgear player;
 comment "Create the arrays for different equipment";
 _ammo = "";
 _ammo1 = "";
+_mags = 0;
 _rifle = [
 	"UK3CB_MG3", 
 	"rhs_weap_fnmag",
@@ -17,10 +18,16 @@ switch (_rifle) do {
 	case "UK3CB_MG3": {
 		_ammo = "UK3CB_MG3_100rnd_762x51_RM";
 		_ammo1 = "UK3CB_MG3_50rnd_762x51_RM";
+		_mags = 6;
 	};
 	case "rhs_weap_fnmag": {
 		_ammo = "rhsusf_100Rnd_762x51_m62_tracer";
 		_ammo1 = "rhsusf_50Rnd_762x51_m62_tracer";
+		_mags = 6;
+	};
+	case "UK3CB_Bren_303": {
+		_ammo = "UK3CB_Bren_30Rnd_303_Magazine_RT";
+		_mags = 13;
 	};
 };
 _uniform = [

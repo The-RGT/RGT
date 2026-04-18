@@ -22,8 +22,7 @@ _rifles = [
     ["rhs_weap_HK416D10_smr_kac_des", "416_10_SMR"], 0.50,
     ["rhs_weap_mk18_nsr_tan", "MK18"], 0.50,
     ["rhs_weap_mk18_nsr", "MK18"], 0.50,
-    ["rhs_weap_HK416D10_smr", "416_10_SMR"], 0.50
-] call BIS_fnc_selectRandomWeighted;
+    ["rhs_weap_HK416D10_smr", "416_10_SMR"], 0.50] call BIS_fnc_selectRandomWeighted;
 _rifle     = _rifles select 0;
 _rifletype = _rifles select 1;
 _lam = [
@@ -66,8 +65,7 @@ switch (_rifletype) do {
             "rhs_acc_smr_bcm_tan",
             "rhs_acc_smr_tan",
             "rhs_acc_smr_des",
-            "rhs_acc_smr_bcm_des"
-        ] call BIS_fnc_selectRandom;
+            "rhs_acc_smr_bcm_des"] call BIS_fnc_selectRandom;
     };
     case "M4_NSR": {
         _optic = "optic_mrco";
@@ -83,8 +81,7 @@ switch (_rifletype) do {
             "rhs_acc_nsr_blk",
             "rhs_acc_nsr_bcm_blk",
             "rhs_acc_nsr13_blk",
-            "rhs_acc_nsr13_bcm_blk"
-        ] call BIS_fnc_selectRandom;
+            "rhs_acc_nsr13_bcm_blk"] call BIS_fnc_selectRandom;
     };
     case "MK18": {
         _grip = [
@@ -93,16 +90,14 @@ switch (_rifletype) do {
             "rhs_acc_nsr9_des",
             "rhs_acc_nsr9_bcm_des",
             "rhs_acc_nsr9_tan",
-            "rhs_acc_nsr9_bcm_tan"
-        ] call BIS_fnc_selectRandom;
+            "rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
     };
     case "416_10": {
         _grip = [
             "",
             "rhsusf_acc_kac_grip_frwd",
             "rhsusf_acc_rvg_de",
-            "rhsusf_acc_tdstubby_tan"
-        ] call BIS_fnc_selectRandom;
+            "rhsusf_acc_tdstubby_tan"] call BIS_fnc_selectRandom;
     };
     case "416_10_SMR": {
         _grip = [
@@ -111,8 +106,7 @@ switch (_rifletype) do {
             "rhs_acc_smr_s_tan",
             "rhs_acc_smr_s_bcm_tan",
             "rhs_acc_smr_s_des",
-            "rhs_acc_smr_s_bcm_des"
-        ] call BIS_fnc_selectRandom;
+            "rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
     };
 };
 _muzzle = [
@@ -283,6 +277,7 @@ player addPrimaryWeaponItem _muzzle;
 player addPrimaryWeaponItem _lam;
 player addPrimaryWeaponItem _grip;
 player addWeapon "rhs_weap_m72a7";
+player addSecondaryWeaponItem "rhsusf_acc_anpeq15side";
 player addWeapon "rhsusf_weap_glock17g4";
 player addHandgunItem "rhsusf_acc_omega9k";
 player addHandgunItem "acc_flashlight_pistol";

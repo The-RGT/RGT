@@ -8,12 +8,14 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_optic = "";
 _grip = "";
 _rail = "";
 _rifle = [
 	"rhs_weap_m249", 0.90, 
 	"rhs_weap_m249_light_S", 0.05] call BIS_fnc_selectRandomWeighted;
+_optic = [
+	"rhsusf_acc_eotech_552", 0.70, 
+	"rhsusf_acc_compm4", 0.25] call BIS_fnc_selectRandomWeighted;
 switch(_rifle) do {
 	case "rhs_weap_m249_light_S": {
 		_optic = "rhsusf_acc_elcan_ard";
@@ -23,9 +25,6 @@ switch(_rifle) do {
 		_grip = "rhsusf_acc_saw_bipod";
 	};
 };
-_optic = [
-	"rhsusf_acc_eotech_552", 0.70, 
-	"rhsusf_acc_compm4", 0.25] call BIS_fnc_selectRandomWeighted;
 _uniform = [
 	"milgp_u_g3_field_set_mc",
 	"USP_G3F_MC",

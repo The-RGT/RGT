@@ -8,15 +8,51 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"rhs_weap_l1a1", 0.70,
-	"rhs_weap_l1a1_wood", 0.70,
-	"UK3CB_M14", 0.20,
-	"UK3CB_G3A3V", 0.20,
-	"UK3CB_G3A3", 0.20,
-	"rhs_weap_m14", 0.20,
-	"rhs_weap_akm", 0.10,
-	"rhs_weap_m1garand_sa43", 0.05]	call BIS_fnc_selectRandomWeighted;
+_ammo = "";
+_mags = 0;
+_rifles = [
+	["rhs_weap_l1a1", "l1"], 0.70,
+	["rhs_weap_l1a1_wood", "l1"], 0.70,
+	["UK3CB_M14", "m14"], 0.20,
+	["UK3CB_G3A3V", "g3"], 0.20,
+	["UK3CB_G3A3", "g3"], 0.20,
+	["rhs_weap_m14", "m14"], 0.20,
+	["rhs_weap_akm", "akm"], 0.10,
+	["rhs_weap_m1garand_sa43", "m1"], 0.05]	call BIS_fnc_selectRandomWeighted;
+_rifle = _rifles select 0;
+_rifletype = _rifles select 1;
+switch (_rifletype) do {
+	case "l1": {
+		_ammo = [
+			"rhs_mag_20Rnd_762x51_m61_fnfal", 
+			"rhs_mag_20Rnd_762x51_m62_fnfal", 
+			"rhs_mag_20Rnd_762x51_m80_fnfal", 
+			"rhs_mag_20Rnd_762x51_m80a1_fnfal"] call BIS_fnc_selectRandom;
+		_mags = 12;
+	};
+	case "m14": {
+		_ammo = "rhsusf_20Rnd_762x51_m80_Mag";
+		_mags = 12;
+	};
+	case "g3": {
+		_ammo = [
+			"ACE_20Rnd_762x51_M118LR_Mag", 
+			"ACE_20Rnd_762x51_M993_AP_Mag", 
+			"UK3CB_G3_20rnd_762x51_R", 
+			"UK3CB_G3_20rnd_762x51"] call BIS_fnc_selectRandom;
+		_mags = 12;
+	};
+	case "akm": {
+		_ammo = "rhs_30Rnd_762x39mm";
+		_mags = 8;
+	};
+	case "m1": {
+		_ammo = [
+			"rhsgref_8Rnd_762x63_M2B_M1rifle", 
+			"rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle"] call BIS_fnc_selectRandom;
+		_mags = 30;
+	};
+};
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7, 
 	"rhsgref_uniform_woodland", 0.1, 
@@ -32,16 +68,6 @@ _vest = [
 	"rhs_lifchik", 0.05,
 	"rhs_lifchik_light", 0.05,
 	"rhs_suspender_AK8_chestrig", 0.05] call BIS_fnc_selectRandomWeighted;
-_ammo = [
-	"rhs_mag_20Rnd_762x51_m61_fnfal", 
-	"rhs_mag_20Rnd_762x51_m62_fnfal", 
-	"rhs_mag_20Rnd_762x51_m80_fnfal", 
-	"rhs_mag_20Rnd_762x51_m80a1_fnfal"] call BIS_fnc_selectRandom;
-_ammo1 = [
-	"ACE_20Rnd_762x51_M118LR_Mag", 
-	"ACE_20Rnd_762x51_M993_AP_Mag", 
-	"UK3CB_G3_20rnd_762x51_R", 
-	"UK3CB_G3_20rnd_762x51"] call BIS_fnc_selectRandom;
 _helmet = [
 	"rhsgref_helmet_M1_erdl", 0.70, 
 	"rhsgref_helmet_M1_mit", 0.05, 
@@ -101,21 +127,7 @@ player addItem "ACE_microDAGR";
 for "_i" from 1 to 3 do {player addItem _frag;};
 player addItem "ACE_EntrenchingTool";
 player addItem _smk;
-switch (_rifle) do {
-	case "rhs_weap_akm": {
-		for "_i" from 1 to 6 do {player addItem "rhs_30Rnd_762x39mm";};
-	};
-	case "rhs_weap_m14": {
-		for "_i" from 1 to 9 do {player addItem "rhsusf_20Rnd_762x51_m80_Mag";};
-	};
-	case "rhs_weap_m1garand_sa43": {
-		for "_i" from 1 to 15 do {player addItem "rhsgref_8Rnd_762x63_M2B_M1rifle";};
-		for "_i" from 1 to 8 do {player addItem "rhsgref_8Rnd_762x63_Tracer_M1T_M1rifle";};
-	};
-	default {
-		for "_i" from 1 to 12 do {player addItem _ammo;};
-	};
-};
+for "_i" from 1 to _mags do {player addItem _ammo;};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

@@ -19,10 +19,14 @@ _rifle = _rifles select 0;
 _rifletype = _rifles select 1;
 switch (_rifletype) do {
 	case "m203grip": {
-		_grip = ["rhsusf_acc_grip_m203_blk", 0.1, "", 0.9] call BIS_fnc_selectRandomWeighted;
+		_grip = [
+			"rhsusf_acc_grip_m203_blk", 0.1, 
+			"", 0.9] call BIS_fnc_selectRandomWeighted;
 	};
 	case "m203gripd": {
-		_grip = ["rhsusf_acc_grip_m203_blk", 0.05, "rhsusf_acc_grip_m203_d", 0.05, "", 0.9] call BIS_fnc_selectRandomWeighted;
+		_grip = [
+			"rhsusf_acc_grip_m203_blk", 0.05, 
+			"rhsusf_acc_grip_m203_d", 0.05, "", 0.9] call BIS_fnc_selectRandomWeighted;
 	};
 };
 _rail = [

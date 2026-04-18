@@ -19,7 +19,7 @@ _rifles = [
 	["rhs_weap_m4a1_urgi_kac_wdl", "urgi"],
 	["rhs_weap_m4a1_urgi_wdl", "urgi"]] call BIS_fnc_selectRandom;
 _rifle = _rifles select 0;
-_rifletype = _rifle select 1;
+_rifletype = _rifles select 1;
 switch (_rifletype) do {
 	case "grip": {
 		_grip = [
@@ -30,8 +30,7 @@ switch (_rifletype) do {
 	case "nsr": {
 		_grip = [
 			"rhs_acc_nsr_wdl",
-			"rhs_acc_nsr13_wdl"
-		] call BIS_fnc_selectRandom;
+			"rhs_acc_nsr13_wdl"] call BIS_fnc_selectRandom;
 	};
 	case "urgi": {
 		_grip = "rhs_acc_urgi_wdl";
@@ -40,7 +39,7 @@ switch (_rifletype) do {
 _muzzle = [
 	"rhsgref_sdn6_suppressor",
 	"rhsusf_acc_rotex5_grey"
-];
+] call BIS_fnc_selectRandom;
 _clothing = [
 	"milgp_u_g3_field_set_rolled_mctropic", 0.60, 
 	"milgp_u_g3_field_set_mctropic", 0.15, 

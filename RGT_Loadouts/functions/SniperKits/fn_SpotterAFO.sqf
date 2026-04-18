@@ -172,13 +172,9 @@ _optic = [
 	"rhsusf_acc_su230_c", 0.1] call BIS_fnc_selectRandomWeighted;
 _pack = [
 	"TFAR_rt1523g_green",
-	"USP_TACTICAL_PACK_MCT_CCT",
 	"USP_TACTICAL_PACK_MCB_CCT",
-	"USP_TACTICAL_PACK_MCT_CCT2",
 	"USP_TACTICAL_PACK_MCB_CCT2",
-	"USP_TACTICAL_PACK_MCT_CCT3",
 	"USP_TACTICAL_PACK_MCB_CCT3",
-	"USP_TACTICAL_PACK_MCT_CCT4",
 	"USP_TACTICAL_PACK_MCB_CCT4"] call BIS_fnc_selectRandom;
 
 comment "Add Weapons and attachments";

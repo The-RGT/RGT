@@ -8,9 +8,12 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_rifle = [
-	"UK3CB_M60", 0.70,
-	"UK3CB_Bren_303", 0.40] call BIS_fnc_selectRandomWeighted;
+_rifles = [
+	["UK3CB_M60", "UK3CB_M60_100rnd_762x51_RM", 7], 0.70,
+	["UK3CB_Bren_303", "UK3CB_Bren_30Rnd_303_Magazine_R", 13], 0.40] call BIS_fnc_selectRandomWeighted;
+_rifle = _rifles select 0;
+_ammo = _rifles select 1;
+_mags = _rifles select 2;
 _uniform = [
 	"rhs_uniform_bdu_erdl", 0.7,
 	"UK3CB_FIA_B_U_M10_CombatUniform_WDL01_01", 0.4,
@@ -90,14 +93,7 @@ player addItem "ACE_microDAGR";
 for "_i" from 1 to 3 do {player addItem _frag;};
 player addItem "ACE_EntrenchingTool";
 player addItem _smk;
-switch (_rifle) do {
-	case "UK3CB_M60": {
-		for "_i" from 1 to 7 do {player addItem "UK3CB_M60_100rnd_762x51_RM";};
-	};
-	case "UK3CB_Bren_303": {
-		for "_i" from 1 to 13 do {player addItem "UK3CB_Bren_30Rnd_303_Magazine_R";};
-	};
-};
+for "_i" from 1 to _mags do {player addItem _ammo;};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

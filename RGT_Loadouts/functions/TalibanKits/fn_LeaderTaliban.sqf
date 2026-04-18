@@ -39,8 +39,7 @@ _helmet = [
 	"LOP_H_Shemag_TAN", 0.05] call BIS_fnc_selectRandomWeighted;
 _mag = [
 	"rhs_30Rnd_762x39mm_89",
-	"rhs_30Rnd_762x39mm_bakelite_89"
-] call BIS_fnc_selectRandom;
+	"rhs_30Rnd_762x39mm_bakelite_89"] call BIS_fnc_selectRandom;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;

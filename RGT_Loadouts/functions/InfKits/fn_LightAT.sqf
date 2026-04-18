@@ -8,11 +8,7 @@ removeBackpack player;
 removeHeadgear player;
 
 comment "Create the arrays for different equipment";
-_grip = [
-	"", 
-	"rhsusf_acc_grip1",
-	"rhsusf_acc_grip2",
-	"rhsusf_acc_rvg_blk"] call BIS_fnc_selectRandom;
+private ["_grip"];
 _rifles = [
 	["rhs_weap_m4a1_blockII", "grip"], 0.48, 
 	["rhs_weap_m4a1_blockII_d", "grip"], 0.25, 
@@ -39,6 +35,13 @@ switch (_rifletype) do {
 			"rhs_acc_urgi_s_bcm_blk",
 			"rhs_acc_urgi_s_bcm_coy",
 			"rhs_acc_urgi_s_coy"] call BIS_fnc_selectRandom;
+	};
+	case "grip": {
+		_grip = [
+			"", 
+			"rhsusf_acc_grip1",
+			"rhsusf_acc_grip2",
+			"rhsusf_acc_rvg_blk"] call BIS_fnc_selectRandom;
 	};
 };
 _rail = [

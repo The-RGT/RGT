@@ -31,12 +31,8 @@ _helmet = [
 _pack = [
 	"TFAR_rt1523g_sage",
 	"USP_TACTICAL_PACK_CCT",
-	"USP_TACTICAL_PACK_CCT",
-	"USP_TACTICAL_PACK_CCT2",
 	"USP_TACTICAL_PACK_CCT2",
 	"USP_TACTICAL_PACK_CCT3",
-	"USP_TACTICAL_PACK_CCT3",
-	"USP_TACTICAL_PACK_CCT4",
 	"USP_TACTICAL_PACK_CCT4"] call BIS_fnc_selectRandom;
 
 comment "Add Weapons and attachments";

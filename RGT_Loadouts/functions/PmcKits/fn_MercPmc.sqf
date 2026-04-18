@@ -29,7 +29,15 @@ switch (_rifletype) do {
 		_ammo = "rhsgref_30rnd_556x45_m21";
 	};
 	case "ak": {
-		_ammo = ["rhs_30Rnd_545x39_7N10_2mag_AK", "rhs_30Rnd_545x39_7N10_2mag_camo_AK", "rhs_30Rnd_545x39_7N10_2mag_desert_AK", "rhs_30Rnd_545x39_7N10_2mag_plum_AK", "rhs_30Rnd_545x39_7N10_camo_AK", "rhs_30Rnd_545x39_7N10_desert_AK", "rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N10_AK"] call BIS_fnc_selectRandom;
+		_ammo = [
+			"rhs_30Rnd_545x39_7N10_2mag_AK", 
+			"rhs_30Rnd_545x39_7N10_2mag_camo_AK", 
+			"rhs_30Rnd_545x39_7N10_2mag_desert_AK", 
+			"rhs_30Rnd_545x39_7N10_2mag_plum_AK", 
+			"rhs_30Rnd_545x39_7N10_camo_AK", 
+			"rhs_30Rnd_545x39_7N10_desert_AK", 
+			"rhs_30Rnd_545x39_7N10_plum_AK", 
+			"rhs_30Rnd_545x39_7N10_AK"] call BIS_fnc_selectRandom;
 	};
 };
 _optic = [

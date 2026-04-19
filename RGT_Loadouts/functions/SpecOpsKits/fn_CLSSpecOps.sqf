@@ -11,18 +11,11 @@ removeGoggles player;
 comment "Create the arrays for different equipment";
 _grip = "";
 _rifles = [
-    ["rhs_weap_hk416d145_d", "416_145"], 0.05,
-    ["rhs_weap_HK416D15_smr_tan", "416_15"], 0.05,
-    ["rhs_weap_HK416D15_smr_kac_tan", "416_15"], 0.05,
-    ["rhs_weap_m4a1_nsr_tan", "M4_NSR"], 0.05,
-    ["rhs_weap_m4a1_nsr", "M4_NSR"], 0.05,
-    ["rhs_weap_hk416d10_LMT_d", "416_10"], 0.50,
-    ["rhs_weap_HK416D10_smr_tan", "416_10_SMR"], 0.50,
-    ["rhs_weap_HK416D10_smr_kac_tan", "416_10_SMR"], 0.50,
-    ["rhs_weap_HK416D10_smr_kac_des", "416_10_SMR"], 0.50,
-    ["rhs_weap_mk18_nsr_tan", "MK18"], 0.50,
-    ["rhs_weap_mk18_nsr", "MK18"], 0.50,
-    ["rhs_weap_HK416D10_smr", "416_10_SMR"], 0.50] call BIS_fnc_selectRandomWeighted;
+    ["rhs_weap_hk416d145_d", "416_145"],
+    ["rhs_weap_HK416D15_smr_tan", "416_15"],
+    ["rhs_weap_HK416D15_smr_kac_tan", "416_15"],
+    ["rhs_weap_m4a1_nsr_tan", "M4_NSR"],
+    ["rhs_weap_m4a1_nsr", "M4_NSR"]] call BIS_fnc_selectRandom;
 _rifle     = _rifles select 0;
 _rifletype = _rifles select 1;
 _lam = [
@@ -82,32 +75,6 @@ switch (_rifletype) do {
             "rhs_acc_nsr_bcm_blk",
             "rhs_acc_nsr13_blk",
             "rhs_acc_nsr13_bcm_blk"] call BIS_fnc_selectRandom;
-    };
-    case "MK18": {
-        _grip = [
-            "rhs_acc_nsr9_blk",
-            "rhs_acc_nsr9_bcm_blk",
-            "rhs_acc_nsr9_des",
-            "rhs_acc_nsr9_bcm_des",
-            "rhs_acc_nsr9_tan",
-            "rhs_acc_nsr9_bcm_tan"] call BIS_fnc_selectRandom;
-    };
-    case "416_10": {
-        _grip = [
-            "",
-            "rhsusf_acc_kac_grip_frwd",
-            "rhsusf_acc_rvg_de",
-            "rhsusf_acc_tdstubby_tan"] call BIS_fnc_selectRandom;
-    };
-    case "416_10_SMR": {
-        _grip = [
-            "rhs_acc_smr_s_blk",
-            "rhs_acc_smr_s_bcm_blk",
-            "rhs_acc_smr_s_tan",
-            "rhs_acc_smr_s_bcm_tan",
-            "rhs_acc_smr_s_des",
-            "rhs_acc_smr_s_bcm_des"] call BIS_fnc_selectRandom;
-    };
 };
 _muzzle = [
 	"rhsusf_acc_rotex5_grey", 0.75, 

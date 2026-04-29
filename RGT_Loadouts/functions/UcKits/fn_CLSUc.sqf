@@ -12,6 +12,11 @@ comment "Create the arrays for different equipment";
 _rifle = [
 	"rhs_weap_ak105_zenitco01_b33",
 	"bcb_weap_ak105_zenitco01_tan_b33"] call BIS_fnc_selectRandom;
+_optic = [
+	"rhsusf_acc_T1_high", 0.8,
+	"rhsusf_acc_eotech_xps3", 0.1,
+	"rhsusf_acc_compm4", 0.1,
+	"rhsusf_acc_eotech_552", 0.1] call BIS_fnc_selectRandomWeighted;
 _clothing = [
 	"U_I_C_Soldier_Bandit_2_F", 
 	"U_I_C_Soldier_Bandit_3_F", 
@@ -63,11 +68,6 @@ _vest = [
 	"milgp_v_mmac_light_CB", 
 	"milgp_v_jpc_Light_cb", 
 	"rhsusf_plateframe_light"] call BIS_fnc_selectRandom;
-_optic = [
-	"rhsusf_acc_T1_high", 0.8,
-	"rhsusf_acc_eotech_xps3", 0.1,
-	"rhsusf_acc_compm4", 0.1,
-	"rhsusf_acc_eotech_552", 0.1] call BIS_fnc_selectRandomWeighted;
 _mag = [
 	"rhs_30Rnd_545x39_7N10_camo_AK", 
 	"rhs_30Rnd_545x39_7N10_desert_AK", 

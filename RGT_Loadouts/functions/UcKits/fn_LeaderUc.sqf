@@ -9,6 +9,9 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
+_rifle = [
+	"rhs_weap_ak105_zenitco01_b33",
+	"bcb_weap_ak105_zenitco01_tan_b33"] call BIS_fnc_selectRandom;
 _clothing = [
 	"U_I_C_Soldier_Bandit_2_F", 
 	"U_I_C_Soldier_Bandit_3_F", 
@@ -134,7 +137,7 @@ _breach = [
 	"tsp_breach_stick_mag"] call BIS_fnc_selectRandom;
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_ak105_zenitco01_b33_afg";
+player addWeapon _rifle;
 player addPrimaryWeaponItem "rhs_acc_dtk4short";
 player addPrimaryWeaponItem "rhs_acc_perst3_2dp_h";
 player addPrimaryWeaponItem "rhsusf_acc_g33_xps3";

@@ -75,6 +75,7 @@ switch (_rifletype) do {
             "rhs_acc_nsr_bcm_blk",
             "rhs_acc_nsr13_blk",
             "rhs_acc_nsr13_bcm_blk"] call BIS_fnc_selectRandom;
+	};
 };
 _muzzle = [
 	"rhsusf_acc_rotex5_grey", 0.75, 

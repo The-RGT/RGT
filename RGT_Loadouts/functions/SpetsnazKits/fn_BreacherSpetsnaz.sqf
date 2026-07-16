@@ -11,7 +11,19 @@ removeGoggles player;
 comment "Create the arrays for different equipment";
 _rifle = [
 	"rhs_weap_ak105_zenitco01_b33_grip1", 
-	"rhs_weap_ak74m_zenitco01_b33"] call BIS_fnc_selectRandom;
+	"bcb_weap_ak105_zenitco01_t_spray_b33",
+	"bcb_weap_ak105_zenitco01_t2_spray_b33",
+	"bcb_weap_ak105_zenitco01_t3_spray_b33",
+	"bcb_weap_ak105_zenitco01_tan_b33",
+	"bcb_weap_ak105_zenitco01_w_spray_b33",
+	"bcb_weap_ak105_zenitco01_w2_spray_b33",
+	"rhs_weap_ak74m_zenitco01_b33",
+	"bcb_weap_ak74m_zenitco01_tan_b33",
+	"bcb_weap_ak74m_zenitco01_t_spray_b33",
+	"bcb_weap_ak74m_zenitco01_t2_spray_b33",
+	"bcb_weap_ak74m_zenitco01_t3_spray_b33",
+	"bcb_weap_ak74m_zenitco01_w_spray_b33",
+	"bcb_weap_ak74m_zenitco01_w2_spray_b33"] call BIS_fnc_selectRandom;
 _muzzle = [
 	"rhs_acc_ak5", 0.40, 
 	"rhs_acc_tgpa", 0.20, 
@@ -221,6 +233,10 @@ player addItem "ACE_SpraypaintGreen";
 for "_i" from 1 to 2 do {player addItem "tsp_breach_linear_mag";};
 player addItem "DemoCharge_Remote_Mag";
 player addItem "tsp_lockpick";
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_green";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_green";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

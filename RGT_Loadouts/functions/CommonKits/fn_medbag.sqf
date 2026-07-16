@@ -14,7 +14,7 @@ comment "Start of standard medical gear";
 for "_i" from 1 to 10 do {player addItemToBackpack "ACE_morphine";};
 for "_i" from 1 to 10 do {player addItemToBackpack "ACE_epinephrine";};
 player addItemToBackpack "ACE_bodyBag";
-player addItemToBackpack "ACE_SpraypaintRed";
+player addItem "ACE_ChalkRed";
 player addItemToBackpack "ACE_plasmaIV";
 player addItemToBackpack "ACE_salineIV";
 for "_i" from 1 to 2 do {player addItemToBackpack "ACE_salineIV_500";};

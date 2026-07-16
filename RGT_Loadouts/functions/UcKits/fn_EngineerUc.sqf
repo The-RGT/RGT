@@ -9,6 +9,9 @@ removeHeadgear player;
 removeGoggles player;
 
 comment "Create the arrays for different equipment";
+_rifle = [
+	"rhs_weap_ak105_zenitco01_b33",
+	"bcb_weap_ak105_zenitco01_tan_b33"] call BIS_fnc_selectRandom;
 _clothing = [
 	"U_I_C_Soldier_Bandit_2_F", 
 	"U_I_C_Soldier_Bandit_3_F", 
@@ -134,7 +137,7 @@ _nods = [
 	"USP_PVS15_TAR", 0.25] call BIS_fnc_selectRandomWeighted;
 
 comment "Add Weapons and attachments";
-player addWeapon "rhs_weap_ak105_zenitco01_b33_afg";
+player addWeapon _rifle;
 player addPrimaryWeaponItem "rhs_acc_dtk4short";
 player addPrimaryWeaponItem "rhs_acc_perst3_2dp_h";
 player addPrimaryWeaponItem "rhsusf_acc_eotech_xps3";
@@ -179,6 +182,10 @@ player addItem "SatchelCharge_Remote_Mag";
 for "_i" from 1 to 2 do {player addItem "DemoCharge_Remote_Mag";};
 for "_i" from 1 to 2 do {player addItem "tsp_breach_linear_mag";};
 player addItem "tsp_lockpick";
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_green";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_green";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

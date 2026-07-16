@@ -10,8 +10,20 @@ removeGoggles player;
 
 comment "Create the arrays for different equipment";
 _rifle = [
-	"rhs_weap_ak74m_zenitco01_afg", 
-	"rhs_weap_ak105_zenitco01"] call BIS_fnc_selectRandom;
+	"rhs_weap_ak105_zenitco01_b33_grip1", 
+	"bcb_weap_ak105_zenitco01_t_spray_b33",
+	"bcb_weap_ak105_zenitco01_t2_spray_b33",
+	"bcb_weap_ak105_zenitco01_t3_spray_b33",
+	"bcb_weap_ak105_zenitco01_tan_b33",
+	"bcb_weap_ak105_zenitco01_w_spray_b33",
+	"bcb_weap_ak105_zenitco01_w2_spray_b33",
+	"rhs_weap_ak74m_zenitco01_b33",
+	"bcb_weap_ak74m_zenitco01_tan_b33",
+	"bcb_weap_ak74m_zenitco01_t_spray_b33",
+	"bcb_weap_ak74m_zenitco01_t2_spray_b33",
+	"bcb_weap_ak74m_zenitco01_t3_spray_b33",
+	"bcb_weap_ak74m_zenitco01_w_spray_b33",
+	"bcb_weap_ak74m_zenitco01_w2_spray_b33"] call BIS_fnc_selectRandom;
 _muzzle = [
 	"rhs_acc_ak5", 0.40, 
 	"rhs_acc_tgpa", 0.20, 

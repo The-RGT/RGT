@@ -269,6 +269,10 @@ player addItem "ACE_Chemlight_IR";
 player addItem "ACE_IR_Strobe_Item";
 player addItem "Chemlight_red";
 player addItem "tsp_lockpick";
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_green";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_green";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

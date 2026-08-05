@@ -302,7 +302,7 @@ for "_i" from 1 to 2 do {player addItem "HandGrenade";};
 player addItem "SmokeShell";
 player addItem "SmokeShellRed";
 player addItem "SmokeShellBlue";
-for "_i" from 1 to 4 do {player addItem _ammo;};
+for "_i" from 1 to 6 do {player addItem _ammo;};
 player addItem _breach;
 for "_i" from 1 to 2 do {player addItem _flash;};
 player addItem "ACE_bodyBag";

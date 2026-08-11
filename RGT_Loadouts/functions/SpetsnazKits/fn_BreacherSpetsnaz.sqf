@@ -191,6 +191,9 @@ _nods = [
 	"USP_NSEAS", 
 	"rhsusf_ANPVS_14", 
 	"USP_PVS14"] call BIS_fnc_selectRandom;
+_breach = [
+    "tsp_breach_package_mag",
+    "tsp_breach_silhouette_mag"] call BIS_fnc_selectRandom;
 
 
 comment "Add Weapons and attachments";
@@ -233,6 +236,7 @@ player addItem "ACE_SpraypaintGreen";
 for "_i" from 1 to 2 do {player addItem "tsp_breach_linear_mag";};
 player addItem "DemoCharge_Remote_Mag";
 player addItem "tsp_lockpick";
+player addItem _breach;
 for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_green";};
 for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_red";};
 for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_red";};

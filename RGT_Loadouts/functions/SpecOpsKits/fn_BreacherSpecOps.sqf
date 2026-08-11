@@ -224,6 +224,9 @@ _nods = [
 _flash = [
 	"ACE_M84",
 	"ACE_CTS9"] call BIS_fnc_selectRandom;
+_breach = [
+    "tsp_breach_package_mag",
+    "tsp_breach_silhouette_mag"] call BIS_fnc_selectRandom;
 	
 comment "Add Weapons and attachments";
 player addWeapon _rifle;
@@ -258,7 +261,7 @@ player addItem "ACE_Clacker";
 player addItem "ACE_SpraypaintRed";
 player addItem "ACE_SpraypaintGreen";
 for "_i" from 1 to 2 do {player addItem "tsp_breach_linear_mag";};
-player addItem "tsp_breach_package_mag";
+player addItem _breach;
 for "_i" from 1 to 2 do {player addItem "DemoCharge_Remote_Mag";};
 player addItem "ACE_MapTools";
 player addItem "ACE_CableTie";

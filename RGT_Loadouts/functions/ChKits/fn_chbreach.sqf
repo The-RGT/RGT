@@ -209,6 +209,10 @@ player addItemToBackpack "ACE_SpraypaintRed";
 player addItemToBackpack "ACE_SpraypaintGreen";
 for "_i" from 1 to 3 do {player addItemToBackpack "tsp_breach_linear_mag";};
 for "_i" from 1 to 2 do {player addItemToBackpack "DemoCharge_Remote_Mag";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_green";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_green";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

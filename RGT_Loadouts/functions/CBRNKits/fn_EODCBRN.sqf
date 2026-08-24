@@ -88,6 +88,10 @@ player addItem "ACE_SpraypaintRed";
 player addItemToBackpack "DemoCharge_Remote_Mag";
 player addItemToBackpack "SatchelCharge_Remote_Mag";
 for "_i" from 1 to 2 do {player addItemToBackpack "SLAMDirectionalMine_Wire_Mag";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_green";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_green";};
 
 comment "Add CBRN Gear";
 player addItem "ACE_ATNAA_AntidoteInjector";

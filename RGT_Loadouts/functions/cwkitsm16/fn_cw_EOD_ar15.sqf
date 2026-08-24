@@ -134,11 +134,15 @@ player addItem "rhs_mag_m18_yellow";
 for "_i" from 1 to _mags do {player addItem _ammo;};
 player addItem "ACE_DefusalKit";
 player addItem "ACE_Clacker";
-player addItem "ACE_SpraypaintGreen";
-player addItem "ACE_SpraypaintRed";
+player addItem "ACE_ChalkGreen";
+player addItem "ACE_ChalkRed";
 player addItemToBackpack "DemoCharge_Remote_Mag";
 player addItemToBackpack "SatchelCharge_Remote_Mag";
 for "_i" from 1 to 2 do {player addItemToBackpack "SLAMDirectionalMine_Wire_Mag";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_green";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_green";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

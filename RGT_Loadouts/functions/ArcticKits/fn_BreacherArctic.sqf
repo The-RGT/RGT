@@ -34,6 +34,9 @@ _facewear = [
 	"rhsusf_shemagh_white", 
 	"rhsusf_shemagh2_gogg_white", 
 	"rhsusf_shemagh_white"] call BIS_fnc_selectRandom;
+_breach = [
+    "tsp_breach_package_mag",
+    "tsp_breach_silhouette_mag"] call BIS_fnc_selectRandom;
 
 comment "Add Uniforms and Gear";
 player forceAddUniform _clothing;
@@ -75,6 +78,11 @@ for "_i" from 1 to 3 do {player addItemToBackpack "tsp_breach_linear_mag";};
 for "_i" from 1 to 2 do {player addItemToBackpack "DemoCharge_Remote_Mag";};
 player addItemToBackpack "rhsusf_ANPVS_14";
 player addItem "tsp_lockpick";
+player addItem _breach;
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_green";};
+for "_i" from 1 to 10 do {player addItemToBackpack "ace_marker_flags_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_red";};
+for "_i" from 1 to 10 do {player addItemToBackpack "Chemlight_green";};
 
 comment "Add final Gear";
 player linkItem "ItemMap";

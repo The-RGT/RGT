@@ -86,9 +86,7 @@ _nods = [
 	"USP_PVS31_WP_MID", 0.01,
 	"USP_PVS15", 0.02] call BIS_fnc_selectRandomWeighted;
 _bag = [
-	"UK3CB_ION_B_B_RadioBag_BRN",
 	"TFAR_rt1523g_sage",
-	"UK3CB_ION_B_B_RadioBag_OLI",
 	"USP_TACTICAL_PACK_CCT",
 	"USP_TACTICAL_PACK_CCT2",
 	"USP_TACTICAL_PACK_CCT3",

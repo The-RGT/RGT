@@ -10,6 +10,7 @@ _crate addItemCargoGlobal ["rhsusf_mag_40Rnd_46x30_FMJ", 20];
 _crate addItemCargoGlobal ["ACE_20Rnd_762x51_Mk316_Mod_0_Mag", 20];
 _crate addItemCargoGlobal ["UK3CB_AUG_30Rnd_556x45_Magazine_G", 20];
 _crate addItemCargoGlobal ["UK3CB_AUG_42Rnd_556x45_Magazine_GT", 20];
+_crate addItemCargoGlobal ["20Rnd_556x45_UW_mag", 20];
 _crate addItemCargoGlobal ["rhs_mag_maaws_HEDP", 10];
 _crate addItemCargoGlobal ["rhs_mag_maaws_HEAT", 10];
 _crate addItemCargoGlobal ["rhs_fim92_mag", 10];

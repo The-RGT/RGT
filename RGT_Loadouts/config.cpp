@@ -89,6 +89,7 @@ class CfgFunctions {
 				class Ghillietrop3 {};
 				class MG_AmmoBearerRUS {};
 				class GrenadierAmmoBearerRUS {};
+				class SDAR {};
 		};
 		class InfKits {
 			file = "RGT_Loadouts\functions\InfKits";

@@ -1,7 +1,7 @@
 class CfgFunctions {
     class RGT_Zeus {
         class Modules {
-            file = "rgt_qm_zeus\functions";
+            file = "RGT_Zeus\functions";
             class placeQM       { preInit = 0; };
             class placeFillBox  { preInit = 0; };
             class applyButtons  { preInit = 0; };

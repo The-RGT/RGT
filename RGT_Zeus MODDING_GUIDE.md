@@ -5,10 +5,12 @@ This guide explains how to add, remove, and edit Quartermasters, ammunition boxe
 ## Project Structure
 
 ```
-@RGT_Quartermaster_Zeus\
-├── mod.cpp                          # Workshop/launcher metadata
+@RGT
 └── addons\
-    └── rgt_qm_zeus\                 # Source folder (pack this into rgt_qm_zeus.pbo)
+    └──RGT_Factions
+    └──RGT_Images
+    └──RGT_Loadouts
+    └── RGT_Zeus\                 # Source folder (pack this into rgt_qm_zeus.pbo)
         ├── $PBOPREFIX$              # Contains "RGT_Quartermaster_Zeus"
         ├── config.cpp               # Root config — includes all .hpp files
         ├── CfgPatches.hpp           # Addon identity, dependencies, unit list

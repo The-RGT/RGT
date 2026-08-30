@@ -128,8 +128,6 @@ player addItem "rhsusf_mag_40Rnd_46x30_AP";
 for "_i" from 1 to 2 do {player addItem "rhsusf_mag_17Rnd_9x19_JHP";};
 player addItemToBackpack "ACE_microDAGR";
 player addItemToBackpack "tsp_breach_shock";
-player addItemToBackpack "arifle_SDAR_F";
-for "_i" from 1 to 2 do {player addItemToBackpack "20Rnd_556x45_UW_mag";};
 player addItemToBackpack _breach;
 player addItemToBackpack "ACE_M84";
 player addItemToBackpack "rhs_mag_an_m8hc";

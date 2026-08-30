@@ -125,8 +125,6 @@ player addItem "rhsusf_mag_40Rnd_46x30_AP";
 player addItemToBackpack "ACE_microDAGR";
 player addItemToBackpack "ACE_Clacker";
 player addItemToBackpack "ACE_DefusalKit";
-player addItemToBackpack "arifle_SDAR_F";
-for "_i" from 1 to 2 do {player addItemToBackpack "20Rnd_556x45_UW_mag";};
 player addItemToBackpack "ACE_M84";
 player addItemToBackpack "rhs_mag_an_m8hc";
 player addItemToBackpack "ACE_Chemlight_IR";

@@ -122,7 +122,6 @@ player addItem "ACE_Flashlight_MX991";
 player addItem "ACE_MapTools";
 player addItem "ACE_IR_Strobe_Item";
 player addItem "HandGrenade";
-for "_i" from 1 to 2 do {player addItem "20Rnd_556x45_UW_mag";};
 player addItem "rhsusf_mag_40Rnd_46x30_JHP";
 player addItem "rhsusf_mag_40Rnd_46x30_AP";
 for "_i" from 1 to 2 do {player addItem "rhsusf_mag_40Rnd_46x30_FMJ";};
@@ -131,7 +130,6 @@ player addItem "SmokeShell";
 player addItem "ACE_microDAGR";
 player addItem "tsp_breach_shock";
 
-player addItem "arifle_SDAR_F";
 player addItem _breach;
 player addItem "ACE_M84";
 player addItem "rhs_mag_an_m8hc";

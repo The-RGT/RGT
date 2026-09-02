@@ -106,6 +106,7 @@ class CfgFunctions {
 				class MG {};
 				class MGAmmoBearer {};
 				class Rifleman {};
+				class LightAT {};
 		};
 		class CBRNKits {
 			file = "RGT_Loadouts\functions\CBRNKits";

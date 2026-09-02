@@ -196,7 +196,7 @@ class CfgVehicles {
     class RGT_Inf_Mortarman: RGT_Inf_Base {
         scope = 2; scopeCurator = 2;
         displayName = "Mortarman";
-        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Rifleman'] call RGT_Factions_fnc_initUnit;"; };
+        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Rifleman'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_Mortar_Tube'] call RGT_Factions_fnc_initUnit; (_this select 0) call RGT_Factions_fnc_deployMortar;"; };
     };
     class RGT_Inf_MortarAmmoBearer: RGT_Inf_Base {
         scope = 2; scopeCurator = 2;
@@ -207,7 +207,7 @@ class CfgVehicles {
         scope = 2; scopeCurator = 2;
         displayName = "Light AT";
         // Note: no Infantry-specific LightAT loadout exists in RGT_Loadouts; using woodland LightAT chained on Rifleman base.
-        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Rifleman'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_LightATwd'] call RGT_Factions_fnc_initUnit;"; };
+        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Rifleman'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_LightAT'] call RGT_Factions_fnc_initUnit;"; };
     };
     class RGT_Inf_Crewman: RGT_Inf_Base {
         scope = 2; scopeCurator = 2;
@@ -355,7 +355,7 @@ class CfgVehicles {
     class RGT_WD_LightAT: RGT_WD_Base {
         scope = 2; scopeCurator = 2;
         displayName = "Light AT";
-        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Riflemanwd'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_LightATwd'] call RGT_Factions_fnc_initUnit;"; };
+        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Riflemanwd'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_LightAT'] call RGT_Factions_fnc_initUnit;"; };
     };
     class RGT_WD_Crewman: RGT_WD_Base {
         scope = 2; scopeCurator = 2;
@@ -1762,6 +1762,14 @@ class CfgVehicles {
         crew = "RGT_Recce_Scout";
     };
     class RGT_Recce_Veh_Landrover: UK3CB_C_LandRover_Softtop_Transport_Open {
+        scope = 2; scopeCurator = 2; faction = "RGT_Faction_Recce"; side = 1;
+        crew = "RGT_Recce_Scout";
+    };
+    class RGT_Recce_Veh_MRZR: rhsusf_mrzr4_d {
+        scope = 2; scopeCurator = 2; faction = "RGT_Faction_Recce"; side = 1;
+        crew = "RGT_Recce_Scout";
+    };
+    class RGT_Recce_Veh_Zodiac: B_T_Boat_Transport_01_F {
         scope = 2; scopeCurator = 2; faction = "RGT_Faction_Recce"; side = 1;
         crew = "RGT_Recce_Scout";
     };

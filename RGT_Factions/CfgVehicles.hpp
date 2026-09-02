@@ -207,7 +207,7 @@ class CfgVehicles {
         scope = 2; scopeCurator = 2;
         displayName = "Light AT";
         // Note: no Infantry-specific LightAT loadout exists in RGT_Loadouts; using woodland LightAT chained on Rifleman base.
-        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Rifleman'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_LightAT'] call RGT_Factions_fnc_initUnit;"; };
+        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Rifleman'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_LightATwd'] call RGT_Factions_fnc_initUnit;"; };
     };
     class RGT_Inf_Crewman: RGT_Inf_Base {
         scope = 2; scopeCurator = 2;
@@ -355,7 +355,7 @@ class CfgVehicles {
     class RGT_WD_LightAT: RGT_WD_Base {
         scope = 2; scopeCurator = 2;
         displayName = "Light AT";
-        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Riflemanwd'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_LightAT'] call RGT_Factions_fnc_initUnit;"; };
+        class EventHandlers { init = "[_this select 0, 'RGT_fnc_Riflemanwd'] call RGT_Factions_fnc_initUnit; [_this select 0, 'RGT_fnc_LightATwd'] call RGT_Factions_fnc_initUnit;"; };
     };
     class RGT_WD_Crewman: RGT_WD_Base {
         scope = 2; scopeCurator = 2;

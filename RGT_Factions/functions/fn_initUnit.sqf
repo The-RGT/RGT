@@ -48,6 +48,11 @@ if (isNil "_cachedFn") then {
     // Replace remaining standalone `player` tokens with `_this`
     _patched = _patched regexReplace ["\bplayer\b", "_this"];
 
+    // Suppress the loadout "you are now equipped as..." hint popups for units
+    // spawned this way (Zeus/editor). The Quartermaster path calls the original
+    // RGT_fnc_* functions directly, so player-selected loadouts keep their hints.
+    _patched = _patched regexReplace ["hint\s+""[^""]*"";", ""];
+
     _cachedFn = compile _patched;
     RGT_Factions_loadoutCache set [_fncName, _cachedFn];
 };

@@ -90,7 +90,6 @@ class CfgFunctions {
 				class MG_AmmoBearerRUS {};
 				class GrenadierAmmoBearerRUS {};
 				class SDAR {};
-				class LightAT {};
 		};
 		class InfKits {
 			file = "RGT_Loadouts\functions\InfKits";
@@ -162,6 +161,7 @@ class CfgFunctions {
 				class MGwd {};
 				class MGAmmoBearerwd {};
 				class Riflemanwd {};
+				class LightATwd {};
 		};
 		class ReconKits {
 			file = "RGT_Loadouts\functions\ReconKits";

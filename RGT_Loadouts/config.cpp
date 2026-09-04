@@ -162,7 +162,6 @@ class CfgFunctions {
 				class MGwd {};
 				class MGAmmoBearerwd {};
 				class Riflemanwd {};
-				class LightATwd {};
 		};
 		class ReconKits {
 			file = "RGT_Loadouts\functions\ReconKits";

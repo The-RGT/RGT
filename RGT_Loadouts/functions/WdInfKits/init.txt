@@ -4,7 +4,7 @@ this addAction['Get Autorifleman Loadout',RGT_fnc_ARwd,nil,1.5,true,true,"","((_
 this addAction['Get Marksman Loadout',RGT_fnc_marksmanwd,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
 this addAction['Get Grenadier Loadout',RGT_fnc_Grenadierwd,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
 this addAction['Get Leader Loadout', RGT_fnc_Leaderwd,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
-this addAction['Get Light AT Loadout',RGT_fnc_LightATwd,nil,1.5,true,true,"","((_target distance _this)<5)"]; 
+this addAction['Get Light AT Loadout',RGT_fnc_LightAT,nil,1.5,true,true,"","((_target distance _this)<5)"];
 this addAction['Get Radioman Loadout',RGT_fnc_LRRMwd,nil,1.5,true,true,"","((_target distance _this)<5)"];  
 this addAction['Get Machinegunner Loadout',RGT_fnc_MGwd,nil,1.5,true,true,"","((_target distance _this)<5)"];  
 this addAction['Get JTAC Loadout',RGT_fnc_JTACwd,nil,1.5,true,true,"","((_target distance _this)<5)"];  

@@ -40,8 +40,18 @@ if (isNil "_cachedFn") then {
         diag_log format ["[RGT_Factions] Empty source for %1 at %2", _fncName, _path];
     };
 
-    // Replace standalone `player` tokens with `_this`
-    private _patched = _src regexReplace ["\bplayer\b", "_this"];
+    // Route nested kit calls (e.g. `player call RGT_fnc_medbag`) back through
+    // this adapter so the nested kit also targets the unit, not the human
+    // player. Must run BEFORE the blanket `player`->`_this` replace below.
+    private _patched = _src regexReplace ["\bplayer\s+call\s+(RGT_fnc_\w+)", "[_this, '$1'] call RGT_Factions_fnc_initUnit"];
+
+    // Replace remaining standalone `player` tokens with `_this`
+    _patched = _patched regexReplace ["\bplayer\b", "_this"];
+
+    // Suppress the loadout "you are now equipped as..." hint popups for units
+    // spawned this way (Zeus/editor). The Quartermaster path calls the original
+    // RGT_fnc_* functions directly, so player-selected loadouts keep their hints.
+    _patched = _patched regexReplace ["hint\s+""[^""]*"";", ""];
 
     _cachedFn = compile _patched;
     RGT_Factions_loadoutCache set [_fncName, _cachedFn];
@@ -49,4 +59,10 @@ if (isNil "_cachedFn") then {
 
 if (!isNil "_cachedFn") then {
     _unit call _cachedFn;
+
+    // Kits add the weapon before any magazine is in inventory (mags are added
+    // afterwards via addItem), so the primary spawns unloaded. Force the unit
+    // to chamber a magazine from inventory so AI don't stand around with an
+    // empty weapon.
+    reload _unit;
 };

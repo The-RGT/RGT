@@ -126,9 +126,9 @@
                     name = "Mortar Team (81mm)";
                     faction = "RGT_Faction_Infantry";
                     side = FACTION_SIDE;
-                    class Unit0 { side = FACTION_SIDE; vehicle = "RGT_Inf_Rifleman"; rank = "CORPORAL"; position[] = {0,0,0}; };
-                    class Unit1 { side = FACTION_SIDE; vehicle = "RGT_Inf_Rifleman"; rank = "PRIVATE";  position[] = {3,-3,0}; };
-                    class Unit2 { side = FACTION_SIDE; vehicle = "RGT_Inf_Rifleman"; rank = "PRIVATE";  position[] = {-3,-3,0}; };
+                    class Unit0 { side = FACTION_SIDE; vehicle = "RGT_Inf_Mortarman";        rank = "CORPORAL"; position[] = {0,0,0}; };
+                    class Unit1 { side = FACTION_SIDE; vehicle = "RGT_Inf_MortarAmmoBearer"; rank = "PRIVATE";  position[] = {3,-3,0}; };
+                    class Unit2 { side = FACTION_SIDE; vehicle = "RGT_Inf_MortarAmmoBearer"; rank = "PRIVATE";  position[] = {-3,-3,0}; };
                 };
 
                 class RGT_Inf_MortarSection_60mm {
@@ -535,7 +535,7 @@
                     name = "Troop C2 (Arctic)";
                     faction = "RGT_Faction_Arctic";
                     side = FACTION_SIDE;
-                    class Unit0 { side = FACTION_SIDE; vehicle = "RGT_SOF_Leader";       rank = "CAPTAIN";  position[] = {0,0,0}; };
+                    class Unit0 { side = FACTION_SIDE; vehicle = "RGT_Arctic_Leader";    rank = "CAPTAIN";  position[] = {0,0,0}; };
                     class Unit1 { side = FACTION_SIDE; vehicle = "RGT_Arctic_Assault";   rank = "SERGEANT"; position[] = {3,-3,0}; };
                     class Unit2 { side = FACTION_SIDE; vehicle = "RGT_Arctic_LightAT";   rank = "PRIVATE";  position[] = {-3,-3,0}; };
                     class Unit3 { side = FACTION_SIDE; vehicle = "RGT_Arctic_Breacher";  rank = "PRIVATE";  position[] = {0,-6,0}; };
@@ -587,6 +587,11 @@
                     class Unit4 { side = FACTION_SIDE; vehicle = "RGT_CBRN_Radioman";  rank = "PRIVATE";    position[] = {3,-6,0}; };
                     class Unit5 { side = FACTION_SIDE; vehicle = "RGT_CBRN_Marksman";  rank = "PRIVATE";    position[] = {-3,-6,0}; };
                 };
+
+            };
+
+            class Vehicles {
+                name = "Vehicles";
 
                 class RGT_CBRN_ResponseTeam {
                     name = "CBRN Response Team";
@@ -654,6 +659,11 @@
                     class Unit3 { side = FACTION_SIDE; vehicle = "RGT_CW_Radioman"; rank = "PRIVATE";    position[] = {0,-6,0}; };
                     class Unit4 { side = FACTION_SIDE; vehicle = "RGT_CW_Radioman"; rank = "PRIVATE";    position[] = {3,-6,0}; };
                 };
+
+            };
+
+            class Vehicles {
+                name = "Vehicles";
 
                 class RGT_CW_MountedFireteam_M151 {
                     name = "Mounted Fire Team (M151 HMG)";
@@ -739,6 +749,11 @@
                     class Unit3 { side = FACTION_SIDE; vehicle = "RGT_CWM16_Radioman"; rank = "PRIVATE";    position[] = {0,-6,0}; };
                     class Unit4 { side = FACTION_SIDE; vehicle = "RGT_CWM16_Radioman"; rank = "PRIVATE";    position[] = {3,-6,0}; };
                 };
+
+            };
+
+            class Vehicles {
+                name = "Vehicles";
 
                 class RGT_CWM16_MountedFireteam_M151 {
                     name = "Mounted Fire Team (M151 HMG)";
@@ -959,6 +974,25 @@
                     class Unit2 { side = FACTION_SIDE; vehicle = "RGT_Recce_CLS";           rank = "CORPORAL"; position[] = {4,-4,0}; };
                     class Unit3 { side = FACTION_SIDE; vehicle = "RGT_Recce_AR";            rank = "CORPORAL"; position[] = {6,-6,0}; };
                     class Unit4 { side = FACTION_SIDE; vehicle = "RGT_Recce_Scout";         rank = "CORPORAL"; position[] = {8,-8,0}; };
+                };
+                class RGT_Recce_MountedTeam_MRZR {
+                    name = "Mounted Recon Team (MRZR)";
+                    faction = "RGT_Faction_Recce";
+                    side = FACTION_SIDE;
+                    class Unit0 { side = FACTION_SIDE; vehicle = "RGT_Recce_Veh_MRZR"; rank = "SERGEANT"; position[] = {0,0,0}; };
+                    class Unit1 { side = FACTION_SIDE; vehicle = "RGT_Recce_Leader";   rank = "SERGEANT"; position[] = {2,-2,0}; };
+                    class Unit2 { side = FACTION_SIDE; vehicle = "RGT_Recce_Scout";    rank = "CORPORAL"; position[] = {4,-4,0}; };
+                    class Unit3 { side = FACTION_SIDE; vehicle = "RGT_Recce_AR";       rank = "CORPORAL"; position[] = {6,-6,0}; };
+                };
+                class RGT_Recce_BoatTeam_Zodiac {
+                    name = "Boat Recon Team (Zodiac)";
+                    faction = "RGT_Faction_Recce";
+                    side = FACTION_SIDE;
+                    class Unit0 { side = FACTION_SIDE; vehicle = "RGT_Recce_Veh_Zodiac"; rank = "SERGEANT"; position[] = {0,0,0}; };
+                    class Unit1 { side = FACTION_SIDE; vehicle = "RGT_Recce_Leader";     rank = "SERGEANT"; position[] = {2,-2,0}; };
+                    class Unit2 { side = FACTION_SIDE; vehicle = "RGT_Recce_Scout";      rank = "CORPORAL"; position[] = {4,-4,0}; };
+                    class Unit3 { side = FACTION_SIDE; vehicle = "RGT_Recce_CLS";        rank = "CORPORAL"; position[] = {6,-6,0}; };
+                    class Unit4 { side = FACTION_SIDE; vehicle = "RGT_Recce_AR";         rank = "CORPORAL"; position[] = {8,-8,0}; };
                 };
             };
         };
@@ -1227,6 +1261,11 @@
                     class Unit3 { side = FACTION_SIDE; vehicle = "RGT_Taliban_Marksman"; rank = "PRIVATE";  position[] = {0,-6,0}; };
                 };
 
+            };
+
+            class Vehicles {
+                name = "Vehicles";
+
                 class RGT_Taliban_MountedFireteam_Offroad {
                     name = "Mounted Fire Team (Offroad M2)";
                     faction = "RGT_Faction_Taliban";
@@ -1290,6 +1329,11 @@
                     class Unit2 { side = FACTION_SIDE; vehicle = "RGT_Guer_Grenadier"; rank = "PRIVATE";  position[] = {-3,-3,0}; };
                     class Unit3 { side = FACTION_SIDE; vehicle = "RGT_Guer_AR";        rank = "PRIVATE";  position[] = {0,-6,0}; };
                 };
+
+            };
+
+            class Vehicles {
+                name = "Vehicles";
 
                 class RGT_Guer_MountedFireteam_Offroad {
                     name = "Mounted Fire Team (Offroad M2)";
@@ -1395,6 +1439,11 @@
                     class Unit4 { side = FACTION_SIDE; vehicle = "RGT_FA_AR";     rank = "PRIVATE";  position[] = {3,-6,0}; };
                 };
 
+            };
+
+            class Vehicles {
+                name = "Vehicles";
+
                 class RGT_PMC_MountedFireteam_SUV {
                     name = "Mounted Fire Team (SUV Armed)";
                     faction = "RGT_Faction_PMC";
@@ -1444,6 +1493,11 @@
                     class Unit4 { side = FACTION_SIDE; vehicle = "RGT_FA_DMR";      rank = "CORPORAL"; position[] = {0,-10,0}; };
                     class Unit5 { side = FACTION_SIDE; vehicle = "RGT_FA_Rifleman"; rank = "CORPORAL"; position[] = {-8,-8,0}; };
                 };
+
+            };
+
+            class Vehicles {
+                name = "Vehicles";
 
                 class RGT_FA_MountedFireteam_SUV {
                     name = "Mounted Fire Team (SUV Armed)";

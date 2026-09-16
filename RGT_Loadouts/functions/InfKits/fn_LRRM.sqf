@@ -96,7 +96,7 @@ _helmet = [
 	"rhsusf_ach_helmet_headset_ocp", 
 	"rhsusf_ach_helmet_ESS_ocp", 
 	"rhsusf_ach_helmet_ocp"] call BIS_fnc_selectRandom;
-_bag = [,
+_bag = [
 	"TFAR_rt1523g_sage",
 	"USP_TACTICAL_PACK_CCT",
 	"USP_TACTICAL_PACK_CCT2",

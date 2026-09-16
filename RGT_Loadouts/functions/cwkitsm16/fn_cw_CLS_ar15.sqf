@@ -94,7 +94,7 @@ player addItem "ACE_Flashlight_MX991";
 player addItem "ACE_MapTools";
 player addItem "ACE_microDAGR";
 for "_i" from 1 to 3 do {player addItem _frag;};
-player addItem _smk;
+for "_i" from 1 to 3 do {player addItem _smk;};
 for "_i" from 1 to _mags do {player addItem _ammo;};
 
 comment "Add final Gear";
